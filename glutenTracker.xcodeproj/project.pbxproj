@@ -1,0 +1,739 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		690658BD240CF0AE00AD00C4 /* beep-07.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 690658BC240CF0AE00AD00C4 /* beep-07.mp3 */; };
+		690658BF240CF28200AD00C4 /* Product.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 690658BE240CF28200AD00C4 /* Product.storyboard */; };
+		690658C1240CF32600AD00C4 /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 690658C0240CF32600AD00C4 /* History.storyboard */; };
+		690658C4240CF3D600AD00C4 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690658C3240CF3D600AD00C4 /* Utils.swift */; };
+		691310F62407A3E1009D5ACB /* IngredientListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691310F52407A3E1009D5ACB /* IngredientListView.swift */; };
+		691310F82407A3FF009D5ACB /* IngredientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691310F72407A3FF009D5ACB /* IngredientCell.swift */; };
+		691310F92407A490009D5ACB /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E093BAE2405692A00E18364 /* Login.storyboard */; };
+		691310FA2407A56D009D5ACB /* MyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E093BB324056B4C00E18364 /* MyTabBarController.swift */; };
+		691310FB2407A578009D5ACB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E093BAD2405692A00E18364 /* LoginViewController.swift */; };
+		691310FC2407A57B009D5ACB /* Credential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E093BAF2405692A00E18364 /* Credential.swift */; };
+		691310FD2407A583009D5ACB /* SignInWithApple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E093BAC2405692A00E18364 /* SignInWithApple.swift */; };
+		693F84792407AA4F00008A41 /* Scanner.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 693F84782407AA4F00008A41 /* Scanner.storyboard */; };
+		693F847E2407AD3800008A41 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 693F847D2407AD3800008A41 /* Profile.storyboard */; };
+		693F84802407ADAB00008A41 /* Help.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 693F847F2407ADAB00008A41 /* Help.storyboard */; };
+		6E54720B23F5787C00BE7C35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E54720A23F5787C00BE7C35 /* AppDelegate.swift */; };
+		6E54720D23F5787C00BE7C35 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E54720C23F5787C00BE7C35 /* SceneDelegate.swift */; };
+		6E54721523F5787C00BE7C35 /* glutenTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6E54721323F5787C00BE7C35 /* glutenTracker.xcdatamodeld */; };
+		6E54721723F5787E00BE7C35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E54721623F5787E00BE7C35 /* Assets.xcassets */; };
+		6E54722523F5787E00BE7C35 /* glutenTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E54722423F5787E00BE7C35 /* glutenTrackerTests.swift */; };
+		6E54723223F5796400BE7C35 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E54723123F5796400BE7C35 /* CloudKit.framework */; };
+		6E54723623F5943C00BE7C35 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E54723523F5943C00BE7C35 /* HelpViewController.swift */; };
+		6E7F5DAE23FECB8D0070ED45 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7F5DAD23FECB8D0070ED45 /* HistoryViewController.swift */; };
+		6EA4D94023FFD6E6007905E7 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EA4D93F23FFD6E6007905E7 /* Default-568h@2x.png */; };
+		6EBD17B8240562740083A14A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EBD17B7240562740083A14A /* Main.storyboard */; };
+		6ECF5385240667E600073A29 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECF5384240667E600073A29 /* ScannerViewController.swift */; };
+		6ECF53872406696F00073A29 /* GlutenTrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECF53862406696F00073A29 /* GlutenTrackerViewController.swift */; };
+		6ECF5389240669F200073A29 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECF5388240669F200073A29 /* DetailsViewController.swift */; };
+		6ECF538B24066C2000073A29 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECF538A24066C2000073A29 /* Product.swift */; };
+		6ECF538D24066CE900073A29 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECF538C24066CE900073A29 /* API.swift */; };
+		6ED0F2D123FEE663000A7BD3 /* FBLoginManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED0F2D023FEE663000A7BD3 /* FBLoginManagerViewController.swift */; };
+		6ED8886B24041DDD00DDF760 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6ED8886A24041DDD00DDF760 /* Launch Screen.storyboard */; };
+		6EDC0B872403DF25009449B8 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDC0B862403DF25009449B8 /* ProfileViewController.swift */; };
+		8E716739509EFAFBFDA60987 /* Pods_glutenTrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27BEFCF6E3D87DBC389D756C /* Pods_glutenTrackerTests.framework */; };
+		E9EE3B8FF505DAAE799570AB /* Pods_glutenTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B695E8A558AE172D5B19195 /* Pods_glutenTracker.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6E54722123F5787E00BE7C35 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6E5471FF23F5787C00BE7C35 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6E54720623F5787C00BE7C35;
+			remoteInfo = glutenTracker;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		208B43F76844F9B6F985B39F /* Pods-glutenTrackerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-glutenTrackerTests.debug.xcconfig"; path = "Target Support Files/Pods-glutenTrackerTests/Pods-glutenTrackerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		26793A201C86F549CB438DCF /* Pods-glutenTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-glutenTracker.debug.xcconfig"; path = "Target Support Files/Pods-glutenTracker/Pods-glutenTracker.debug.xcconfig"; sourceTree = "<group>"; };
+		27BEFCF6E3D87DBC389D756C /* Pods_glutenTrackerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_glutenTrackerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B695E8A558AE172D5B19195 /* Pods_glutenTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_glutenTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		690658BC240CF0AE00AD00C4 /* beep-07.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "beep-07.mp3"; path = "../../beep-07.mp3"; sourceTree = "<group>"; };
+		690658BE240CF28200AD00C4 /* Product.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Product.storyboard; sourceTree = "<group>"; };
+		690658C0240CF32600AD00C4 /* History.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = History.storyboard; sourceTree = "<group>"; };
+		690658C3240CF3D600AD00C4 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		691310F52407A3E1009D5ACB /* IngredientListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientListView.swift; sourceTree = "<group>"; };
+		691310F72407A3FF009D5ACB /* IngredientCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientCell.swift; sourceTree = "<group>"; };
+		693F84782407AA4F00008A41 /* Scanner.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Scanner.storyboard; sourceTree = "<group>"; };
+		693F847D2407AD3800008A41 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		693F847F2407ADAB00008A41 /* Help.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Help.storyboard; sourceTree = "<group>"; };
+		6E093BAC2405692A00E18364 /* SignInWithApple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithApple.swift; sourceTree = "<group>"; };
+		6E093BAD2405692A00E18364 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		6E093BAE2405692A00E18364 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		6E093BAF2405692A00E18364 /* Credential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credential.swift; sourceTree = "<group>"; };
+		6E093BB324056B4C00E18364 /* MyTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabBarController.swift; sourceTree = "<group>"; };
+		6E54720723F5787C00BE7C35 /* glutenTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = glutenTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E54720A23F5787C00BE7C35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6E54720C23F5787C00BE7C35 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		6E54721423F5787C00BE7C35 /* glutenTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = glutenTracker.xcdatamodel; sourceTree = "<group>"; };
+		6E54721623F5787E00BE7C35 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6E54721B23F5787E00BE7C35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6E54722023F5787E00BE7C35 /* glutenTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = glutenTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E54722423F5787E00BE7C35 /* glutenTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = glutenTrackerTests.swift; sourceTree = "<group>"; };
+		6E54722623F5787E00BE7C35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6E54722F23F5795F00BE7C35 /* glutenTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = glutenTracker.entitlements; sourceTree = "<group>"; };
+		6E54723123F5796400BE7C35 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		6E54723523F5943C00BE7C35 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
+		6E7F5DAD23FECB8D0070ED45 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		6EA4D93F23FFD6E6007905E7 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		6EBD17B7240562740083A14A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		6ECF5384240667E600073A29 /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
+		6ECF53862406696F00073A29 /* GlutenTrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlutenTrackerViewController.swift; sourceTree = "<group>"; };
+		6ECF5388240669F200073A29 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		6ECF538A24066C2000073A29 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		6ECF538C24066CE900073A29 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		6ED0F2D023FEE663000A7BD3 /* FBLoginManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBLoginManagerViewController.swift; sourceTree = "<group>"; };
+		6ED8886A24041DDD00DDF760 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		6EDC0B862403DF25009449B8 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		91FC8D4819E52D5212B259CC /* Pods-glutenTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-glutenTracker.release.xcconfig"; path = "Target Support Files/Pods-glutenTracker/Pods-glutenTracker.release.xcconfig"; sourceTree = "<group>"; };
+		DDE72F974AD99D634867CEE7 /* Pods-glutenTrackerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-glutenTrackerTests.release.xcconfig"; path = "Target Support Files/Pods-glutenTrackerTests/Pods-glutenTrackerTests.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6E54720423F5787C00BE7C35 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E54723223F5796400BE7C35 /* CloudKit.framework in Frameworks */,
+				E9EE3B8FF505DAAE799570AB /* Pods_glutenTracker.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E54721D23F5787E00BE7C35 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8E716739509EFAFBFDA60987 /* Pods_glutenTrackerTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		06C55C9B2A54EE5895DB80B5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				26793A201C86F549CB438DCF /* Pods-glutenTracker.debug.xcconfig */,
+				91FC8D4819E52D5212B259CC /* Pods-glutenTracker.release.xcconfig */,
+				208B43F76844F9B6F985B39F /* Pods-glutenTrackerTests.debug.xcconfig */,
+				DDE72F974AD99D634867CEE7 /* Pods-glutenTrackerTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		690658C2240CF3C900AD00C4 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				690658C3240CF3D600AD00C4 /* Utils.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		691310F32407A35E009D5ACB /* Scan */ = {
+			isa = PBXGroup;
+			children = (
+				693F84782407AA4F00008A41 /* Scanner.storyboard */,
+				6ECF5384240667E600073A29 /* ScannerViewController.swift */,
+			);
+			path = Scan;
+			sourceTree = "<group>";
+		};
+		691310F42407A36C009D5ACB /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				6ECF53862406696F00073A29 /* GlutenTrackerViewController.swift */,
+				6ECF5388240669F200073A29 /* DetailsViewController.swift */,
+				691310F52407A3E1009D5ACB /* IngredientListView.swift */,
+				691310F72407A3FF009D5ACB /* IngredientCell.swift */,
+				690658BE240CF28200AD00C4 /* Product.storyboard */,
+			);
+			path = Product;
+			sourceTree = "<group>";
+		};
+		693F847A2407AC7300008A41 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				6E7F5DAD23FECB8D0070ED45 /* HistoryViewController.swift */,
+				690658C0240CF32600AD00C4 /* History.storyboard */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+		693F847B2407AC8300008A41 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				6EDC0B862403DF25009449B8 /* ProfileViewController.swift */,
+				693F847D2407AD3800008A41 /* Profile.storyboard */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		693F847C2407AC9A00008A41 /* Help */ = {
+			isa = PBXGroup;
+			children = (
+				6E54723523F5943C00BE7C35 /* HelpViewController.swift */,
+				693F847F2407ADAB00008A41 /* Help.storyboard */,
+			);
+			path = Help;
+			sourceTree = "<group>";
+		};
+		6E093BAB2405692A00E18364 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				6ED0F2D023FEE663000A7BD3 /* FBLoginManagerViewController.swift */,
+				6E093BAD2405692A00E18364 /* LoginViewController.swift */,
+				6E093BAF2405692A00E18364 /* Credential.swift */,
+				6E093BAE2405692A00E18364 /* Login.storyboard */,
+				6E093BAC2405692A00E18364 /* SignInWithApple.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		6E093BB224056B4C00E18364 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				6EBD17B7240562740083A14A /* Main.storyboard */,
+				6E093BB324056B4C00E18364 /* MyTabBarController.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		6E5471FE23F5787C00BE7C35 = {
+			isa = PBXGroup;
+			children = (
+				6EA4D93F23FFD6E6007905E7 /* Default-568h@2x.png */,
+				6E54720923F5787C00BE7C35 /* glutenTracker */,
+				6E54722323F5787E00BE7C35 /* glutenTrackerTests */,
+				6E54720823F5787C00BE7C35 /* Products */,
+				6E54723023F5796400BE7C35 /* Frameworks */,
+				06C55C9B2A54EE5895DB80B5 /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		6E54720823F5787C00BE7C35 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6E54720723F5787C00BE7C35 /* glutenTracker.app */,
+				6E54722023F5787E00BE7C35 /* glutenTrackerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6E54720923F5787C00BE7C35 /* glutenTracker */ = {
+			isa = PBXGroup;
+			children = (
+				690658C2240CF3C900AD00C4 /* Extension */,
+				693F847C2407AC9A00008A41 /* Help */,
+				693F847B2407AC8300008A41 /* Profile */,
+				693F847A2407AC7300008A41 /* History */,
+				691310F42407A36C009D5ACB /* Product */,
+				691310F32407A35E009D5ACB /* Scan */,
+				6ECF538C24066CE900073A29 /* API.swift */,
+				6ECF538A24066C2000073A29 /* Product.swift */,
+				6E54722F23F5795F00BE7C35 /* glutenTracker.entitlements */,
+				6E093BAB2405692A00E18364 /* Authentication */,
+				6E093BB224056B4C00E18364 /* Root */,
+				6E54720A23F5787C00BE7C35 /* AppDelegate.swift */,
+				6E54720C23F5787C00BE7C35 /* SceneDelegate.swift */,
+				6ED8886A24041DDD00DDF760 /* Launch Screen.storyboard */,
+				690658BC240CF0AE00AD00C4 /* beep-07.mp3 */,
+				6E54721623F5787E00BE7C35 /* Assets.xcassets */,
+				6E54721B23F5787E00BE7C35 /* Info.plist */,
+				6E54721323F5787C00BE7C35 /* glutenTracker.xcdatamodeld */,
+			);
+			path = glutenTracker;
+			sourceTree = "<group>";
+		};
+		6E54722323F5787E00BE7C35 /* glutenTrackerTests */ = {
+			isa = PBXGroup;
+			children = (
+				6E54722423F5787E00BE7C35 /* glutenTrackerTests.swift */,
+				6E54722623F5787E00BE7C35 /* Info.plist */,
+			);
+			path = glutenTrackerTests;
+			sourceTree = "<group>";
+		};
+		6E54723023F5796400BE7C35 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6E54723123F5796400BE7C35 /* CloudKit.framework */,
+				4B695E8A558AE172D5B19195 /* Pods_glutenTracker.framework */,
+				27BEFCF6E3D87DBC389D756C /* Pods_glutenTrackerTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6E54720623F5787C00BE7C35 /* glutenTracker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6E54722923F5787E00BE7C35 /* Build configuration list for PBXNativeTarget "glutenTracker" */;
+			buildPhases = (
+				19E3D3693F8639386CFD0A2B /* [CP] Check Pods Manifest.lock */,
+				6E54720323F5787C00BE7C35 /* Sources */,
+				6E54720423F5787C00BE7C35 /* Frameworks */,
+				6E54720523F5787C00BE7C35 /* Resources */,
+				60FACB28CAD6F16BB028EA52 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = glutenTracker;
+			productName = glutenTracker;
+			productReference = 6E54720723F5787C00BE7C35 /* glutenTracker.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6E54721F23F5787E00BE7C35 /* glutenTrackerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6E54722C23F5787E00BE7C35 /* Build configuration list for PBXNativeTarget "glutenTrackerTests" */;
+			buildPhases = (
+				C5EF15E51AC1A494975110C4 /* [CP] Check Pods Manifest.lock */,
+				6E54721C23F5787E00BE7C35 /* Sources */,
+				6E54721D23F5787E00BE7C35 /* Frameworks */,
+				6E54721E23F5787E00BE7C35 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6E54722223F5787E00BE7C35 /* PBXTargetDependency */,
+			);
+			name = glutenTrackerTests;
+			productName = glutenTrackerTests;
+			productReference = 6E54722023F5787E00BE7C35 /* glutenTrackerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6E5471FF23F5787C00BE7C35 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = Darrieumerlou;
+				TargetAttributes = {
+					6E54720623F5787C00BE7C35 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					6E54721F23F5787E00BE7C35 = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = 6E54720623F5787C00BE7C35;
+					};
+				};
+			};
+			buildConfigurationList = 6E54720223F5787C00BE7C35 /* Build configuration list for PBXProject "glutenTracker" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6E5471FE23F5787C00BE7C35;
+			productRefGroup = 6E54720823F5787C00BE7C35 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6E54720623F5787C00BE7C35 /* glutenTracker */,
+				6E54721F23F5787E00BE7C35 /* glutenTrackerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6E54720523F5787C00BE7C35 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6EA4D94023FFD6E6007905E7 /* Default-568h@2x.png in Resources */,
+				6EBD17B8240562740083A14A /* Main.storyboard in Resources */,
+				6E54721723F5787E00BE7C35 /* Assets.xcassets in Resources */,
+				690658C1240CF32600AD00C4 /* History.storyboard in Resources */,
+				691310F92407A490009D5ACB /* Login.storyboard in Resources */,
+				6ED8886B24041DDD00DDF760 /* Launch Screen.storyboard in Resources */,
+				693F847E2407AD3800008A41 /* Profile.storyboard in Resources */,
+				690658BF240CF28200AD00C4 /* Product.storyboard in Resources */,
+				693F84792407AA4F00008A41 /* Scanner.storyboard in Resources */,
+				690658BD240CF0AE00AD00C4 /* beep-07.mp3 in Resources */,
+				693F84802407ADAB00008A41 /* Help.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E54721E23F5787E00BE7C35 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		19E3D3693F8639386CFD0A2B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-glutenTracker-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		60FACB28CAD6F16BB028EA52 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-glutenTracker/Pods-glutenTracker-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-glutenTracker/Pods-glutenTracker-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-glutenTracker/Pods-glutenTracker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C5EF15E51AC1A494975110C4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-glutenTrackerTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6E54720323F5787C00BE7C35 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				691310FB2407A578009D5ACB /* LoginViewController.swift in Sources */,
+				6E54721523F5787C00BE7C35 /* glutenTracker.xcdatamodeld in Sources */,
+				6E54723623F5943C00BE7C35 /* HelpViewController.swift in Sources */,
+				6ECF5385240667E600073A29 /* ScannerViewController.swift in Sources */,
+				691310FA2407A56D009D5ACB /* MyTabBarController.swift in Sources */,
+				6ED0F2D123FEE663000A7BD3 /* FBLoginManagerViewController.swift in Sources */,
+				691310F62407A3E1009D5ACB /* IngredientListView.swift in Sources */,
+				6ECF538D24066CE900073A29 /* API.swift in Sources */,
+				691310FD2407A583009D5ACB /* SignInWithApple.swift in Sources */,
+				691310FC2407A57B009D5ACB /* Credential.swift in Sources */,
+				691310F82407A3FF009D5ACB /* IngredientCell.swift in Sources */,
+				6EDC0B872403DF25009449B8 /* ProfileViewController.swift in Sources */,
+				6E54720B23F5787C00BE7C35 /* AppDelegate.swift in Sources */,
+				6E54720D23F5787C00BE7C35 /* SceneDelegate.swift in Sources */,
+				6E7F5DAE23FECB8D0070ED45 /* HistoryViewController.swift in Sources */,
+				6ECF53872406696F00073A29 /* GlutenTrackerViewController.swift in Sources */,
+				6ECF5389240669F200073A29 /* DetailsViewController.swift in Sources */,
+				690658C4240CF3D600AD00C4 /* Utils.swift in Sources */,
+				6ECF538B24066C2000073A29 /* Product.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E54721C23F5787E00BE7C35 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E54722523F5787E00BE7C35 /* glutenTrackerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6E54722223F5787E00BE7C35 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6E54720623F5787C00BE7C35 /* glutenTracker */;
+			targetProxy = 6E54722123F5787E00BE7C35 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		6E54722723F5787E00BE7C35 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		6E54722823F5787E00BE7C35 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6E54722A23F5787E00BE7C35 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26793A201C86F549CB438DCF /* Pods-glutenTracker.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = glutenTracker/glutenTracker.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6QDN94WAYA;
+				INFOPLIST_FILE = glutenTracker/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "fr.simon-darrieumerlou.glutenTracker";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		6E54722B23F5787E00BE7C35 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 91FC8D4819E52D5212B259CC /* Pods-glutenTracker.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = glutenTracker/glutenTracker.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6QDN94WAYA;
+				INFOPLIST_FILE = glutenTracker/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "fr.simon-darrieumerlou.glutenTracker";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		6E54722D23F5787E00BE7C35 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 208B43F76844F9B6F985B39F /* Pods-glutenTrackerTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6QDN94WAYA;
+				INFOPLIST_FILE = glutenTrackerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "fr.simon-darrieumerlou.glutenTrackerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/glutenTracker.app/glutenTracker";
+			};
+			name = Debug;
+		};
+		6E54722E23F5787E00BE7C35 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DDE72F974AD99D634867CEE7 /* Pods-glutenTrackerTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6QDN94WAYA;
+				INFOPLIST_FILE = glutenTrackerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "fr.simon-darrieumerlou.glutenTrackerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/glutenTracker.app/glutenTracker";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6E54720223F5787C00BE7C35 /* Build configuration list for PBXProject "glutenTracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E54722723F5787E00BE7C35 /* Debug */,
+				6E54722823F5787E00BE7C35 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6E54722923F5787E00BE7C35 /* Build configuration list for PBXNativeTarget "glutenTracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E54722A23F5787E00BE7C35 /* Debug */,
+				6E54722B23F5787E00BE7C35 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6E54722C23F5787E00BE7C35 /* Build configuration list for PBXNativeTarget "glutenTrackerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E54722D23F5787E00BE7C35 /* Debug */,
+				6E54722E23F5787E00BE7C35 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		6E54721323F5787C00BE7C35 /* glutenTracker.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				6E54721423F5787C00BE7C35 /* glutenTracker.xcdatamodel */,
+			);
+			currentVersion = 6E54721423F5787C00BE7C35 /* glutenTracker.xcdatamodel */;
+			path = glutenTracker.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 6E5471FF23F5787C00BE7C35 /* Project object */;
+}

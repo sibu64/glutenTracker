@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wdC-qM-4R7">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="YL4-3K-n2F">
+            <objects>
+                <viewController storyboardIdentifier="loginvc" modalPresentationStyle="overFullScreen" id="wdC-qM-4R7" customClass="LoginViewController" customModule="glutenTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cdh-Fh-Qm8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="4a3-P9-QMw">
+                                <rect key="frame" x="20" y="497.5" width="374" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="IgF-fr-DTb" userLabel="height = 40"/>
+                                </constraints>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GlutenTracker" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mtb-Xs-PZW">
+                                <rect key="frame" x="10" y="418" width="394" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="BHU-Ui-DxD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Rockwell-Bold" family="Rockwell" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="qS4-65-1zu" firstAttribute="trailing" secondItem="4a3-P9-QMw" secondAttribute="trailing" constant="20" id="1qI-ef-k7x"/>
+                            <constraint firstItem="4a3-P9-QMw" firstAttribute="top" secondItem="mtb-Xs-PZW" secondAttribute="bottom" constant="19.5" id="7Mq-SK-poo"/>
+                            <constraint firstItem="qS4-65-1zu" firstAttribute="trailing" secondItem="mtb-Xs-PZW" secondAttribute="trailing" constant="10" id="89I-kM-JeK"/>
+                            <constraint firstItem="mtb-Xs-PZW" firstAttribute="centerX" secondItem="cdh-Fh-Qm8" secondAttribute="centerX" id="SYo-lj-R3X"/>
+                            <constraint firstItem="4a3-P9-QMw" firstAttribute="leading" secondItem="qS4-65-1zu" secondAttribute="leading" constant="20" id="b7m-Tz-xf3"/>
+                            <constraint firstItem="mtb-Xs-PZW" firstAttribute="centerY" secondItem="cdh-Fh-Qm8" secondAttribute="centerY" id="euA-vb-esh"/>
+                            <constraint firstItem="mtb-Xs-PZW" firstAttribute="leading" secondItem="qS4-65-1zu" secondAttribute="leading" constant="10" id="rwP-3l-RED"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="qS4-65-1zu"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="tpK-lG-k9D"/>
+                    <connections>
+                        <outlet property="stackView" destination="4a3-P9-QMw" id="ka0-V9-VsV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bXm-b2-25i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1249.2753623188407" y="-966.29464285714278"/>
+        </scene>
+    </scenes>
+</document>
