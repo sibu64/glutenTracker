@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		690658BD240CF0AE00AD00C4 /* beep-07.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 690658BC240CF0AE00AD00C4 /* beep-07.mp3 */; };
 		690658BF240CF28200AD00C4 /* Product.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 690658BE240CF28200AD00C4 /* Product.storyboard */; };
 		690658C1240CF32600AD00C4 /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 690658C0240CF32600AD00C4 /* History.storyboard */; };
 		690658C4240CF3D600AD00C4 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690658C3240CF3D600AD00C4 /* Utils.swift */; };
@@ -21,6 +20,8 @@
 		693F84792407AA4F00008A41 /* Scanner.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 693F84782407AA4F00008A41 /* Scanner.storyboard */; };
 		693F847E2407AD3800008A41 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 693F847D2407AD3800008A41 /* Profile.storyboard */; };
 		693F84802407ADAB00008A41 /* Help.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 693F847F2407ADAB00008A41 /* Help.storyboard */; };
+		69AC848F240F94E000ECFBB7 /* FooterButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AC848E240F94E000ECFBB7 /* FooterButtonView.swift */; };
+		6E1772E2240E852100E2D944 /* beep-07.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6E1772E1240E852100E2D944 /* beep-07.mp3 */; };
 		6E54720B23F5787C00BE7C35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E54720A23F5787C00BE7C35 /* AppDelegate.swift */; };
 		6E54720D23F5787C00BE7C35 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E54720C23F5787C00BE7C35 /* SceneDelegate.swift */; };
 		6E54721523F5787C00BE7C35 /* glutenTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6E54721323F5787C00BE7C35 /* glutenTracker.xcdatamodeld */; };
@@ -58,7 +59,6 @@
 		26793A201C86F549CB438DCF /* Pods-glutenTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-glutenTracker.debug.xcconfig"; path = "Target Support Files/Pods-glutenTracker/Pods-glutenTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		27BEFCF6E3D87DBC389D756C /* Pods_glutenTrackerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_glutenTrackerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B695E8A558AE172D5B19195 /* Pods_glutenTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_glutenTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		690658BC240CF0AE00AD00C4 /* beep-07.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "beep-07.mp3"; path = "../../beep-07.mp3"; sourceTree = "<group>"; };
 		690658BE240CF28200AD00C4 /* Product.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Product.storyboard; sourceTree = "<group>"; };
 		690658C0240CF32600AD00C4 /* History.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = History.storyboard; sourceTree = "<group>"; };
 		690658C3240CF3D600AD00C4 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -67,11 +67,13 @@
 		693F84782407AA4F00008A41 /* Scanner.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Scanner.storyboard; sourceTree = "<group>"; };
 		693F847D2407AD3800008A41 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		693F847F2407ADAB00008A41 /* Help.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Help.storyboard; sourceTree = "<group>"; };
+		69AC848E240F94E000ECFBB7 /* FooterButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterButtonView.swift; sourceTree = "<group>"; };
 		6E093BAC2405692A00E18364 /* SignInWithApple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithApple.swift; sourceTree = "<group>"; };
 		6E093BAD2405692A00E18364 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		6E093BAE2405692A00E18364 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		6E093BAF2405692A00E18364 /* Credential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credential.swift; sourceTree = "<group>"; };
 		6E093BB324056B4C00E18364 /* MyTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabBarController.swift; sourceTree = "<group>"; };
+		6E1772E1240E852100E2D944 /* beep-07.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "beep-07.mp3"; sourceTree = "<group>"; };
 		6E54720723F5787C00BE7C35 /* glutenTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = glutenTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E54720A23F5787C00BE7C35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6E54720C23F5787C00BE7C35 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				6ECF5388240669F200073A29 /* DetailsViewController.swift */,
 				691310F52407A3E1009D5ACB /* IngredientListView.swift */,
 				691310F72407A3FF009D5ACB /* IngredientCell.swift */,
+				69AC848E240F94E000ECFBB7 /* FooterButtonView.swift */,
 				690658BE240CF28200AD00C4 /* Product.storyboard */,
 			);
 			path = Product;
@@ -244,9 +247,9 @@
 				6E093BAB2405692A00E18364 /* Authentication */,
 				6E093BB224056B4C00E18364 /* Root */,
 				6E54720A23F5787C00BE7C35 /* AppDelegate.swift */,
+				6E1772E1240E852100E2D944 /* beep-07.mp3 */,
 				6E54720C23F5787C00BE7C35 /* SceneDelegate.swift */,
 				6ED8886A24041DDD00DDF760 /* Launch Screen.storyboard */,
-				690658BC240CF0AE00AD00C4 /* beep-07.mp3 */,
 				6E54721623F5787E00BE7C35 /* Assets.xcassets */,
 				6E54721B23F5787E00BE7C35 /* Info.plist */,
 				6E54721323F5787C00BE7C35 /* glutenTracker.xcdatamodeld */,
@@ -361,12 +364,12 @@
 				6EBD17B8240562740083A14A /* Main.storyboard in Resources */,
 				6E54721723F5787E00BE7C35 /* Assets.xcassets in Resources */,
 				690658C1240CF32600AD00C4 /* History.storyboard in Resources */,
+				6E1772E2240E852100E2D944 /* beep-07.mp3 in Resources */,
 				691310F92407A490009D5ACB /* Login.storyboard in Resources */,
 				6ED8886B24041DDD00DDF760 /* Launch Screen.storyboard in Resources */,
 				693F847E2407AD3800008A41 /* Profile.storyboard in Resources */,
 				690658BF240CF28200AD00C4 /* Product.storyboard in Resources */,
 				693F84792407AA4F00008A41 /* Scanner.storyboard in Resources */,
-				690658BD240CF0AE00AD00C4 /* beep-07.mp3 in Resources */,
 				693F84802407ADAB00008A41 /* Help.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -456,6 +459,7 @@
 				691310FA2407A56D009D5ACB /* MyTabBarController.swift in Sources */,
 				6ED0F2D123FEE663000A7BD3 /* FBLoginManagerViewController.swift in Sources */,
 				691310F62407A3E1009D5ACB /* IngredientListView.swift in Sources */,
+				69AC848F240F94E000ECFBB7 /* FooterButtonView.swift in Sources */,
 				6ECF538D24066CE900073A29 /* API.swift in Sources */,
 				691310FD2407A583009D5ACB /* SignInWithApple.swift in Sources */,
 				691310FC2407A57B009D5ACB /* Credential.swift in Sources */,

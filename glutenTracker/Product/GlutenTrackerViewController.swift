@@ -14,11 +14,11 @@ class GlutenTrackerViewController: UIViewController {
     // IBOutlet
     @IBOutlet weak var codeLabel: UILabel?
     @IBOutlet weak var productLabel: UILabel?
-
+    @IBOutlet weak var glutenLabel: UILabel?
     @IBOutlet weak var scanButton: UIButton?
     @IBOutlet weak var detailsButton: UIButton?
-
     @IBOutlet weak var imageViewProduct: UIImageView?
+    @IBOutlet weak var footerButtonView: FooterButtonView?
 
     @IBOutlet weak var loader: UIActivityIndicatorView?
     // Public
@@ -33,7 +33,12 @@ class GlutenTrackerViewController: UIViewController {
 
         scanButton?.layer.cornerRadius = 25
         detailsButton?.layer.cornerRadius = 25
-        productLabel?.text = "Recherche..."
+        
+        codeLabel?.text = "Scan to perform a research with a scan"
+        productLabel?.text = "code on the product of your choice."
+        glutenLabel?.text = "Check if it is gluten free"
+        
+        footerButtonView?.showDetailButton(false)
     }
     
     // ***********************************************
@@ -61,9 +66,12 @@ class GlutenTrackerViewController: UIViewController {
         api.searchProduct(with: scannedCode, success: { (product) in
             dump(product)
             self.product = product
-            self.codeLabel?.text = product?.barCode
-            self.productLabel?.text = product?.name ?? "Unknow product"
-            self.imageViewProduct?.af.setImage(withURL: (product?.imageUrl)!)
+            let viewModel = ProductViewModel(model: product!)
+            self.codeLabel?.text = viewModel.model.barCode
+            self.productLabel?.text = viewModel.name
+            self.glutenLabel?.text = viewModel.glutenLabel
+            self.imageViewProduct?.af.setImage(withURL: (viewModel.model.imageUrl)!)
+            self.footerButtonView?.showDetailButton(true)
             self.loader?.stopAnimating()
         }) { (error) in
             print(error)

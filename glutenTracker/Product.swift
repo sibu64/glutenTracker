@@ -8,6 +8,25 @@
 
 import Foundation
 
+class ProductViewModel {
+    private(set) var model: Product
+    
+    init(model: Product) {
+        self.model = model
+    }
+    
+    var name: String {
+        return model.name ?? "Unknown Product"
+    }
+    
+    var glutenLabel: String {
+        guard let value = model.isGlutenFree else {
+            return "Gluten free: This information is not available"
+        }
+        return "Gluten free: \(value == true ? "Yes" : "No")"
+    }
+}
+
 struct Product {
     let objectId: String?
     let name: String?
@@ -15,6 +34,13 @@ struct Product {
     let allergens: String?
     let barCode: String?
     let imageUrlString: String?
+    private let allergensTags: [String]?
+    var isGlutenFree: Bool? {
+        guard let value = allergensTags?.contains("en:gluten") else {
+            return nil
+        }
+        return !value
+    }
     var imageUrl: URL? {
         if let string = imageUrlString {
            return URL(string: string)
@@ -22,13 +48,14 @@ struct Product {
         return nil
     }
     
-    init(objectId: String?, name: String?, ingredients: [String]?, allergens: String?, barCode: String?, imageUrlString: String?) {
+    init(objectId: String?, name: String?, ingredients: [String]?, allergens: String?, barCode: String?, imageUrlString: String?, allergensTags: [String]?) {
         self.objectId = objectId
         self.name = name
         self.ingredients = ingredients
         self.allergens = allergens
         self.barCode = barCode
         self.imageUrlString = imageUrlString
+        self.allergensTags = allergensTags
     }
 }
 
@@ -40,6 +67,7 @@ extension Product {
         let ingredients = json["ingredients_ids_debug"] as? [String]
         let allergens = json["allergens"] as? String
         let barcode = json["code"] as? String
+        let allergensTags = json["allergens_tags"] as? [String]
         
         self.objectId = objectId
         self.name = name
@@ -47,5 +75,6 @@ extension Product {
         self.allergens = allergens
         self.barCode = barcode
         self.imageUrlString = imageUrlString
+        self.allergensTags = allergensTags
     }
 }
