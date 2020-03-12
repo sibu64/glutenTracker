@@ -27,14 +27,14 @@ class ProductViewModel {
     }
 }
 
-struct Product {
+struct Product: Equatable {
     let objectId: String?
     let name: String?
     let ingredients: [String]?
     let allergens: String?
     let barCode: String?
     let imageUrlString: String?
-    private let allergensTags: [String]?
+    let allergensTags: [String]?
     var isGlutenFree: Bool? {
         guard let value = allergensTags?.contains("en:gluten") else {
             return nil
@@ -62,17 +62,21 @@ struct Product {
 extension Product {
     init(json: [String: Any]) {
         let objectId = json["_id"] as? String
-        let name = json["product_name_fr"] as? String
+        let name = json["product_name"] as? String
         let imageUrlString = json["image_front_url"] as? String
-        let ingredients = json["ingredients_ids_debug"] as? [String]
+        let ingredients = json["ingredients_text_en"] as? String
         let allergens = json["allergens"] as? String
         let barcode = json["code"] as? String
         let allergensTags = json["allergens_tags"] as? [String]
         
         self.objectId = objectId
         self.name = name
-        self.ingredients = ingredients
-        self.allergens = allergens
+        
+        let value = ingredients?.cleanString?.joinedByComma
+        self.ingredients = value
+        
+        self.allergens = allergens?.removeTags
+        
         self.barCode = barcode
         self.imageUrlString = imageUrlString
         self.allergensTags = allergensTags

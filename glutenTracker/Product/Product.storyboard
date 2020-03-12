@@ -15,8 +15,8 @@
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="OUa-2y-cim">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="OUa-2y-cim">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -45,7 +45,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9vL-9R-dEZ">
-                                <rect key="frame" x="30" y="104" width="354" height="30"/>
+                                <rect key="frame" x="30" y="156" width="354" height="30"/>
                                 <color key="backgroundColor" red="0.7725490196" green="0.92941176469999998" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.1754143111" green="0.13879383510000001" blue="0.92956775430000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
@@ -56,7 +56,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uth-n2-vTC">
-                                <rect key="frame" x="30" y="142" width="354" height="30"/>
+                                <rect key="frame" x="30" y="194" width="354" height="30"/>
                                 <color key="backgroundColor" red="0.7725490196" green="0.92941176469999998" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.1754143111" green="0.13879383510000001" blue="0.92956775430000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
@@ -67,7 +67,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V4J-gz-Re4">
-                                <rect key="frame" x="40" y="240" width="334" height="516"/>
+                                <rect key="frame" x="40" y="292" width="334" height="464"/>
                                 <color key="backgroundColor" red="0.85984321770000005" green="1" blue="0.92894351860000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="7gI-Qg-gLw" customClass="FooterButtonView" customModule="glutenTracker" customModuleProvider="target">
@@ -115,7 +115,7 @@
                                 <color key="color" red="0.27035063349999999" green="0.79729474950000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fna-Dk-Ri9">
-                                <rect key="frame" x="30" y="180" width="354" height="30"/>
+                                <rect key="frame" x="30" y="232" width="354" height="30"/>
                                 <color key="backgroundColor" red="0.7725490196" green="0.92941176469999998" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.1754143111" green="0.13879383510000001" blue="0.92956775430000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
@@ -152,10 +152,16 @@
                     </view>
                     <navigationItem key="navigationItem" title="Product" id="EdZ-sU-pws">
                         <barButtonItem key="backBarButtonItem" title=" " id="KkZ-E3-D4J"/>
+                        <barButtonItem key="rightBarButtonItem" title="Favorite" id="Uu0-fg-tVk">
+                            <connections>
+                                <action selector="actionFavorite:" destination="B5R-d4-joy" id="RN4-5c-dDE"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="codeLabel" destination="9vL-9R-dEZ" id="Js4-ZA-vy5"/>
                         <outlet property="detailsButton" destination="Xzz-qw-fZw" id="HA0-jq-oeg"/>
+                        <outlet property="favoriteBarButtonItem" destination="Uu0-fg-tVk" id="r00-90-DaK"/>
                         <outlet property="footerButtonView" destination="7gI-Qg-gLw" id="iPK-kE-DtR"/>
                         <outlet property="glutenLabel" destination="Fna-Dk-Ri9" id="iYG-IG-4a6"/>
                         <outlet property="imageViewProduct" destination="V4J-gz-Re4" id="5Hc-E0-OxL"/>
@@ -178,7 +184,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q2N-0p-245">
-                                <rect key="frame" x="16" y="98" width="382" height="30"/>
+                                <rect key="frame" x="16" y="150" width="382" height="30"/>
                                 <color key="backgroundColor" red="0.7725490196" green="0.92941176469999998" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.1754143111" green="0.13879383510000001" blue="0.92956775430000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
@@ -189,7 +195,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x09-ce-qYx">
-                                <rect key="frame" x="16" y="136" width="382" height="30"/>
+                                <rect key="frame" x="16" y="188" width="382" height="30"/>
                                 <color key="backgroundColor" red="0.7725490196" green="0.92941176469999998" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.1754143111" green="0.13879383510000001" blue="0.92956775430000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
@@ -200,7 +206,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="T4E-N8-hev" customClass="IngredientListView" customModule="glutenTracker" customModuleProvider="target">
-                                <rect key="frame" x="16" y="221" width="382" height="631"/>
+                                <rect key="frame" x="16" y="273" width="382" height="579"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ingredientsCell" id="tyd-Og-d4I" customClass="IngredientCell" customModule="glutenTracker" customModuleProvider="target">
@@ -247,7 +253,7 @@
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GnF-hz-2RH">
-                                <rect key="frame" x="16" y="174" width="382" height="30"/>
+                                <rect key="frame" x="16" y="226" width="382" height="30"/>
                                 <color key="backgroundColor" red="0.7725490196" green="0.92941176469999998" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.1754143111" green="0.13879383510000001" blue="0.92956775430000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>

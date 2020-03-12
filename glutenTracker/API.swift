@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 
 class API {
-    private var baseUrl: String = "https://fr.openfoodfacts.org/api/v0/produits/"
+    private var baseUrl: String = "https://world.openfoodfacts.org/api/v0/products/"
     
     //Fonction de requête AlamoFire et d'extraction de données JSON
     func searchProduct(with barCode: String, success: @escaping (Product?)->Void, failure: @escaping (Error)->Void) {

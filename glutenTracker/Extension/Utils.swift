@@ -25,4 +25,34 @@ extension UIViewController {
 
 public struct Segue {
     static var scannerSegue = "scannerSegue"
+    static var segueToDetails = "segueToDetails"
+    static var showMyTabBarController = "show"
+}
+
+extension String {
+    public var cleanString: String? {
+        let value = self.components(separatedBy: CharacterSet.decimalDigits)
+            .joined()
+            .replacingOccurrences(of: "%", with: "")
+            .replacingOccurrences(of: ".", with: "")
+        let array = value.split(separator: ",").map {
+            String($0).replacingOccurrences(of: " ", with: "")
+        }
+        return array.joined(separator: ",")
+    }
+}
+
+extension String {
+    public var removeTags: String? {
+        let value = self.replacingOccurrences(of: "en:", with: "")
+        return value
+    }
+}
+
+extension String {
+    public var joinedByComma: [String]? {
+        let value = self.split(separator: ",")
+                        .map { String($0) }
+        return value
+    }
 }

@@ -13,6 +13,8 @@ class GlutenTrackerViewController: UIViewController {
     // ***********************************************
     // IBOutlet
     @IBOutlet weak var codeLabel: UILabel?
+    
+    @IBOutlet var favoriteBarButtonItem: UIBarButtonItem?
     @IBOutlet weak var productLabel: UILabel?
     @IBOutlet weak var glutenLabel: UILabel?
     @IBOutlet weak var scanButton: UIButton?
@@ -21,9 +23,7 @@ class GlutenTrackerViewController: UIViewController {
     @IBOutlet weak var footerButtonView: FooterButtonView?
 
     @IBOutlet weak var loader: UIActivityIndicatorView?
-    // Public
-    //variables de classes utilisables dans toute les fonctions
-    //de la classe, précédées de "self"
+    
     private var product: Product?
     // ***********************************************
     // MARK: - Implementation
@@ -31,6 +31,7 @@ class GlutenTrackerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.navigationItem.rightBarButtonItem = nil
         scanButton?.layer.cornerRadius = 25
         detailsButton?.layer.cornerRadius = 25
         
@@ -39,6 +40,8 @@ class GlutenTrackerViewController: UIViewController {
         glutenLabel?.text = "Check if it is gluten free"
         
         footerButtonView?.showDetailButton(false)
+        
+        //loadBarCode(with: "3017620422003")
     }
     
     // ***********************************************
@@ -72,6 +75,7 @@ class GlutenTrackerViewController: UIViewController {
             self.glutenLabel?.text = viewModel.glutenLabel
             self.imageViewProduct?.af.setImage(withURL: (viewModel.model.imageUrl)!)
             self.footerButtonView?.showDetailButton(true)
+            self.navigationItem.rightBarButtonItem = self.favoriteBarButtonItem
             self.loader?.stopAnimating()
         }) { (error) in
             print(error)
@@ -87,4 +91,16 @@ class GlutenTrackerViewController: UIViewController {
         }
     }
     
-} // class OpenFoodViewController: UIViewController
+    @IBAction func actionFavorite(_ sender: UIBarButtonItem) {
+        guard let value = self.product else { return }
+        SaveRecord.default.run(with: value) { result in
+            switch result {
+            case .success(_):
+                print("Success")
+            case .failure(let error):
+                print("Error: \(error)")
+            }
+        }
+    }
+    
+}
