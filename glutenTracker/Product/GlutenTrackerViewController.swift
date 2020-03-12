@@ -48,7 +48,7 @@ class GlutenTrackerViewController: UIViewController {
     // MARK: - Segue
     // ***********************************************
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "segueToDetails" {
+        if segue.identifier == Segue.segueToDetails {
             let controller = segue.destination as? DetailsViewController
             controller?.product = self.product
         } else if segue.identifier == Segue.scannerSegue {
@@ -73,6 +73,7 @@ class GlutenTrackerViewController: UIViewController {
             self.codeLabel?.text = viewModel.model.barCode
             self.productLabel?.text = viewModel.name
             self.glutenLabel?.text = viewModel.glutenLabel
+            self.glutenLabel?.font = UIFont.boldSystemFont(ofSize: 21.0)
             self.imageViewProduct?.af.setImage(withURL: (viewModel.model.imageUrl)!)
             self.footerButtonView?.showDetailButton(true)
             self.navigationItem.rightBarButtonItem = self.favoriteBarButtonItem
@@ -87,7 +88,7 @@ class GlutenTrackerViewController: UIViewController {
     // ***********************************************
     @IBAction func actionOpenDetails(sender: UIButton) {
         if let _ = self.product {
-            self.performSegue(withIdentifier: "segueToDetails", sender: nil)
+            self.performSegue(withIdentifier: Segue.segueToDetails, sender: nil)
         }
     }
     

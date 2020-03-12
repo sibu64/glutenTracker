@@ -34,15 +34,16 @@ class DetailsViewController: UIViewController {
         }
         self.listView?.setUp(ingredients: ingredientsProduct)
         
-        let allergenValue = product?.allergens?.isEmpty == true ? "Pas d'allergéne" : "Allergénes: \(product!.allergens!)"
+        let allergenValue = product?.allergens?.isEmpty == true ? "No allergen" : "Others allergens: \(product!.allergens!)"
         self.allergensProductNameLabel?.text = allergenValue
+        self.allergensProductNameLabel?.font = UIFont.boldSystemFont(ofSize: 21.0)
     }
     
     // ***********************************************
     // MARK: - Actions
     // ***********************************************
-    @IBAction func actionBack() {
-        self.dismiss(animated: true, completion: nil)
-    }
+//    @IBAction func actionBack() {
+//        self.dismiss(animated: true, completion: nil)
+//    }
     
 }
