@@ -41,7 +41,7 @@ class GlutenTrackerViewController: UIViewController {
         
         footerButtonView?.showDetailButton(false)
         
-        //loadBarCode(with: "3017620422003")
+        loadBarCode(with: "3017620422003")
     }
     
     // ***********************************************

@@ -68,14 +68,14 @@
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V4J-gz-Re4">
                                 <rect key="frame" x="40" y="292" width="334" height="464"/>
-                                <color key="backgroundColor" red="0.85984321770000005" green="1" blue="0.92894351860000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="7gI-Qg-gLw" customClass="FooterButtonView" customModule="glutenTracker" customModuleProvider="target">
                                 <rect key="frame" x="16" y="786" width="382" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A8o-kA-ebQ">
                                         <rect key="frame" x="0.0" y="0.0" width="186" height="60"/>
-                                        <color key="backgroundColor" red="1" green="0.67060597180000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="Pjz-gJ-loh"/>
                                         </constraints>
@@ -89,7 +89,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xzz-qw-fZw">
                                         <rect key="frame" x="196" y="0.0" width="186" height="60"/>
-                                        <color key="backgroundColor" red="1" green="0.67060597180000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="YT9-R3-bAA"/>
                                         </constraints>
@@ -126,7 +126,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.85984321770000005" green="1" blue="0.92894351860000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="7gI-Qg-gLw" firstAttribute="leading" secondItem="L4v-4z-o7y" secondAttribute="leading" constant="16" id="1Eg-sB-AEq"/>
                             <constraint firstItem="V4J-gz-Re4" firstAttribute="top" secondItem="Fna-Dk-Ri9" secondAttribute="bottom" constant="30" id="1K3-UE-kJg"/>
@@ -151,8 +151,11 @@
                         <viewLayoutGuide key="safeArea" id="L4v-4z-o7y"/>
                     </view>
                     <navigationItem key="navigationItem" title="Product" id="EdZ-sU-pws">
-                        <barButtonItem key="backBarButtonItem" title=" " id="KkZ-E3-D4J"/>
+                        <barButtonItem key="backBarButtonItem" title=" " id="KkZ-E3-D4J">
+                            <color key="tintColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Favorite" id="Uu0-fg-tVk">
+                            <color key="tintColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="actionFavorite:" destination="B5R-d4-joy" id="RN4-5c-dDE"/>
                             </connections>
@@ -264,7 +267,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.85984321770000005" green="1" blue="0.92894351860000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="x09-ce-qYx" firstAttribute="top" secondItem="q2N-0p-245" secondAttribute="bottom" constant="8" id="32F-3t-6tw"/>
