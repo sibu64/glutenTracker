@@ -1,5 +1,5 @@
 //
-//  detailsViewController.swift
+//  DetailsViewController.swift
 //
 
 import UIKit
@@ -23,8 +23,6 @@ class DetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        backButton?.layer.cornerRadius = 25
-
         codeLabel?.text = product?.barCode
         productNameLabel?.text = product?.name
 
@@ -38,12 +36,5 @@ class DetailsViewController: UIViewController {
         self.allergensProductNameLabel?.text = allergenValue
         self.allergensProductNameLabel?.font = UIFont.boldSystemFont(ofSize: 21.0)
     }
-    
-    // ***********************************************
-    // MARK: - Actions
-    // ***********************************************
-//    @IBAction func actionBack() {
-//        self.dismiss(animated: true, completion: nil)
-//    }
     
 }

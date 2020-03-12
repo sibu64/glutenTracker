@@ -31,7 +31,6 @@ class GlutenTrackerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationItem.rightBarButtonItem = nil
         scanButton?.layer.cornerRadius = 25
         detailsButton?.layer.cornerRadius = 25
         
@@ -69,19 +68,23 @@ class GlutenTrackerViewController: UIViewController {
         api.searchProduct(with: scannedCode, success: { (product) in
             dump(product)
             self.product = product
-            let viewModel = ProductViewModel(model: product!)
-            self.codeLabel?.text = viewModel.model.barCode
-            self.productLabel?.text = viewModel.name
-            self.glutenLabel?.text = viewModel.glutenLabel
-            self.glutenLabel?.font = UIFont.boldSystemFont(ofSize: 21.0)
-            self.imageViewProduct?.af.setImage(withURL: (viewModel.model.imageUrl)!)
+            self.ModelingImageAndLabels()
             self.footerButtonView?.showDetailButton(true)
-            self.navigationItem.rightBarButtonItem = self.favoriteBarButtonItem
+            //self.navigationItem.rightBarButtonItem = self.favoriteBarButtonItem
             self.loader?.stopAnimating()
         }) { (error) in
             print(error)
             self.loader?.stopAnimating()
         }
+    }
+    
+    private func ModelingImageAndLabels(){
+        let viewModel = ProductViewModel(model: product!)
+        self.imageViewProduct?.af.setImage(withURL: (viewModel.model.imageUrl)!)
+        codeLabel?.text = viewModel.model.barCode
+        productLabel?.text = viewModel.name
+        glutenLabel?.text = viewModel.glutenLabel
+        glutenLabel?.font = UIFont.boldSystemFont(ofSize: 21.0)
     }
     // ***********************************************
     // MARK: - Actions
