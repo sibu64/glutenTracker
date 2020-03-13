@@ -19,11 +19,16 @@ class IngredientViewCell: UIView {
     // ***********************************************
     // MARK: - Interface
     // ***********************************************
-    @IBOutlet weak var titleLabel: UILabel?
+    @IBOutlet weak var titleLabel: UILabel!
     // ***********************************************
     // MARK: - Implementation
     // ***********************************************
     func setUp(with title: String) {
-        self.titleLabel?.text = title
+        self.titleLabel!.text = title.firstUppercased
     }
+}
+
+extension String {
+    var firstUppercased: String { prefix(1).uppercased() + dropFirst() }
+
 }

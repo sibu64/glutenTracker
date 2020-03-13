@@ -20,8 +20,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     // ***********************************************
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-    } //end of : override func viewDidLoad()
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -62,9 +61,9 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
                 print("Problème avec le lecteur")
             }
             
-        } //end of : if let captureDevice = captureDevice
+        }
         
-    } //end of : override func viewWillAppear()
+    }
     //Définition par code de la vue rectangle vert délimitant la zone scannée
     private let codeFrame:UIView = {
         let codeFrame = UIView()
@@ -98,7 +97,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         self.dismiss(animated: true) {
             self.didDecodeBarcode?(stringCodeValue)
         }
-    } // end of : func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput
+    }
     
     public func didDecodeBarcode(_ completion: ((String)->Void)?) {
         self.didDecodeBarcode = completion
@@ -110,4 +109,4 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         self.dismiss(animated: true, completion: nil)
     }
 
-} // class ScannerViewController: UIViewController, AVCaptureMetadataOutput .....
+}

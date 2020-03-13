@@ -38,7 +38,9 @@ extension IngredientListView: UITableViewDataSource {
         let title = collection[indexPath.row]
         cell.mainView?.setUp(with: title)
         return cell
-    } // end of : func tableView(_ tableView: UITableView...
+    }
 }
 
 extension IngredientListView: UITableViewDelegate {}
+
+

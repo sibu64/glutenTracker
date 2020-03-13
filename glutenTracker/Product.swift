@@ -43,9 +43,9 @@ struct Product: Equatable {
     }
     var imageUrl: URL? {
         if let string = imageUrlString {
-           return URL(string: string)
+            return URL(string: string)!
         }
-        return nil
+        return self.imageUrl
     }
     
     init(objectId: String?, name: String?, ingredients: [String]?, allergens: String?, barCode: String?, imageUrlString: String?, allergensTags: [String]?) {

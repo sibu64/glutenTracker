@@ -13,17 +13,17 @@ class GlutenTrackerViewController: UIViewController {
     // ***********************************************
     // IBOutlet
     // todo: remove ? for the outlets
-    @IBOutlet weak var codeLabel: UILabel?
+    @IBOutlet weak var codeLabel: UILabel!
     
-    @IBOutlet var favoriteBarButtonItem: UIBarButtonItem?
-    @IBOutlet weak var productLabel: UILabel?
-    @IBOutlet weak var glutenLabel: UILabel?
-    @IBOutlet weak var scanButton: UIButton?
-    @IBOutlet weak var detailsButton: UIButton?
-    @IBOutlet weak var imageViewProduct: UIImageView?
-    @IBOutlet weak var footerButtonView: FooterButtonView?
+    @IBOutlet var favoriteBarButtonItem: UIBarButtonItem!
+    @IBOutlet weak var productLabel: UILabel!
+    @IBOutlet weak var glutenLabel: UILabel!
+    @IBOutlet weak var scanButton: UIButton!
+    @IBOutlet weak var detailsButton: UIButton!
+    @IBOutlet weak var imageViewProduct: UIImageView!
+    @IBOutlet weak var footerButtonView: FooterButtonView!
 
-    @IBOutlet weak var loader: UIActivityIndicatorView?
+    @IBOutlet weak var loader: UIActivityIndicatorView!
     
     //todo: remove Product (ProductViewModel instead)
     private var product: Product?
@@ -83,7 +83,7 @@ class GlutenTrackerViewController: UIViewController {
     private func modelingImageAndLabels(){
         guard let model = product else { return }
         let viewModel = ProductViewModel(model: model)
-        self.imageViewProduct?.af.setImage(withURL: (model.imageUrl)!)// todo: remove !
+        self.imageViewProduct?.af.setImage(withURL: (model.imageUrl!))
         codeLabel?.text = model.barCode
         productLabel?.text = viewModel.name
         glutenLabel?.text = viewModel.glutenLabel

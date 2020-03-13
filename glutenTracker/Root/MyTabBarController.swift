@@ -12,7 +12,7 @@ class MyTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        barItemAppereance()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -27,3 +27,11 @@ class MyTabBarController: UITabBarController {
         }*/
     }
 }
+
+func barItemAppereance(){
+    UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Copperplate", size: 15)!], for: .normal)
+    UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Copperplate", size: 15)!], for: .selected)
+}
+
+
+

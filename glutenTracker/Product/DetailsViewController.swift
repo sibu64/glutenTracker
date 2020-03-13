@@ -12,11 +12,11 @@ class DetailsViewController: UIViewController {
     // Public
     var product: Product?
     // IBOutlet
-    @IBOutlet weak var codeLabel: UILabel?
-    @IBOutlet weak var productNameLabel: UILabel?
-    @IBOutlet weak var allergensProductNameLabel: UILabel?
-    @IBOutlet weak var backButton: UIButton?
-    @IBOutlet weak var listView: IngredientListView?
+    @IBOutlet weak var codeLabel: UILabel!
+    @IBOutlet weak var productNameLabel: UILabel!
+    @IBOutlet weak var allergensProductNameLabel: UILabel!
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var listView: IngredientListView!
     // ***********************************************
     // MARK: - Implementation
     // ***********************************************
