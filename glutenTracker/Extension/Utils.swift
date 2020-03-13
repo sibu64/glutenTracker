@@ -40,16 +40,12 @@ extension String {
         }
         return array.joined(separator: ",")
     }
-}
 
-extension String {
     public var removeTags: String? {
         let value = self.replacingOccurrences(of: "en:", with: "")
         return value
     }
-}
 
-extension String {
     public var joinedByComma: [String]? {
         let value = self.split(separator: ",")
                         .map { String($0) }

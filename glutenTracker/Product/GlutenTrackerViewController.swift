@@ -12,6 +12,7 @@ class GlutenTrackerViewController: UIViewController {
     // MARK: - Interface
     // ***********************************************
     // IBOutlet
+    // todo: remove ? for the outlets
     @IBOutlet weak var codeLabel: UILabel?
     
     @IBOutlet var favoriteBarButtonItem: UIBarButtonItem?
@@ -24,6 +25,7 @@ class GlutenTrackerViewController: UIViewController {
 
     @IBOutlet weak var loader: UIActivityIndicatorView?
     
+    //todo: remove Product (ProductViewModel instead)
     private var product: Product?
     // ***********************************************
     // MARK: - Implementation
@@ -63,25 +65,26 @@ class GlutenTrackerViewController: UIViewController {
     // MARK: - Private Methods
     // ***********************************************
     private func loadBarCode(with scannedCode: String) {
-        let api = API()
+        let api = APICall()
         self.loader?.startAnimating()
-        api.searchProduct(with: scannedCode, success: { (product) in
+        api.searchProduct(with: scannedCode, success: { [weak self] product in
             dump(product)
+            guard let self = self else { return }
             self.product = product
-            self.ModelingImageAndLabels()
+            self.modelingImageAndLabels()
             self.footerButtonView?.showDetailButton(true)
-            //self.navigationItem.rightBarButtonItem = self.favoriteBarButtonItem
             self.loader?.stopAnimating()
-        }) { (error) in
+        }) { [weak self] error in
             print(error)
-            self.loader?.stopAnimating()
+            self?.loader?.stopAnimating()
         }
     }
     
-    private func ModelingImageAndLabels(){
-        let viewModel = ProductViewModel(model: product!)
-        self.imageViewProduct?.af.setImage(withURL: (viewModel.model.imageUrl)!)
-        codeLabel?.text = viewModel.model.barCode
+    private func modelingImageAndLabels(){
+        guard let model = product else { return }
+        let viewModel = ProductViewModel(model: model)
+        self.imageViewProduct?.af.setImage(withURL: (model.imageUrl)!)// todo: remove !
+        codeLabel?.text = model.barCode
         productLabel?.text = viewModel.name
         glutenLabel?.text = viewModel.glutenLabel
         glutenLabel?.font = UIFont.boldSystemFont(ofSize: 21.0)

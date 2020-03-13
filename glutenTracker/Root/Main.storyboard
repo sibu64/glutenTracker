@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eHk-ci-4u2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eHk-ci-4u2">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -65,17 +65,17 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GR2-Jf-H02" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="333" y="-834"/>
+            <point key="canvasLocation" x="325" y="-964"/>
         </scene>
-        <!--History-->
+        <!--Favorites-->
         <scene sceneID="6AW-lT-BIs">
             <objects>
-                <viewControllerPlaceholder storyboardName="History" id="8oI-nJ-YpV" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="History" id="Rnz-4x-ijl"/>
+                <viewControllerPlaceholder storyboardName="Favorites" id="8oI-nJ-YpV" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Favorites" id="Rnz-4x-ijl"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hlP-W5-lHe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="325" y="-1017"/>
+            <point key="canvasLocation" x="336" y="-1011"/>
         </scene>
     </scenes>
 </document>

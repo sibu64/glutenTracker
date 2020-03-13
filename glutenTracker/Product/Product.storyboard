@@ -7,14 +7,13 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Scan-->
+        <!--Product-->
         <scene sceneID="eK5-Ud-HNs">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tTK-Ia-sE0" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Scan" id="GKF-It-wyB">
-                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="Product" id="yeG-ly-LiH"/>
                     <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="OUa-2y-cim">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -67,11 +66,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V4J-gz-Re4">
-                                <rect key="frame" x="40" y="292" width="334" height="464"/>
+                                <rect key="frame" x="40" y="292" width="334" height="415"/>
                                 <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="7gI-Qg-gLw" customClass="FooterButtonView" customModule="glutenTracker" customModuleProvider="target">
-                                <rect key="frame" x="16" y="786" width="382" height="60"/>
+                                <rect key="frame" x="16" y="737" width="382" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A8o-kA-ebQ">
                                         <rect key="frame" x="0.0" y="0.0" width="186" height="60"/>
@@ -209,7 +208,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="T4E-N8-hev" customClass="IngredientListView" customModule="glutenTracker" customModuleProvider="target">
-                                <rect key="frame" x="16" y="273" width="382" height="579"/>
+                                <rect key="frame" x="16" y="273" width="382" height="530"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ingredientsCell" id="tyd-Og-d4I" customClass="IngredientCell" customModule="glutenTracker" customModuleProvider="target">
