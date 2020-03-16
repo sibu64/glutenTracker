@@ -42,7 +42,7 @@ class GlutenTrackerViewController: UIViewController {
         
         footerButtonView?.showDetailButton(false)
         
-        loadBarCode(with: "3017620422003")
+        loadBarCode(with: "3248830690863")
     }
     
     // ***********************************************
@@ -100,7 +100,7 @@ class GlutenTrackerViewController: UIViewController {
     
     @IBAction func actionFavorite(_ sender: UIBarButtonItem) {
         guard let value = self.product else { return }
-        SaveRecord.default.run(with: value) { result in
+        SaveRecordLogic.default.run(with: value) { result in
             switch result {
             case .success(_):
                 print("Success")

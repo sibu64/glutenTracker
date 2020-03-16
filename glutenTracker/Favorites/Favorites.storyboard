@@ -3,46 +3,11 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Favorites-->
-        <scene sceneID="rdI-wQ-qvr">
-            <objects>
-                <collectionViewController storyboardIdentifier="vc2" id="0Kj-qf-GhT" customClass="FavoritesViewController" customModule="glutenTracker" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="bfd-Vh-tcz">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FEC-eF-RJn">
-                            <size key="itemSize" width="50" height="50"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FavoritesViewCell" id="63m-s1-Sc4">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="2rs-3i-Zbw">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </collectionViewCellContentView>
-                            </collectionViewCell>
-                        </cells>
-                        <connections>
-                            <outlet property="dataSource" destination="0Kj-qf-GhT" id="wxV-cR-uU1"/>
-                            <outlet property="delegate" destination="0Kj-qf-GhT" id="SuN-Tg-j04"/>
-                        </connections>
-                    </collectionView>
-                    <navigationItem key="navigationItem" title="Favorites" id="kQN-FE-UAJ"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="maO-oT-DUc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2480" y="209"/>
-        </scene>
         <!--Favorites-->
         <scene sceneID="nMs-dc-v96">
             <objects>
@@ -59,12 +24,56 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="0Kj-qf-GhT" kind="relationship" relationship="rootViewController" destinationCreationSelector="FavoritesSegue" id="3rV-EH-Y5f"/>
+                        <segue destination="d0R-dC-vDN" kind="relationship" relationship="rootViewController" id="gXe-cZ-xTo"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QR5-1l-aeM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1481" y="209"/>
+        </scene>
+        <!--Favorites-->
+        <scene sceneID="ouW-Tb-oM2">
+            <objects>
+                <viewController id="d0R-dC-vDN" customClass="FavoritesViewController" customModule="glutenTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Jbz-R1-sxb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="L7h-L6-B4J">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vPH-Yw-h45">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="7w9-25-trF">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="gzy-yR-Bsa">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="L7h-L6-B4J" firstAttribute="trailing" secondItem="PbT-cB-eLc" secondAttribute="trailing" id="1RD-lS-Q4I"/>
+                            <constraint firstItem="L7h-L6-B4J" firstAttribute="leading" secondItem="PbT-cB-eLc" secondAttribute="leading" id="3lW-ya-Mx0"/>
+                            <constraint firstAttribute="bottom" secondItem="L7h-L6-B4J" secondAttribute="bottom" id="Uct-0e-7sL"/>
+                            <constraint firstItem="L7h-L6-B4J" firstAttribute="top" secondItem="Jbz-R1-sxb" secondAttribute="top" id="gBf-gQ-13i"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="PbT-cB-eLc"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Favorites" id="lIS-jz-WIk"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bcI-1h-qAQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2382.608695652174" y="208.92857142857142"/>
         </scene>
     </scenes>
 </document>

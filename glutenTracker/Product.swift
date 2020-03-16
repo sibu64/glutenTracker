@@ -27,21 +27,21 @@ class ProductViewModel {
     }
 }
 
-struct Product: Equatable {
-    let objectId: String?
-    let name: String?
-    let ingredients: [String]?
-    let allergens: String?
-    let barCode: String?
-    let imageUrlString: String?
-    let allergensTags: [String]?
-    var isGlutenFree: Bool? {
+public struct Product: Equatable {
+    public let objectId: String?
+    public let name: String?
+    public let ingredients: [String]?
+    public let allergens: String?
+    public let barCode: String?
+    public let imageUrlString: String?
+    public let allergensTags: [String]?
+    public var isGlutenFree: Bool? {
         guard let value = allergensTags?.contains("en:gluten") else {
             return nil
         }
         return !value
     }
-    var imageUrl: URL? {
+    public var imageUrl: URL? {
         if let string = imageUrlString {
             return URL(string: string)!
         }
