@@ -11,7 +11,6 @@ import AudioToolbox
 
 extension UIViewController {
     func playSound(sound: String) {
-        //Bip sonore lorsque la capture scan est réalisée
         if let customSoundUrl = Bundle.main.url(forResource: sound, withExtension: "mp3") {
             var customSoundId: SystemSoundID = 0
             AudioServicesCreateSystemSoundID(customSoundUrl as CFURL, &customSoundId)

@@ -13,6 +13,7 @@ target 'glutenTracker' do
   pod 'FacebookShare','~> 0.9.0'
   pod 'Alamofire','>= 5.0.1'
   pod 'AlamofireImage', '~> 4.0'
+  pod 'Kingfisher', '~> 5.13.2'
   target 'glutenTrackerTests' do
     inherit! :search_paths
     # Pods for testing

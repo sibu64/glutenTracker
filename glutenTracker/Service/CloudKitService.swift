@@ -11,6 +11,7 @@ import CloudKit
 
 class CloudKitService {
     private(set) var database: CKDatabase?
+    var recordIDs = [CKRecord.ID]()
     
     init(database: CKDatabase? = CKContainer.default().privateCloudDatabase) {
         self.database = database
@@ -29,4 +30,22 @@ class CloudKitService {
         
         database?.perform(query, inZoneWith: nil, completionHandler: completion)
     }
+    
+    func delete(_ record: CKRecord, completion: @escaping ((CKRecord?, Error?) ->Void)) {
+        let recordID = recordIDs.first!
+       database?.delete(withRecordID: recordID) { (deletedRecordID, error) in
+                
+                if error == nil {
+                    
+                    print("Record Deleted")
+                    
+                } else {
+                    
+                    print("Record Not Deleted")
+                    
+                }
+                
+            }
+            
+        }
 }

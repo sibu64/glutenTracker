@@ -15,7 +15,6 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var codeLabel: UILabel!
     @IBOutlet weak var productNameLabel: UILabel!
     @IBOutlet weak var allergensProductNameLabel: UILabel!
-    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var listView: IngredientListView!
     // ***********************************************
     // MARK: - Implementation

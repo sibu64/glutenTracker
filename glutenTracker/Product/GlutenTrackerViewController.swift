@@ -14,8 +14,8 @@ class GlutenTrackerViewController: UIViewController {
     // IBOutlet
     // todo: remove ? for the outlets
     @IBOutlet weak var codeLabel: UILabel!
-    
     @IBOutlet var favoriteBarButtonItem: UIBarButtonItem!
+    @IBOutlet weak var removeFavoriteBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var productLabel: UILabel!
     @IBOutlet weak var glutenLabel: UILabel!
     @IBOutlet weak var scanButton: UIButton!
@@ -42,7 +42,9 @@ class GlutenTrackerViewController: UIViewController {
         
         footerButtonView?.showDetailButton(false)
         
-        loadBarCode(with: "3248830690863")
+       // loadBarCode(with: "3248830690863")
+        removeFavoriteBarButtonItem.isEnabled = false
+        removeFavoriteBarButtonItem.tintColor = UIColor.clear
     }
     
     // ***********************************************
@@ -103,11 +105,22 @@ class GlutenTrackerViewController: UIViewController {
         SaveRecordLogic.default.run(with: value) { result in
             switch result {
             case .success(_):
+                self.removeFavoriteBarButtonItem.isEnabled = true
+                self.removeFavoriteBarButtonItem.tintColor = UIColor.systemYellow
+                self.favoriteBarButtonItem.isEnabled = false
+                self.favoriteBarButtonItem.tintColor = UIColor.clear
                 print("Success")
             case .failure(let error):
                 print("Error: \(error)")
             }
         }
     }
+    
+    
+    @IBAction func removeToFavorites(_ sender: Any) {
+        delete(removeFavoriteBarButtonItem)
+        
+    }
+    
     
 }

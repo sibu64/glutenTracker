@@ -26,6 +26,9 @@ PODS:
     - FBSDKShareKit/Share (= 5.15.1)
   - FBSDKShareKit/Share (5.15.1):
     - FBSDKCoreKit (~> 5.0)
+  - Kingfisher (5.13.2):
+    - Kingfisher/Core (= 5.13.2)
+  - Kingfisher/Core (5.13.2)
   - SwiftKeychainWrapper (3.4.0)
 
 DEPENDENCIES:
@@ -35,6 +38,7 @@ DEPENDENCIES:
   - FacebookLogin (~> 0.9.0)
   - FacebookShare (~> 0.9.0)
   - FBSDKLoginKit (~> 5.15.1)
+  - Kingfisher (~> 5.13.2)
   - SwiftKeychainWrapper (~> 3.4.0)
 
 SPEC REPOS:
@@ -47,6 +51,7 @@ SPEC REPOS:
     - FBSDKCoreKit
     - FBSDKLoginKit
     - FBSDKShareKit
+    - Kingfisher
     - SwiftKeychainWrapper
 
 SPEC CHECKSUMS:
@@ -58,8 +63,9 @@ SPEC CHECKSUMS:
   FBSDKCoreKit: 1d5acf7c9d7a2f92bb1a242dc60cae5b7adb91df
   FBSDKLoginKit: f1ea8026a58b52d30c9f2e6a58ca7d813619fb83
   FBSDKShareKit: 259737eab3cc807087374553abdf588b3096ba55
+  Kingfisher: d342c8354c10c3d85a27d6d4c42c41285924b898
   SwiftKeychainWrapper: 6fc49fbf7d4a6b0772917acb0e53a1639f6078d6
 
-PODFILE CHECKSUM: dfeec8b2aa9ded231f28df1783bfd2481bf663f5
+PODFILE CHECKSUM: e7277ce72846db0efde173967b511117ab045544
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.9.1

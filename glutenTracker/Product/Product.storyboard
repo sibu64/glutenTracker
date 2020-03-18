@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tTK-Ia-sE0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tTK-Ia-sE0">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -156,12 +156,20 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="KkZ-E3-D4J">
                             <color key="tintColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Add to favorites" id="Uu0-fg-tVk">
-                            <color key="tintColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <connections>
-                                <action selector="actionFavorite:" destination="B5R-d4-joy" id="RN4-5c-dDE"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Add to Favorites" id="Uu0-fg-tVk">
+                                <color key="tintColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="actionFavorite:" destination="B5R-d4-joy" id="RN4-5c-dDE"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Remove from Favorites" id="bin-8H-Mr6">
+                                <color key="tintColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="removeToFavorites:" destination="B5R-d4-joy" id="Q0q-03-HrX"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="codeLabel" destination="9vL-9R-dEZ" id="Js4-ZA-vy5"/>
@@ -172,6 +180,7 @@
                         <outlet property="imageViewProduct" destination="V4J-gz-Re4" id="5Hc-E0-OxL"/>
                         <outlet property="loader" destination="lIg-p8-qk0" id="Fi5-wL-WQe"/>
                         <outlet property="productLabel" destination="uth-n2-vTC" id="cFM-Fw-Gne"/>
+                        <outlet property="removeFavoriteBarButtonItem" destination="bin-8H-Mr6" id="Tmp-ol-Wtc"/>
                         <outlet property="scanButton" destination="A8o-kA-ebQ" id="KZh-BB-Pac"/>
                         <segue destination="Efr-sz-CEV" kind="show" identifier="segueToDetails" id="WRN-Nb-lG2"/>
                     </connections>
@@ -183,7 +192,7 @@
         <!--Product Details-->
         <scene sceneID="dMe-cS-TqW">
             <objects>
-                <viewController id="Efr-sz-CEV" customClass="DetailsViewController" customModule="glutenTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailsProductViewController" id="Efr-sz-CEV" customClass="DetailsViewController" customModule="glutenTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iEI-gz-vp0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
