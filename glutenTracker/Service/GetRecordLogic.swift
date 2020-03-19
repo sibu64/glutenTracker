@@ -32,3 +32,9 @@ class GetRecordLogic {
 
 typealias GTResultProductHandler = (Result<Product, Error>) ->Void
 
+extension GetRecordLogic {
+    public static var `default`: GetRecordLogic = {
+        let service = CloudKitService()
+        return GetRecordLogic(service: service)
+    }()
+}

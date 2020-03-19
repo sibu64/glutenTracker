@@ -26,6 +26,17 @@ class GlutenTrackerViewController: UIViewController {
 
     @IBOutlet weak var loader: UIActivityIndicatorView!
     
+    private(set) var database: CKDatabase?
+       
+       init(database: CKDatabase? = CKContainer.default().privateCloudDatabase) {
+        super.init(nibName: nil, bundle: nil)
+        self.database = database
+       }
+    
+    required init?(coder aDecoder: NSCoder) {
+       super.init(coder: aDecoder)
+    }
+    
     //todo: remove Product (ProductViewModel instead)
     private var product: Product?
     // ***********************************************
@@ -43,10 +54,7 @@ class GlutenTrackerViewController: UIViewController {
         
         footerButtonView?.showDetailButton(false)
         
-        loadBarCode(with: "3166350001450")
-        removeFavoriteBarButtonItem.isEnabled = false
-        removeFavoriteBarButtonItem.tintColor = UIColor.clear
-        removeFavoriteBarButtonItem.isAccessibilityElement = false
+        //loadBarCode(with: "3166350001450")
     }
     
     // ***********************************************
@@ -93,6 +101,38 @@ class GlutenTrackerViewController: UIViewController {
         glutenLabel?.text = viewModel.glutenLabel
         glutenLabel?.font = UIFont.boldSystemFont(ofSize: 21.0)
     }
+    
+    private func doesRecordExist(with model: Product) -> Product{
+        GetRecordLogic.default.run(with: model){ result in
+            switch result {
+            case .failure(let err):
+                self.failure(error: err)
+            case .success(_):
+                print("product found")
+            }
+        }
+        return model
+    }
+    
+    private func failure(error: Error) {
+        print(error)
+    }
+    
+    private func success(_ model: Product) ->Product {
+        return model
+    }
+    
+    func presentAlertForCheckingExistingProduct() {
+        let alert = UIAlertController(title: "Ooops!", message: "You already have this product in your favorites", preferredStyle: .alert)
+
+        let checkingFavoriteAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+
+        alert.addAction(checkingFavoriteAction)
+
+        present(alert, animated: true)
+    }
+
+
     // ***********************************************
     // MARK: - Actions
     // ***********************************************
@@ -103,27 +143,18 @@ class GlutenTrackerViewController: UIViewController {
     }
     
     @IBAction func actionFavorite(_ sender: UIBarButtonItem) {
-        guard let value = self.product else { return }
-        SaveRecordLogic.default.run(with: value) { result in
-            switch result {
-            case .success(_):
-                self.removeFavoriteBarButtonItem.isEnabled = true
-                self.removeFavoriteBarButtonItem.tintColor = UIColor.systemYellow
-                self.favoriteBarButtonItem.isEnabled = false
-                self.favoriteBarButtonItem.isAccessibilityElement = false
-                self.favoriteBarButtonItem.tintColor = UIColor.clear
-                print("Success")
-            case .failure(let error):
-                print("Error: \(error)")
-            }
-        }
+        let value = self.product
+        if  value == self.doesRecordExist(with: product!) {
+        presentAlertForCheckingExistingProduct()
+        } else {
+        SaveRecordLogic.default.run(with: value!) { result in
+                   switch result {
+                   case .success(_):
+                       print("Success")
+                   case .failure(let error):
+                       print("Error: \(error)")
+                   }
     }
-    
-    
-    @IBAction func removeToFavorites(_ sender: UIBarButtonItem) {
-        delete(removeFavoriteBarButtonItem)
-        
-    }
-    
-    
+}
+}
 }

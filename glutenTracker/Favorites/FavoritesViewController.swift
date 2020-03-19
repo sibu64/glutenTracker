@@ -28,7 +28,8 @@ class FavoritesViewController: UIViewController {
                 sender: model
             )
         }).didDelete({ model in
-            self.delete(with: model)
+           // self.delete(with: model)
+            self.presentAlertForDeleting(with: model)
         })
         
         load()
@@ -47,6 +48,17 @@ class FavoritesViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    func presentAlertForDeleting(with model: Product) {
+        let alert = UIAlertController(title: "Warning!", message: "Do you really want to delete this favorite?", preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "Yes", style: .cancel, handler: {(action: UIAlertAction!) in DeleteRecordLogic.default.run(model, completion: nil)})
+        
+        alert.addAction(okAction)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+
+        present(alert, animated: true)
     }
     
     private func delete(with model: Product) {
@@ -79,5 +91,3 @@ class FavoritesViewController: UIViewController {
         }
     }
 }
-
-            
