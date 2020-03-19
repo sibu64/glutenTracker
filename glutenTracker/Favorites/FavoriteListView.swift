@@ -14,6 +14,7 @@ class FavoriteListView: UICollectionView {
     // ***********************************************
     private var collection = [Product]()
     private var didSelect: ((Product)->Void)?
+    private var didDelete: ((Product)->Void)?
     // ***********************************************
     // MARK: - Implementation
     // ***********************************************
@@ -38,6 +39,12 @@ class FavoriteListView: UICollectionView {
         self.didSelect = completion
         return self
     }
+    
+    @discardableResult
+    func didDelete(_ completion: ((Product)->Void)?) ->Self {
+        self.didDelete = completion
+        return self
+    }
 }
 
 extension FavoriteListView: UICollectionViewDataSource {
@@ -48,7 +55,7 @@ extension FavoriteListView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = self.dequeueReusableCell(withReuseIdentifier: "FavoriteCell", for: indexPath) as! FavoriteCell
         let model = self.collection[indexPath.row]
-        cell.set(model)
+        cell.set(model).didDelete(self.didDelete)
         return cell
     }
 }

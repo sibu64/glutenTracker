@@ -31,21 +31,15 @@ class CloudKitService {
         database?.perform(query, inZoneWith: nil, completionHandler: completion)
     }
     
-    func delete(_ record: CKRecord, completion: @escaping ((CKRecord?, Error?) ->Void)) {
-        let recordID = recordIDs.first!
-       database?.delete(withRecordID: recordID) { (deletedRecordID, error) in
-                
-                if error == nil {
-                    
-                    print("Record Deleted")
-                    
-                } else {
-                    
-                    print("Record Not Deleted")
-                    
-                }
-                
-            }
-            
-        }
+    func get(by objectId: String, completion: @escaping (([CKRecord]?, Error?) ->Void)) {
+        let predicate = NSPredicate(format: "objectId = %@", objectId)
+        let query = CKQuery(recordType: "Product", predicate: predicate)
+        
+        database?.perform(query, inZoneWith: nil, completionHandler: completion)
+    }
+    
+    func delete(record: CKRecord, completion: @escaping ((CKRecord.ID?, Error?) ->Void)) {
+        print("🦄 \(record.recordID)")
+        database?.delete(withRecordID: record.recordID, completionHandler: completion)
+    }
 }

@@ -27,13 +27,15 @@ class FavoritesViewController: UIViewController {
                 withIdentifier: "ProductSegue",
                 sender: model
             )
+        }).didDelete({ model in
+            self.delete(with: model)
         })
         
         load()
     }
     
     private func load() {
-        FetchRecordLogic.default.run { result in
+        FetchRecordsLogic.default.run { result in
             switch result {
             case .failure(let err):
                 OperationQueue.main.addOperation {
@@ -43,6 +45,17 @@ class FavoritesViewController: UIViewController {
                 OperationQueue.main.addOperation {
                     self.success(models)
                 }
+            }
+        }
+    }
+    
+    private func delete(with model: Product) {
+        DeleteRecordLogic.default.run(model) { result in
+            switch result {
+            case .success(_):
+                print("🔥 SUCCESS")
+            case .failure(let error):
+                print("ERROR: \(error)")
             }
         }
     }

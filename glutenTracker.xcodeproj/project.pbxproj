@@ -26,6 +26,7 @@
 		6992D04C241F63DC001869F7 /* Fake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE8B5CC241A3D6C007C3F44 /* Fake.swift */; };
 		69AC848F240F94E000ECFBB7 /* FooterButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AC848E240F94E000ECFBB7 /* FooterButtonView.swift */; };
 		6E1772E2240E852100E2D944 /* beep-07.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6E1772E1240E852100E2D944 /* beep-07.mp3 */; };
+		6E226FDC24236DB2000E6E4F /* GetRecordLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E226FDB24236DB2000E6E4F /* GetRecordLogic.swift */; };
 		6E54720B23F5787C00BE7C35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E54720A23F5787C00BE7C35 /* AppDelegate.swift */; };
 		6E54720D23F5787C00BE7C35 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E54720C23F5787C00BE7C35 /* SceneDelegate.swift */; };
 		6E54721523F5787C00BE7C35 /* glutenTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6E54721323F5787C00BE7C35 /* glutenTracker.xcdatamodeld */; };
@@ -44,7 +45,7 @@
 		6ED0F2D123FEE663000A7BD3 /* FBLoginManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED0F2D023FEE663000A7BD3 /* FBLoginManagerViewController.swift */; };
 		6ED8886B24041DDD00DDF760 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6ED8886A24041DDD00DDF760 /* Launch Screen.storyboard */; };
 		6EDC0B872403DF25009449B8 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDC0B862403DF25009449B8 /* ProfileViewController.swift */; };
-		6EDC2BF7241FA50E00FD1920 /* FetchRecordLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDC2BF3241FA50D00FD1920 /* FetchRecordLogic.swift */; };
+		6EDC2BF7241FA50E00FD1920 /* FetchRecordsLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDC2BF3241FA50D00FD1920 /* FetchRecordsLogic.swift */; };
 		6EDC2BF8241FA50E00FD1920 /* SaveRecordLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDC2BF4241FA50E00FD1920 /* SaveRecordLogic.swift */; };
 		6EDC2BF9241FA50E00FD1920 /* CloudKitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDC2BF5241FA50E00FD1920 /* CloudKitService.swift */; };
 		6EDC2BFA241FA50E00FD1920 /* Product+CKRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDC2BF6241FA50E00FD1920 /* Product+CKRecord.swift */; };
@@ -89,6 +90,7 @@
 		6E093BAF2405692A00E18364 /* Credential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credential.swift; sourceTree = "<group>"; };
 		6E093BB324056B4C00E18364 /* MyTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabBarController.swift; sourceTree = "<group>"; };
 		6E1772E1240E852100E2D944 /* beep-07.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "beep-07.mp3"; sourceTree = "<group>"; };
+		6E226FDB24236DB2000E6E4F /* GetRecordLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRecordLogic.swift; sourceTree = "<group>"; };
 		6E54720723F5787C00BE7C35 /* glutenTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = glutenTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E54720A23F5787C00BE7C35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6E54720C23F5787C00BE7C35 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,7 +114,7 @@
 		6ED0F2D023FEE663000A7BD3 /* FBLoginManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBLoginManagerViewController.swift; sourceTree = "<group>"; };
 		6ED8886A24041DDD00DDF760 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		6EDC0B862403DF25009449B8 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		6EDC2BF3241FA50D00FD1920 /* FetchRecordLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchRecordLogic.swift; sourceTree = "<group>"; };
+		6EDC2BF3241FA50D00FD1920 /* FetchRecordsLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchRecordsLogic.swift; sourceTree = "<group>"; };
 		6EDC2BF4241FA50E00FD1920 /* SaveRecordLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveRecordLogic.swift; sourceTree = "<group>"; };
 		6EDC2BF5241FA50E00FD1920 /* CloudKitService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitService.swift; sourceTree = "<group>"; };
 		6EDC2BF6241FA50E00FD1920 /* Product+CKRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Product+CKRecord.swift"; sourceTree = "<group>"; };
@@ -222,8 +224,9 @@
 				6EDC2BF5241FA50E00FD1920 /* CloudKitService.swift */,
 				6EDC2BF4241FA50E00FD1920 /* SaveRecordLogic.swift */,
 				6EDC2BF6241FA50E00FD1920 /* Product+CKRecord.swift */,
-				6EDC2BF3241FA50D00FD1920 /* FetchRecordLogic.swift */,
+				6EDC2BF3241FA50D00FD1920 /* FetchRecordsLogic.swift */,
 				6EFFB3E724212604002EBDFC /* DeleteRecordLogic.swift */,
+				6E226FDB24236DB2000E6E4F /* GetRecordLogic.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -519,8 +522,9 @@
 				691310FD2407A583009D5ACB /* SignInWithApple.swift in Sources */,
 				691310FC2407A57B009D5ACB /* Credential.swift in Sources */,
 				691310F82407A3FF009D5ACB /* IngredientCell.swift in Sources */,
+				6E226FDC24236DB2000E6E4F /* GetRecordLogic.swift in Sources */,
 				6EFFB3E824212604002EBDFC /* DeleteRecordLogic.swift in Sources */,
-				6EDC2BF7241FA50E00FD1920 /* FetchRecordLogic.swift in Sources */,
+				6EDC2BF7241FA50E00FD1920 /* FetchRecordsLogic.swift in Sources */,
 				6EDC0B872403DF25009449B8 /* ProfileViewController.swift in Sources */,
 				6EC9090C241B7E7F001CCA48 /* APICall.swift in Sources */,
 				6E54720B23F5787C00BE7C35 /* AppDelegate.swift in Sources */,

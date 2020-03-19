@@ -10,34 +10,25 @@ import Foundation
 import CloudKit
 
 class DeleteRecordLogic {
-    
-var recordIDs = [CKRecord.ID]()
+    private(set) var service: CloudKitService?
 
-let service: CloudKitService?
+    init(service: CloudKitService? = nil) {
+        self.service = service
+    }
 
-init(service: CloudKitService? = nil) {
-    self.service = service
+    func run(_ model: Product, completion: GTResultVoidHandler?) {
+        self.service?.get(by: model.objectId!, completion: { records, error in
+            guard let record = records?.first else { return }
+            self.service?.delete(record: record, completion: { recordId, error in
+                guard let err = error else {
+                    completion?(.success(()))
+                    return
+                }
+                completion?(.failure(err))
+            })
+        })
+    }
 }
-
-    func delete(_ record: CKRecord, completion: @escaping ((CKRecord.ID?, Error?) ->Void)) {
-        _ = recordIDs.first!
-    service?.delete(record) { (deletedRecordID, error) in
-               
-               if error == nil {
-                   
-                   print("Record Deleted")
-                   
-               } else {
-                   
-                   print("Record Not Deleted")
-                   
-               }
-               
-           }
-           
-       }
-}
-//public typealias GTResultVoidHandler = (Result<Void, Error>) ->Void
 
 extension DeleteRecordLogic {
     public static var `default`: DeleteRecordLogic = {

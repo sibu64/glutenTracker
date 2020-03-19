@@ -6,6 +6,7 @@
 import UIKit
 import AlamofireImage
 import Alamofire
+import CloudKit
 
 class GlutenTrackerViewController: UIViewController {
     // ***********************************************
@@ -42,9 +43,10 @@ class GlutenTrackerViewController: UIViewController {
         
         footerButtonView?.showDetailButton(false)
         
-       // loadBarCode(with: "3248830690863")
+        loadBarCode(with: "3166350001450")
         removeFavoriteBarButtonItem.isEnabled = false
         removeFavoriteBarButtonItem.tintColor = UIColor.clear
+        removeFavoriteBarButtonItem.isAccessibilityElement = false
     }
     
     // ***********************************************
@@ -108,6 +110,7 @@ class GlutenTrackerViewController: UIViewController {
                 self.removeFavoriteBarButtonItem.isEnabled = true
                 self.removeFavoriteBarButtonItem.tintColor = UIColor.systemYellow
                 self.favoriteBarButtonItem.isEnabled = false
+                self.favoriteBarButtonItem.isAccessibilityElement = false
                 self.favoriteBarButtonItem.tintColor = UIColor.clear
                 print("Success")
             case .failure(let error):
@@ -117,7 +120,7 @@ class GlutenTrackerViewController: UIViewController {
     }
     
     
-    @IBAction func removeToFavorites(_ sender: Any) {
+    @IBAction func removeToFavorites(_ sender: UIBarButtonItem) {
         delete(removeFavoriteBarButtonItem)
         
     }

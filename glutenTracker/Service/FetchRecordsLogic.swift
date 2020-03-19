@@ -9,7 +9,7 @@
 import Foundation
 import CloudKit
 
-class FetchRecordLogic {
+class FetchRecordsLogic {
     let service: CloudKitService?
     
     init(service: CloudKitService? = nil) {
@@ -30,9 +30,9 @@ class FetchRecordLogic {
 
 public typealias GTResultProductsHandler = (Result<[Product], Error>) ->Void
 
-extension FetchRecordLogic {
-    public static var `default`: FetchRecordLogic = {
+extension FetchRecordsLogic {
+    public static var `default`: FetchRecordsLogic = {
         let service = CloudKitService()
-        return FetchRecordLogic(service: service)
+        return FetchRecordsLogic(service: service)
     }()
 }
