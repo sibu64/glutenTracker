@@ -28,6 +28,24 @@ class GetRecordLogic {
             completion?(.failure(err))
         })
     }
+    
+    
+    public func runBool(with model: Product, completion: GTResultProductHandler?) ->Bool {
+        guard let value = model.objectId else { fatalError("Unknown ObjectId") }
+        self.service?.get(by: value, completion: { records, error in
+            guard let err = error else {
+                guard let record = records?.first,
+                    let product = Product(with: record)
+                    else { return }
+                completion?(.success(product))
+                return
+            }
+            completion?(.failure(err))
+        })
+        return true
+    }
+
+    
 }
 
 typealias GTResultProductHandler = (Result<Product, Error>) ->Void

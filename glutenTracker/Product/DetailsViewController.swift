@@ -21,6 +21,7 @@ class DetailsViewController: UIViewController {
     // ***********************************************
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.tintColor = UIColor.systemYellow
 
         codeLabel?.text = product?.barCode
         productNameLabel?.text = product?.name

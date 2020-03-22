@@ -16,7 +16,6 @@ class GlutenTrackerViewController: UIViewController {
     // todo: remove ? for the outlets
     @IBOutlet weak var codeLabel: UILabel!
     @IBOutlet var favoriteBarButtonItem: UIBarButtonItem!
-    @IBOutlet weak var removeFavoriteBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var productLabel: UILabel!
     @IBOutlet weak var glutenLabel: UILabel!
     @IBOutlet weak var scanButton: UIButton!
@@ -39,6 +38,7 @@ class GlutenTrackerViewController: UIViewController {
     
     //todo: remove Product (ProductViewModel instead)
     private var product: Product?
+    var cloudKitService: CloudKitService?
     // ***********************************************
     // MARK: - Implementation
     // ***********************************************
@@ -102,25 +102,25 @@ class GlutenTrackerViewController: UIViewController {
         glutenLabel?.font = UIFont.boldSystemFont(ofSize: 21.0)
     }
     
-    private func doesRecordExist(with model: Product) -> Product{
-        GetRecordLogic.default.run(with: model){ result in
-            switch result {
-            case .failure(let err):
-                self.failure(error: err)
-            case .success(_):
-                print("product found")
-            }
-        }
-        return model
-    }
-    
-    private func failure(error: Error) {
-        print(error)
-    }
-    
-    private func success(_ model: Product) ->Product {
-        return model
-    }
+//    private func doesRecordExist(with model: Product) -> Product{
+//        GetRecordLogic.default.run(with: model){ result in
+//            switch result {
+//            case .failure(let err):
+//                self.failure(error: err)
+//            case .success(_):
+//                print("product found")
+//            }
+//        }
+//        return model
+//    }
+//
+//    private func failure(error: Error) {
+//        print(error)
+//    }
+//
+//    private func success(_ model: Product) ->Product {
+//        return model
+//    }
     
     func presentAlertForCheckingExistingProduct() {
         let alert = UIAlertController(title: "Ooops!", message: "You already have this product in your favorites", preferredStyle: .alert)
@@ -131,8 +131,17 @@ class GlutenTrackerViewController: UIViewController {
 
         present(alert, animated: true)
     }
+    
+    func presentAlertForNonExistingProduct() {
+        let alert = UIAlertController(title: "Sorry", message: "The product was not found. Scan the bar code of the disired product", preferredStyle: .alert)
 
+        let checkingProductAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
 
+        alert.addAction(checkingProductAction)
+
+        present(alert, animated: true)
+    }
+    
     // ***********************************************
     // MARK: - Actions
     // ***********************************************
@@ -143,18 +152,29 @@ class GlutenTrackerViewController: UIViewController {
     }
     
     @IBAction func actionFavorite(_ sender: UIBarButtonItem) {
-        let value = self.product
-        if  value == self.doesRecordExist(with: product!) {
-        presentAlertForCheckingExistingProduct()
-        } else {
-        SaveRecordLogic.default.run(with: value!) { result in
+        if GetRecordLogic.default.runBool(with: product!, completion: { result in
+                    switch result {
+                        case .success(_):
+                            self.presentAlertForCheckingExistingProduct()
+                            print("Existing product alert success")
+                        case .failure(let error):
+                            print("Error: \(error)")
+                        }
+                }){
+            }
+        if product != nil {
+        SaveRecordLogic.default.run(with: product!) { result in
                    switch result {
                    case .success(_):
-                       print("Success")
+                       print("Saved Success")
                    case .failure(let error):
                        print("Error: \(error)")
                    }
     }
 }
+        else if product == nil {
+           presentAlertForNonExistingProduct()
+        }
 }
+
 }

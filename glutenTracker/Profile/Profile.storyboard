@@ -23,7 +23,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="QFV-Sv-gAn" firstAttribute="top" secondItem="hvr-1E-bHq" secondAttribute="top" constant="339" id="3Ph-gi-uiI"/>
                             <constraint firstItem="QFV-Sv-gAn" firstAttribute="leading" secondItem="hvr-1E-bHq" secondAttribute="leading" constant="117" id="JQ8-lI-G7i"/>
@@ -50,6 +50,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="largeTitleTextAttributes">
                             <fontDescription key="fontDescription" name="Copperplate-Bold" family="Copperplate" pointSize="35"/>
+                            <color key="textColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>

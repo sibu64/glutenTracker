@@ -27,6 +27,7 @@
                         </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
+                        <outlet property="popUpOn" destination="YWU-hU-JGf" id="vD1-uJ-dAq"/>
                         <segue destination="vCA-dc-EFy" kind="presentation" identifier="AuthenticationSegue" modalTransitionStyle="crossDissolve" id="zZp-jR-2Fw"/>
                         <segue destination="SaJ-oq-dCZ" kind="relationship" relationship="viewControllers" id="VpO-Ie-zSD"/>
                         <segue destination="8oI-nJ-YpV" kind="relationship" relationship="viewControllers" id="4wh-Qp-HJA"/>

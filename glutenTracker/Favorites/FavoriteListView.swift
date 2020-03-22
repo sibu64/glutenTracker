@@ -23,8 +23,8 @@ class FavoriteListView: UICollectionView {
         self.delegate = self
         self.dataSource = self
         
-        let nib = UINib(nibName: "FavoriteCell", bundle: Bundle.main)
-        self.register(nib, forCellWithReuseIdentifier: "FavoriteCell")
+        let nib = UINib(nibName: Identifier.favoriteCellIdentifier, bundle: Bundle.main)
+        self.register(nib, forCellWithReuseIdentifier: Identifier.favoriteCellIdentifier)
     }
     
     @discardableResult
@@ -53,7 +53,7 @@ extension FavoriteListView: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = self.dequeueReusableCell(withReuseIdentifier: "FavoriteCell", for: indexPath) as! FavoriteCell
+        let cell = self.dequeueReusableCell(withReuseIdentifier: Identifier.favoriteCellIdentifier, for: indexPath) as! FavoriteCell
         let model = self.collection[indexPath.row]
         cell.set(model).didDelete(self.didDelete)
         return cell

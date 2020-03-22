@@ -9,22 +9,25 @@
 import UIKit
 import CloudKit
 
-class FavoritesViewController: UIViewController {
+ class FavoritesViewController: UIViewController {
     
     // ***********************************************
     // MARK: - Interface
     // ***********************************************
-    @IBOutlet weak var listView: FavoriteListView?
+    @IBOutlet weak var listView: FavoriteListView!
+    @IBOutlet weak var buttonDeleteFavorites: UIBarButtonItem!
     // ***********************************************
     // MARK: - Implementation
     // ***********************************************
     //var models: [Product]!
+    var cloudKitService: CloudKitService?
+    var Ids: [CKRecord.ID]!
      override func viewDidLoad() {
         super.viewDidLoad()
         
         self.listView?.didSelect({ model in
             self.performSegue(
-                withIdentifier: "ProductSegue",
+                withIdentifier: Segue.productSegue,
                 sender: model
             )
         }).didDelete({ model in
@@ -49,6 +52,15 @@ class FavoritesViewController: UIViewController {
             }
         }
     }
+
+    @IBAction func deleteAllFavorites(_ sender: Any) {
+        let onComplete: (() -> ())? = nil
+        //self.deleteAll(ids: recordIds, onComplete: onComplete)
+        self.cloudKitService?.deleteAll(ids: cloudKitService!.recordIDs){
+            print("records daleted")
+            onComplete!()
+        }
+    }
     
     func presentAlertForDeleting(with model: Product) {
         let alert = UIAlertController(title: "Warning!", message: "Do you really want to delete this favorite?", preferredStyle: .alert)
@@ -59,6 +71,16 @@ class FavoritesViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
 
         present(alert, animated: true)
+    }
+    // ***********************************************
+    // MARK: - Private Methods
+    // ***********************************************
+    private func failure(error: Error) {
+        print(error)
+    }
+    
+    private func success(_ models: [Product]) {
+        self.listView?.set(models)
     }
     
     private func delete(with model: Product) {
@@ -72,20 +94,10 @@ class FavoritesViewController: UIViewController {
         }
     }
     // ***********************************************
-    // MARK: - Private Methods
-    // ***********************************************
-    private func failure(error: Error) {
-        print(error)
-    }
-    
-    private func success(_ models: [Product]) {
-        self.listView?.set(models)
-    }
-    // ***********************************************
     // MARK: - Segue
     // ***********************************************
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ProductSegue" {
+        if segue.identifier == Segue.productSegue {
             let controller = segue.destination as? DetailsViewController
             controller?.product = (sender as? Product)
         }

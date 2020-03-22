@@ -27,6 +27,7 @@
 		69AC848F240F94E000ECFBB7 /* FooterButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AC848E240F94E000ECFBB7 /* FooterButtonView.swift */; };
 		6E1772E2240E852100E2D944 /* beep-07.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6E1772E1240E852100E2D944 /* beep-07.mp3 */; };
 		6E226FDC24236DB2000E6E4F /* GetRecordLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E226FDB24236DB2000E6E4F /* GetRecordLogic.swift */; };
+		6E3E69BC2427C1510063156A /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3E69BB2427C1510063156A /* PopUpViewController.swift */; };
 		6E54720B23F5787C00BE7C35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E54720A23F5787C00BE7C35 /* AppDelegate.swift */; };
 		6E54720D23F5787C00BE7C35 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E54720C23F5787C00BE7C35 /* SceneDelegate.swift */; };
 		6E54721523F5787C00BE7C35 /* glutenTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6E54721323F5787C00BE7C35 /* glutenTracker.xcdatamodeld */; };
@@ -91,6 +92,7 @@
 		6E093BB324056B4C00E18364 /* MyTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabBarController.swift; sourceTree = "<group>"; };
 		6E1772E1240E852100E2D944 /* beep-07.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "beep-07.mp3"; sourceTree = "<group>"; };
 		6E226FDB24236DB2000E6E4F /* GetRecordLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRecordLogic.swift; sourceTree = "<group>"; };
+		6E3E69BB2427C1510063156A /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		6E54720723F5787C00BE7C35 /* glutenTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = glutenTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E54720A23F5787C00BE7C35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6E54720C23F5787C00BE7C35 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				691310F72407A3FF009D5ACB /* IngredientCell.swift */,
 				69AC848E240F94E000ECFBB7 /* FooterButtonView.swift */,
 				690658BE240CF28200AD00C4 /* Product.storyboard */,
+				6E3E69BB2427C1510063156A /* PopUpViewController.swift */,
 			);
 			path = Product;
 			sourceTree = "<group>";
@@ -518,6 +521,7 @@
 				695A3D09242203E5001D128B /* FavoriteCell.swift in Sources */,
 				69AC848F240F94E000ECFBB7 /* FooterButtonView.swift in Sources */,
 				6EDC2BFA241FA50E00FD1920 /* Product+CKRecord.swift in Sources */,
+				6E3E69BC2427C1510063156A /* PopUpViewController.swift in Sources */,
 				695A3D0624220332001D128B /* FavoriteListView.swift in Sources */,
 				691310FD2407A583009D5ACB /* SignInWithApple.swift in Sources */,
 				691310FC2407A57B009D5ACB /* Credential.swift in Sources */,

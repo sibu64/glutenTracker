@@ -31,10 +31,10 @@ class IngredientListView: UITableView {
 extension IngredientListView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return collection.count
-    } // end of : func tableView(_ tableView: UITableView...
+    } 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ingredientsCell", for: indexPath) as! IngredientCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: Identifier.ingredientsCellIdentifier, for: indexPath) as! IngredientCell
         let title = collection[indexPath.row]
         cell.mainView?.setUp(with: title)
         return cell

@@ -32,8 +32,8 @@ class FavoriteCell: UICollectionViewCell {
         self.addGestureRecognizer(longGesture)
     }
 
-    @discardableResult
-    func set(_ model: Product) ->Self {
+
+    func set(_ model: Product)->Self{
         self.model = model
         self.titleLabel.text = model.name
         self.pictureImageView.kf.indicatorType = .activity

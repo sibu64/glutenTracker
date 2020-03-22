@@ -9,7 +9,7 @@
 import Foundation
 import CloudKit
 
-class DeleteRecordLogic {
+ class DeleteRecordLogic {
     private(set) var service: CloudKitService?
 
     init(service: CloudKitService? = nil) {

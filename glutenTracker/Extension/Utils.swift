@@ -26,6 +26,12 @@ public struct Segue {
     static var scannerSegue = "scannerSegue"
     static var segueToDetails = "segueToDetails"
     static var showMyTabBarController = "show"
+    static var productSegue = "productSegue"
+}
+
+public struct Identifier{
+    static var favoriteCellIdentifier = "FavoriteCell"
+    static var ingredientsCellIdentifier = "ingredientsCell"
 }
 
 extension String {

@@ -58,7 +58,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
                 view.layer.addSublayer(videoPreviewLayer!)
                 
             } catch {
-                print("Problème avec le lecteur")
+                print("Problem with the reader... 😫  ")
             }
             
         }
