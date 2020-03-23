@@ -15,16 +15,28 @@ class PopUpViewController: UIViewController {
 
     }
     var product: Product?
+    var productViewModel: ProductViewModel?
     
+    
+    
+    @IBAction func dimissPopUpButton(_ sender: Any) {
+    }
+    @IBOutlet weak var wheatImage: UIImageView!
+    @IBOutlet var popUpView: UIView!
     @IBOutlet weak var glutenLabel: UILabel!
+    
     @IBAction func dismissPopUp(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
     
-   func glutenLabelValue()->String {
-    guard let value = ProductViewModel.init(model: product!).model.isGlutenFree else{
-            return "Gluten free: This information is not available"
-        }
-        return "Gluten free: \(value == true ? "Yes" : "No")"
+    init(glutenLabel: UILabel) {
+        super.init(nibName: nil, bundle: nil)
+        self.glutenLabel = glutenLabel
     }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
 }

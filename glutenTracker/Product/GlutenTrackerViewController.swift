@@ -26,6 +26,8 @@ class GlutenTrackerViewController: UIViewController {
     @IBOutlet weak var loader: UIActivityIndicatorView!
     
     private(set) var database: CKDatabase?
+    
+    var popUpViewController: PopUpViewController!
        
        init(database: CKDatabase? = CKContainer.default().privateCloudDatabase) {
         super.init(nibName: nil, bundle: nil)
@@ -54,7 +56,7 @@ class GlutenTrackerViewController: UIViewController {
         
         footerButtonView?.showDetailButton(false)
         
-        //loadBarCode(with: "3166350001450")
+        loadBarCode(with: "3166350001450")
     }
     
     // ***********************************************
@@ -78,6 +80,7 @@ class GlutenTrackerViewController: UIViewController {
     // ***********************************************
     private func loadBarCode(with scannedCode: String) {
         let api = APICall()
+
         self.loader?.startAnimating()
         api.searchProduct(with: scannedCode, success: { [weak self] product in
             dump(product)
@@ -85,6 +88,7 @@ class GlutenTrackerViewController: UIViewController {
             self.product = product
             self.modelingImageAndLabels()
             self.footerButtonView?.showDetailButton(true)
+            //self.popUpViewController?.glutenLabelValue()
             self.loader?.stopAnimating()
         }) { [weak self] error in
             print(error)
@@ -114,13 +118,13 @@ class GlutenTrackerViewController: UIViewController {
 //        return model
 //    }
 //
-//    private func failure(error: Error) {
-//        print(error)
-//    }
-//
-//    private func success(_ model: Product) ->Product {
-//        return model
-//    }
+    private func failure(error: Error) {
+        print(error)
+    }
+
+    private func success(_ model: Product) ->Product {
+        return model
+    }
     
     func presentAlertForCheckingExistingProduct() {
         let alert = UIAlertController(title: "Ooops!", message: "You already have this product in your favorites", preferredStyle: .alert)
@@ -152,29 +156,22 @@ class GlutenTrackerViewController: UIViewController {
     }
     
     @IBAction func actionFavorite(_ sender: UIBarButtonItem) {
-        if GetRecordLogic.default.runBool(with: product!, completion: { result in
-                    switch result {
-                        case .success(_):
-                            self.presentAlertForCheckingExistingProduct()
-                            print("Existing product alert success")
-                        case .failure(let error):
-                            print("Error: \(error)")
-                        }
-                }){
+        if GetRecordLogic.default.runBool(with: product!, completion:  { result in
+            switch result {
+            case .failure(let err):
+                        self.failure(error: err)
+                    case .success(_):
+                        print("product found")
+                    }
+            }){
+            SaveRecordLogic.default.run(with: self.product!){ result in
+                switch result {
+                    case .failure(let err):
+                                self.failure(error: err)
+                            case .success(_):
+                                print("product saved")
+                            }
+                    }
+                }
             }
-        if product != nil {
-        SaveRecordLogic.default.run(with: product!) { result in
-                   switch result {
-                   case .success(_):
-                       print("Saved Success")
-                   case .failure(let error):
-                       print("Error: \(error)")
-                   }
-    }
-}
-        else if product == nil {
-           presentAlertForNonExistingProduct()
-        }
-}
-
 }

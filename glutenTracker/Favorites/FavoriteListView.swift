@@ -14,7 +14,7 @@ class FavoriteListView: UICollectionView {
     // ***********************************************
     private var collection = [Product]()
     private var didSelect: ((Product)->Void)?
-    private var didDelete: ((Product)->Void)?
+    private var didDelete: ((Product, IndexPath)->Void)?
     // ***********************************************
     // MARK: - Implementation
     // ***********************************************
@@ -41,9 +41,19 @@ class FavoriteListView: UICollectionView {
     }
     
     @discardableResult
-    func didDelete(_ completion: ((Product)->Void)?) ->Self {
+    func didDelete(_ completion: ((Product, IndexPath)->Void)?) ->Self {
         self.didDelete = completion
         return self
+    }
+    
+    func deleteRow(at indexPath: IndexPath) {
+        self.collection.remove(at: indexPath.item)
+        self.deleteItems(at: [indexPath])
+    }
+    
+    func deleteAll() {
+        self.collection.removeAll()
+        self.reloadData()
     }
 }
 
@@ -55,7 +65,9 @@ extension FavoriteListView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = self.dequeueReusableCell(withReuseIdentifier: Identifier.favoriteCellIdentifier, for: indexPath) as! FavoriteCell
         let model = self.collection[indexPath.row]
-        cell.set(model).didDelete(self.didDelete)
+        cell.set(model).didDelete { item in
+            self.didDelete?(item, indexPath)
+        }
         return cell
     }
 }

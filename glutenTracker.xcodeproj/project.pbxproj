@@ -44,6 +44,9 @@
 		6ECF5389240669F200073A29 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECF5388240669F200073A29 /* DetailsViewController.swift */; };
 		6ECF538B24066C2000073A29 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECF538A24066C2000073A29 /* Product.swift */; };
 		6ED0F2D123FEE663000A7BD3 /* FBLoginManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED0F2D023FEE663000A7BD3 /* FBLoginManagerViewController.swift */; };
+		6ED3DCFB2428CF1E00A657D4 /* UIAlertWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED3DCFA2428CF1E00A657D4 /* UIAlertWrapper.swift */; };
+		6ED3DCFD2428CFD800A657D4 /* DeleteAllLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED3DCFC2428CFD800A657D4 /* DeleteAllLogic.swift */; };
+		6ED3DCFE2428D9DB00A657D4 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED3DCF82428CECB00A657D4 /* UIViewController+Extension.swift */; };
 		6ED8886B24041DDD00DDF760 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6ED8886A24041DDD00DDF760 /* Launch Screen.storyboard */; };
 		6EDC0B872403DF25009449B8 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDC0B862403DF25009449B8 /* ProfileViewController.swift */; };
 		6EDC2BF7241FA50E00FD1920 /* FetchRecordsLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDC2BF3241FA50D00FD1920 /* FetchRecordsLogic.swift */; };
@@ -114,6 +117,9 @@
 		6ECF5388240669F200073A29 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		6ECF538A24066C2000073A29 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		6ED0F2D023FEE663000A7BD3 /* FBLoginManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FBLoginManagerViewController.swift; sourceTree = "<group>"; };
+		6ED3DCF82428CECB00A657D4 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		6ED3DCFA2428CF1E00A657D4 /* UIAlertWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIAlertWrapper.swift; path = glutenTracker/Extension/UIAlertWrapper.swift; sourceTree = SOURCE_ROOT; };
+		6ED3DCFC2428CFD800A657D4 /* DeleteAllLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAllLogic.swift; sourceTree = "<group>"; };
 		6ED8886A24041DDD00DDF760 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		6EDC0B862403DF25009449B8 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		6EDC2BF3241FA50D00FD1920 /* FetchRecordsLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchRecordsLogic.swift; sourceTree = "<group>"; };
@@ -163,6 +169,7 @@
 		690658C2240CF3C900AD00C4 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				6ED3DCF82428CECB00A657D4 /* UIViewController+Extension.swift */,
 				690658C3240CF3D600AD00C4 /* Utils.swift */,
 			);
 			path = Extension;
@@ -225,10 +232,12 @@
 			isa = PBXGroup;
 			children = (
 				6EDC2BF5241FA50E00FD1920 /* CloudKitService.swift */,
+				6ED3DCFA2428CF1E00A657D4 /* UIAlertWrapper.swift */,
 				6EDC2BF4241FA50E00FD1920 /* SaveRecordLogic.swift */,
 				6EDC2BF6241FA50E00FD1920 /* Product+CKRecord.swift */,
 				6EDC2BF3241FA50D00FD1920 /* FetchRecordsLogic.swift */,
 				6EFFB3E724212604002EBDFC /* DeleteRecordLogic.swift */,
+				6ED3DCFC2428CFD800A657D4 /* DeleteAllLogic.swift */,
 				6E226FDB24236DB2000E6E4F /* GetRecordLogic.swift */,
 			);
 			path = Service;
@@ -509,14 +518,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6ED3DCFE2428D9DB00A657D4 /* UIViewController+Extension.swift in Sources */,
 				691310FB2407A578009D5ACB /* LoginViewController.swift in Sources */,
 				6E54721523F5787C00BE7C35 /* glutenTracker.xcdatamodeld in Sources */,
 				6EDC2BF9241FA50E00FD1920 /* CloudKitService.swift in Sources */,
 				6E54723623F5943C00BE7C35 /* HelpViewController.swift in Sources */,
 				6ECF5385240667E600073A29 /* ScannerViewController.swift in Sources */,
+				6ED3DCFD2428CFD800A657D4 /* DeleteAllLogic.swift in Sources */,
 				691310FA2407A56D009D5ACB /* MyTabBarController.swift in Sources */,
 				6ED0F2D123FEE663000A7BD3 /* FBLoginManagerViewController.swift in Sources */,
 				6EDC2BF8241FA50E00FD1920 /* SaveRecordLogic.swift in Sources */,
+				6ED3DCFB2428CF1E00A657D4 /* UIAlertWrapper.swift in Sources */,
 				691310F62407A3E1009D5ACB /* IngredientListView.swift in Sources */,
 				695A3D09242203E5001D128B /* FavoriteCell.swift in Sources */,
 				69AC848F240F94E000ECFBB7 /* FooterButtonView.swift in Sources */,

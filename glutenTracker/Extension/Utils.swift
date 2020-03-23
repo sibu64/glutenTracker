@@ -27,6 +27,7 @@ public struct Segue {
     static var segueToDetails = "segueToDetails"
     static var showMyTabBarController = "show"
     static var productSegue = "productSegue"
+    static var popUpSegue = "popUpSegue"
 }
 
 public struct Identifier{

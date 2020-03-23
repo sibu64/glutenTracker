@@ -19,22 +19,25 @@ import CloudKit
     // ***********************************************
     // MARK: - Implementation
     // ***********************************************
-    //var models: [Product]!
-    var cloudKitService: CloudKitService?
-    var Ids: [CKRecord.ID]!
-     override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.listView?.didSelect({ model in
+        self.listView.didSelect({ model in
             self.performSegue(
                 withIdentifier: Segue.productSegue,
                 sender: model
             )
-        }).didDelete({ model in
-           // self.delete(with: model)
-            self.presentAlertForDeleting(with: model)
+        }).didDelete({ model, indexPath in
+            self.presentAlert {
+                self.delete(with: model) {
+                    self.listView.deleteRow(at: indexPath)
+                }
+            }
         })
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         load()
     }
     
@@ -42,11 +45,11 @@ import CloudKit
         FetchRecordsLogic.default.run { result in
             switch result {
             case .failure(let err):
-                OperationQueue.main.addOperation {
+                DispatchQueue.main.async {
                     self.failure(error: err)
                 }
             case .success(let models):
-                OperationQueue.main.addOperation {
+                DispatchQueue.main.async {
                     self.success(models)
                 }
             }
@@ -54,42 +57,47 @@ import CloudKit
     }
 
     @IBAction func deleteAllFavorites(_ sender: Any) {
-        let onComplete: (() -> ())? = nil
-        //self.deleteAll(ids: recordIds, onComplete: onComplete)
-        self.cloudKitService?.deleteAll(ids: cloudKitService!.recordIDs){
-            print("records daleted")
-            onComplete!()
+        DeleteAllLogic.default.run { result in
+            switch result {
+            case .success(_):
+                DispatchQueue.main.async {
+                    self.listView.deleteAll()
+                }
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    self.showError(error.localizedDescription)
+                }
+            }
         }
     }
     
-    func presentAlertForDeleting(with model: Product) {
-        let alert = UIAlertController(title: "Warning!", message: "Do you really want to delete this favorite?", preferredStyle: .alert)
-        
-        let okAction = UIAlertAction(title: "Yes", style: .cancel, handler: {(action: UIAlertAction!) in DeleteRecordLogic.default.run(model, completion: nil)})
-        
-        alert.addAction(okAction)
-        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
-
-        present(alert, animated: true)
+    func presentAlert(success completion: (()->Void)?) {
+        UIAlertWrapper.presentAlert(title: "Warning!", message: "Do you really want to delete this favorite?", cancelButtonTitle: "Cancel", otherButtonTitles: ["Ok"]) { index in
+            if index == 1 { completion?() }
+        }
     }
     // ***********************************************
     // MARK: - Private Methods
     // ***********************************************
     private func failure(error: Error) {
-        print(error)
+        self.showError(error.localizedDescription)
     }
     
     private func success(_ models: [Product]) {
         self.listView?.set(models)
     }
     
-    private func delete(with model: Product) {
+    private func delete(with model: Product, success: (()->Void)?) {
         DeleteRecordLogic.default.run(model) { result in
             switch result {
             case .success(_):
-                print("🔥 SUCCESS")
+                DispatchQueue.main.async {
+                    success?()
+                }
             case .failure(let error):
-                print("ERROR: \(error)")
+                DispatchQueue.main.async {
+                    self.showError(error.localizedDescription)
+                }
             }
         }
     }

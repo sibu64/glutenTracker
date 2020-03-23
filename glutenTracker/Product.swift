@@ -9,7 +9,7 @@
 import Foundation
 
 class ProductViewModel {
-    private(set) var model: Product
+     var model: Product
     
     init(model: Product) {
         self.model = model
