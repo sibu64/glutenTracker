@@ -22,7 +22,7 @@ class CloudKitService_Tests: XCTestCase {
 
     func test_save_record_hasBeenCalled() {
         let mockService = MockCloudKitService(database: nil)
-        let logic = SaveRecord(service: mockService)
+        let logic = SaveRecordLogic(service: mockService)
         
         let model = Product.fake
         logic.run(with: model, completion: nil)
@@ -36,7 +36,7 @@ class CloudKitService_Tests: XCTestCase {
     
     func test_save_record_calls_success() {
         let stubService = StubCloudKitServiceSuccess(database: nil)
-        let logic = SaveRecord(service: stubService)
+        let logic = SaveRecordLogic(service: stubService)
         
         var successCalled: Bool = false
         logic.run(with: Product.fake) { result in
@@ -50,7 +50,7 @@ class CloudKitService_Tests: XCTestCase {
     
     func test_save_record_calls_failure() {
         let stubService = StubCloudKitServiceFailure(database: nil)
-        let logic = SaveRecord(service: stubService)
+        let logic = SaveRecordLogic(service: stubService)
         
         var error: Error? = nil
         logic.run(with: Product.fake) { result in
@@ -62,26 +62,3 @@ class CloudKitService_Tests: XCTestCase {
         XCTAssertEqual(error?.localizedDescription, "error")
     }
 }
-
-class StubCloudKitServiceFailure: CloudKitService {
-    override func save(_ record: CKRecord, completion: @escaping ((CKRecord?, Error?) -> Void)) {
-        completion(nil, NSError.fake)
-    }
-}
-
-class StubCloudKitServiceSuccess: CloudKitService {
-    override func save(_ record: CKRecord, completion: @escaping ((CKRecord?, Error?) -> Void)) {
-        completion(Product.fake.toOffline, nil)
-    }
-}
-
-class MockCloudKitService: CloudKitService {
-    private(set) var saveCountCalled = 0
-    private(set) var record: CKRecord? = nil
-    
-    override func save(_ record:    CKRecord, completion: @escaping ((CKRecord?, Error?) -> Void)) {
-        self.saveCountCalled += 1
-        self.record = record
-    }
-}
-

@@ -6,7 +6,6 @@
 import UIKit
 import AlamofireImage
 import Alamofire
-import CloudKit
 
 class GlutenTrackerViewController: UIViewController {
     // ***********************************************
@@ -15,46 +14,27 @@ class GlutenTrackerViewController: UIViewController {
     // IBOutlet
     // todo: remove ? for the outlets
     @IBOutlet weak var codeLabel: UILabel!
-    @IBOutlet var favoriteBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var productLabel: UILabel!
     @IBOutlet weak var glutenLabel: UILabel!
-    @IBOutlet weak var scanButton: UIButton!
-    @IBOutlet weak var detailsButton: UIButton!
+    @IBOutlet weak var wheatImage: UIImageView!
     @IBOutlet weak var imageViewProduct: UIImageView!
     @IBOutlet weak var footerButtonView: FooterButtonView!
-
     @IBOutlet weak var loader: UIActivityIndicatorView!
-    
-    private(set) var database: CKDatabase?
-    
-    var popUpViewController: PopUpViewController!
-       
-       init(database: CKDatabase? = CKContainer.default().privateCloudDatabase) {
-        super.init(nibName: nil, bundle: nil)
-        self.database = database
-       }
-    
-    required init?(coder aDecoder: NSCoder) {
-       super.init(coder: aDecoder)
-    }
-    
     //todo: remove Product (ProductViewModel instead)
     private var product: Product?
-    var cloudKitService: CloudKitService?
     // ***********************************************
     // MARK: - Implementation
     // ***********************************************
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        scanButton?.layer.cornerRadius = 25
-        detailsButton?.layer.cornerRadius = 25
         
         codeLabel?.text = "Scan to perform a research with a scan"
         productLabel?.text = "code on the product of your choice."
         glutenLabel?.text = "Check if it is gluten free"
         
         footerButtonView?.showDetailButton(false)
+        
+        wheatImage.isHidden = true
         
         loadBarCode(with: "3166350001450")
     }
@@ -83,12 +63,11 @@ class GlutenTrackerViewController: UIViewController {
 
         self.loader?.startAnimating()
         api.searchProduct(with: scannedCode, success: { [weak self] product in
-            dump(product)
+            //dump(product)
             guard let self = self else { return }
             self.product = product
             self.modelingImageAndLabels()
             self.footerButtonView?.showDetailButton(true)
-            //self.popUpViewController?.glutenLabelValue()
             self.loader?.stopAnimating()
         }) { [weak self] error in
             print(error)
@@ -103,47 +82,87 @@ class GlutenTrackerViewController: UIViewController {
         codeLabel?.text = model.barCode
         productLabel?.text = viewModel.name
         glutenLabel?.text = viewModel.glutenLabel
+        //viewModel.glutenLabel
         glutenLabel?.font = UIFont.boldSystemFont(ofSize: 21.0)
+        
+        
+        doesRecordExist(with: model) { success in
+            switch success {
+            case true:
+                self.footerButtonView?
+                    .setFavoriteTitle(text: "Remove from favorites")
+                    .showFavoriteButton(true, favoriteType: .remove)
+            case false:
+                self.footerButtonView?
+                    .setFavoriteTitle(text: "Add to favorites")
+                    .showFavoriteButton(true, favoriteType: .add)
+            }
+        }
     }
     
-//    private func doesRecordExist(with model: Product) -> Product{
-//        GetRecordLogic.default.run(with: model){ result in
-//            switch result {
-//            case .failure(let err):
-//                self.failure(error: err)
-//            case .success(_):
-//                print("product found")
-//            }
-//        }
-//        return model
-//    }
-//
-    private func failure(error: Error) {
-        print(error)
-    }
-
-    private func success(_ model: Product) ->Product {
-        return model
+    private func doesRecordExist(with model: Product, _ completion: ((Bool)->Void)?) {
+        GetRecordLogic.default.run(with: model){ result in
+            switch result {
+            case .failure(_):
+                DispatchQueue.main.async {
+                    completion?(false)
+                }
+            case .success(_):
+                DispatchQueue.main.async {
+                    completion?(true)
+                }
+            }
+        }
     }
     
-    func presentAlertForCheckingExistingProduct() {
-        let alert = UIAlertController(title: "Ooops!", message: "You already have this product in your favorites", preferredStyle: .alert)
-
-        let checkingFavoriteAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
-
-        alert.addAction(checkingFavoriteAction)
-
-        present(alert, animated: true)
+    private func saveToFavorite() {
+        guard let value = self.product else {
+            fatalError("Product doesn't exist")
+        }
+        SaveRecordLogic.default.run(with: value) { result in
+            switch result {
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    self.showError(error.localizedDescription)
+                }
+            case .success(_):
+                DispatchQueue.main.async {
+                    self.footerButtonView
+                        .setFavoriteTitle(text: "Remove from favorites")
+                        .showFavoriteButton(true, favoriteType: .remove)
+                    UIAlertWrapper.presentAlert(title: "Favorite", message: "Your favorite has been added!", cancelButtonTitle: "Ok")
+                }
+            }
+        }
+    }
+    
+    private func removeToFavorite() {
+        guard let value = self.product else {
+            fatalError("Product doesn't exist")
+        }
+        DeleteRecordLogic.default.run(value) { result in
+            switch result {
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    self.showError(error.localizedDescription)
+                }
+            case .success(_):
+                DispatchQueue.main.async {
+                    self.footerButtonView
+                        .setFavoriteTitle(text: "Add to favorites")
+                        .showFavoriteButton(true, favoriteType: .add)
+                    UIAlertWrapper.presentAlert(title: "Deletion", message: "Your favorite has been deleted!", cancelButtonTitle: "Ok")
+                }
+            }
+        }
+    }
+    
+    private func presentAlertForCheckingExistingProduct() {
+        UIAlertWrapper.presentAlert(title: "Oooops!", message: "You already have this product in your favorites", cancelButtonTitle: "Ok")
     }
     
     func presentAlertForNonExistingProduct() {
-        let alert = UIAlertController(title: "Sorry", message: "The product was not found. Scan the bar code of the disired product", preferredStyle: .alert)
-
-        let checkingProductAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
-
-        alert.addAction(checkingProductAction)
-
-        present(alert, animated: true)
+        UIAlertWrapper.presentAlert(title: "Sorry!", message: "The product was not found. Scan the bar code of the disired product", cancelButtonTitle: "Ok")
     }
     
     // ***********************************************
@@ -155,23 +174,10 @@ class GlutenTrackerViewController: UIViewController {
         }
     }
     
-    @IBAction func actionFavorite(_ sender: UIBarButtonItem) {
-        if GetRecordLogic.default.runBool(with: product!, completion:  { result in
-            switch result {
-            case .failure(let err):
-                        self.failure(error: err)
-                    case .success(_):
-                        print("product found")
-                    }
-            }){
-            SaveRecordLogic.default.run(with: self.product!){ result in
-                switch result {
-                    case .failure(let err):
-                                self.failure(error: err)
-                            case .success(_):
-                                print("product saved")
-                            }
-                    }
-                }
-            }
+    @IBAction func actionFavorite(sender: UIButton) {
+        switch footerButtonView.favoriteType {
+        case .add: saveToFavorite()
+        case .remove: removeToFavorite()
+        }
+    }
 }

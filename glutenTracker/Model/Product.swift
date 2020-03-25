@@ -9,7 +9,7 @@
 import Foundation
 
 class ProductViewModel {
-     var model: Product
+    var model: Product
     
     init(model: Product) {
         self.model = model
@@ -23,7 +23,12 @@ class ProductViewModel {
         guard let value = model.isGlutenFree else {
             return "Gluten free: This information is not available"
         }
-        return "Gluten free: \(value == true ? "Yes" : "No")"
+        if value == true {
+            return "Gluten free: Yes"
+        }
+        else {
+            return "Gluten free: No"
+        }
     }
 }
 
