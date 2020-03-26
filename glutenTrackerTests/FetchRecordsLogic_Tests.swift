@@ -1,16 +1,15 @@
 //
-//  CloudKitService_Tests.swift
+//  FetchRecordsLogic_Tests.swift
 //  glutenTrackerTests
 //
-//  Created by Darrieumerlou on 12/03/2020.
+//  Created by Darrieumerlou on 26/03/2020.
 //  Copyright © 2020 Darrieumerlou. All rights reserved.
 //
 
 import XCTest
-import CloudKit
 @testable import glutenTracker
 
-class CloudKitService_Tests: XCTestCase {
+class FetchRecordsLogic_Tests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -20,40 +19,35 @@ class CloudKitService_Tests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func test_save_record_hasBeenCalled() {
+    func test_fetch_records_haveBeenCalled() {
         let mockService = MockCloudKitService(database: nil)
-        let logic = SaveRecordLogic(service: mockService)
+        let logic = FetchRecordsLogic(service: mockService)
         
-        let model = Product.fake
-        logic.run(with: model, completion: nil)
+        logic.run(nil)
         
-        XCTAssertEqual(mockService.saveCountCalled, 1)
-        
-        let product = Product(with: mockService.record!)
-        XCTAssertEqual(product, model)
+        XCTAssertEqual(mockService.fetchCountCalled, 1)
     }
-    
-    
-    func test_save_record_calls_success() {
+
+    func test_fetch_records_call_success() {
         let stubService = StubCloudKitServiceSuccess(database: nil)
-        let logic = SaveRecordLogic(service: stubService)
+        let logic = FetchRecordsLogic(service: stubService)
         
-        var successCalled: Bool = false
-        logic.run(with: Product.fake) { result in
-            if case .success() = result {
-                successCalled = true
+        var model: Product? = nil
+        logic.run { result in
+            if case .success(let products) = result {
+                model = products.first
             }
         }
         
-        XCTAssertEqual(successCalled, true)
+        XCTAssertEqual(model, Product.fake)
     }
     
-    func test_save_record_calls_failure() {
+    func test_fetch_records_call_failure() {
         let stubService = StubCloudKitServiceFailure(database: nil)
-        let logic = SaveRecordLogic(service: stubService)
-        
+        let logic = FetchRecordsLogic(service: stubService)
+    
         var error: Error? = nil
-        logic.run(with: Product.fake) { result in
+        logic.run { result in
             if case .failure(let err) = result {
                 error = err
             }
@@ -63,7 +57,7 @@ class CloudKitService_Tests: XCTestCase {
     }
     
     func test_default_is_mapped() {
-        let logic = SaveRecordLogic.default
+        let logic = FetchRecordsLogic.default
         let service = (logic.service as Any) is CloudKitService
         
         XCTAssertEqual(service, true)

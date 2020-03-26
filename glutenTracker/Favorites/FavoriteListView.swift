@@ -27,23 +27,17 @@ class FavoriteListView: UICollectionView {
         self.register(nib, forCellWithReuseIdentifier: Identifier.favoriteCellIdentifier)
     }
     
-    @discardableResult
-    func set(_ collection: [Product]) ->Self {
+    func set(_ collection: [Product]) {
         self.collection = collection
         self.reloadData()
-        return self
     }
     
-    @discardableResult
-    func didSelect(_ completion: ((Product)->Void)?) ->Self {
+    func didSelect(_ completion: ((Product)->Void)?) {
         self.didSelect = completion
-        return self
     }
     
-    @discardableResult
-    func didDelete(_ completion: ((Product, IndexPath)->Void)?) ->Self {
+    func didDelete(_ completion: ((Product, IndexPath)->Void)?) {
         self.didDelete = completion
-        return self
     }
     
     func deleteRow(at indexPath: IndexPath) {
@@ -65,7 +59,8 @@ extension FavoriteListView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = self.dequeueReusableCell(withReuseIdentifier: Identifier.favoriteCellIdentifier, for: indexPath) as! FavoriteCell
         let model = self.collection[indexPath.row]
-        cell.set(model).didDelete { item in
+        cell.set(model)
+        cell.didDelete { item in
             self.didDelete?(item, indexPath)
         }
         return cell

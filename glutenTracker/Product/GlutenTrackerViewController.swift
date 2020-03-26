@@ -33,10 +33,9 @@ class GlutenTrackerViewController: UIViewController {
         glutenLabel?.text = "Check if it is gluten free"
         
         footerButtonView?.showDetailButton(false)
-        
-        wheatImage.isHidden = true
-        
-        loadBarCode(with: "3166350001450")
+    
+        //loadBarCode(with: "3274080001005") // No Gluten
+        loadBarCode(with: "3038359004544") // With Gluten
     }
     
     // ***********************************************
@@ -82,20 +81,17 @@ class GlutenTrackerViewController: UIViewController {
         codeLabel?.text = model.barCode
         productLabel?.text = viewModel.name
         glutenLabel?.text = viewModel.glutenLabel
-        //viewModel.glutenLabel
         glutenLabel?.font = UIFont.boldSystemFont(ofSize: 21.0)
-        
+        wheatImage.isHidden = !viewModel.shouldDisplayWheatImage
         
         doesRecordExist(with: model) { success in
             switch success {
             case true:
-                self.footerButtonView?
-                    .setFavoriteTitle(text: "Remove from favorites")
-                    .showFavoriteButton(true, favoriteType: .remove)
+                self.footerButtonView?.setFavoriteTitle(text: "Remove from favorites")
+                self.footerButtonView?.showFavoriteButton(true, favoriteType: .remove)
             case false:
-                self.footerButtonView?
-                    .setFavoriteTitle(text: "Add to favorites")
-                    .showFavoriteButton(true, favoriteType: .add)
+                self.footerButtonView?.setFavoriteTitle(text: "Add to favorites")
+                self.footerButtonView?.showFavoriteButton(true, favoriteType: .add)
             }
         }
     }
@@ -127,9 +123,8 @@ class GlutenTrackerViewController: UIViewController {
                 }
             case .success(_):
                 DispatchQueue.main.async {
-                    self.footerButtonView
-                        .setFavoriteTitle(text: "Remove from favorites")
-                        .showFavoriteButton(true, favoriteType: .remove)
+                    self.footerButtonView.setFavoriteTitle(text: "Remove from favorites")
+                    self.footerButtonView.showFavoriteButton(true, favoriteType: .remove)
                     UIAlertWrapper.presentAlert(title: "Favorite", message: "Your favorite has been added!", cancelButtonTitle: "Ok")
                 }
             }
@@ -148,9 +143,8 @@ class GlutenTrackerViewController: UIViewController {
                 }
             case .success(_):
                 DispatchQueue.main.async {
-                    self.footerButtonView
-                        .setFavoriteTitle(text: "Add to favorites")
-                        .showFavoriteButton(true, favoriteType: .add)
+                    self.footerButtonView.setFavoriteTitle(text: "Add to favorites")
+                    self.footerButtonView.showFavoriteButton(true, favoriteType: .add)
                     UIAlertWrapper.presentAlert(title: "Deletion", message: "Your favorite has been deleted!", cancelButtonTitle: "Ok")
                 }
             }

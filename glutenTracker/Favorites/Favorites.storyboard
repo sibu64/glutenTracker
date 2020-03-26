@@ -71,7 +71,7 @@
                     <connections>
                         <outlet property="buttonDeleteFavorites" destination="hmx-1v-m8T" id="bSX-RH-W5A"/>
                         <outlet property="listView" destination="L7h-L6-B4J" id="JpF-wD-AYw"/>
-                        <segue destination="rtS-SJ-5ax" kind="show" identifier="ProductSegue" id="g6R-yo-LMA"/>
+                        <segue destination="rtS-SJ-5ax" kind="show" identifier="productSegue" id="g6R-yo-LMA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bcI-1h-qAQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

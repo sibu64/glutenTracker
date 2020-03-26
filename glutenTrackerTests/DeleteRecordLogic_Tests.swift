@@ -47,11 +47,10 @@ class DeleteRecordLogic_Tests: XCTestCase {
         XCTAssertEqual(error?.localizedDescription, "error")
     }
     
-    #warning("Test this")
-    func test_default_is_mapped() {
-        let logic = DeleteRecordLogic.default
-        let service = logic.service === CloudKitService()
-        
-        XCTAssertEqual(service, true)
-    }
+     func test_default_is_mapped() {
+           let logic = DeleteRecordLogic.default
+           let service = (logic.service as Any) is CloudKitService
+           
+           XCTAssertEqual(service, true)
+       }
 }

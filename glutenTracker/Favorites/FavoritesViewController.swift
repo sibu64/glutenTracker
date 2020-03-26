@@ -27,7 +27,9 @@ import CloudKit
                 withIdentifier: Segue.productSegue,
                 sender: model
             )
-        }).didDelete({ model, indexPath in
+        })
+        
+        self.listView.didDelete({ model, indexPath in
             self.presentAlert {
                 self.delete(with: model) {
                     self.listView.deleteRow(at: indexPath)

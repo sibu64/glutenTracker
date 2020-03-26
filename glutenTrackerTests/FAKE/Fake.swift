@@ -35,7 +35,15 @@ class StubCloudKitServiceFailure: CloudKitService {
         completion(nil, NSError.fake)
     }
     
+    override func fetch(completion: @escaping (([CKRecord]?, Error?) -> Void)) {
+        completion(nil, NSError.fake)
+    }
+    
     override func get(by objectId: String, completion: @escaping (([CKRecord]?, Error?) -> Void)) {
+        completion(nil, NSError.fake)
+    }
+    
+    override func deleteAll(completion: @escaping ((CKRecordZone.ID?, Error?) -> Void)) {
         completion(nil, NSError.fake)
     }
 }
@@ -47,8 +55,17 @@ class StubCloudKitServiceSuccess: CloudKitService {
         completion(Product.fake.toOffline, nil)
     }
     
+    override func fetch(completion: @escaping (([CKRecord]?, Error?) -> Void)) {
+        completion([Product.fake.toOffline], nil)
+    }
+    
     override func get(by objectId: String, completion: @escaping (([CKRecord]?, Error?) -> Void)) {
         let value = record != nil ? [record!] : []
+        completion(value, nil)
+    }
+    
+    override func deleteAll(completion: @escaping ((CKRecordZone.ID?, Error?) -> Void)) {
+        let value = CKRecordZone.ID(zoneName: "zone", ownerName: "owner")
         completion(value, nil)
     }
 }
@@ -62,10 +79,18 @@ class MockCloudKitService: CloudKitService {
     private(set) var objectId: String? = nil
     // Delete
     private(set) var deleteCountCalled = 0
+    // Delete All
+    private(set) var deleteAllCountCalled = 0
+    // Fetch
+    private(set) var fetchCountCalled = 0
     
     override func save(_ record:    CKRecord, completion: @escaping ((CKRecord?, Error?) -> Void)) {
         self.saveCountCalled += 1
         self.record = record
+    }
+    
+    override func fetch(completion: @escaping (([CKRecord]?, Error?) -> Void)) {
+        self.fetchCountCalled += 1
     }
     
     override func get(by objectId: String, completion: @escaping (([CKRecord]?, Error?) -> Void)) {
@@ -76,6 +101,10 @@ class MockCloudKitService: CloudKitService {
     override func delete(record: CKRecord, completion: @escaping ((CKRecord.ID?, Error?) -> Void)) {
         self.deleteCountCalled += 1
         self.record = record
+    }
+    
+    override func deleteAll(completion: @escaping ((CKRecordZone.ID?, Error?) -> Void)) {
+        self.deleteAllCountCalled += 1
     }
 }
 

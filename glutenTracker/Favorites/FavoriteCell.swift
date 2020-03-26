@@ -33,18 +33,15 @@ class FavoriteCell: UICollectionViewCell {
     }
 
 
-    func set(_ model: Product)->Self{
+    func set(_ model: Product) {
         self.model = model
         self.titleLabel.text = model.name
         self.pictureImageView.kf.indicatorType = .activity
         self.pictureImageView.kf.setImage(with: model.imageUrl)
-        return self
     }
     
-    @discardableResult
-    func didDelete(_ completion: ((Product)->Void)?) ->Self {
+    func didDelete(_ completion: ((Product)->Void)?) {
         self.didDelete = completion
-        return self
     }
     
     // ***********************************************

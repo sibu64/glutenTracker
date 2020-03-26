@@ -8,30 +8,6 @@
 
 import Foundation
 
-class ProductViewModel {
-    var model: Product
-    
-    init(model: Product) {
-        self.model = model
-    }
-    
-    var name: String {
-        return model.name ?? "Unknown Product"
-    }
-    
-    var glutenLabel: String {
-        guard let value = model.isGlutenFree else {
-            return "Gluten free: This information is not available"
-        }
-        if value == true {
-            return "Gluten free: Yes"
-        }
-        else {
-            return "Gluten free: No"
-        }
-    }
-}
-
 public struct Product: Equatable {
     public let objectId: String?
     public let name: String?
