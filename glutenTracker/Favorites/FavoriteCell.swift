@@ -28,7 +28,6 @@ class FavoriteCell: UICollectionViewCell {
     // ***********************************************
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.layer.cornerRadius = 8.0
         self.addGestureRecognizer(longGesture)
     }
 

@@ -20,16 +20,16 @@ public class SignInWithApple {
             return
         }
         
-        provider.getCredentialState(forUserID: userId) { (credentialState, error) in
-            OperationQueue.main.addOperation {
-                switch (credentialState){
-                case .authorized:
-                    completion?(true)
-                case .revoked, .notFound:
-                    completion?(false)
-                default: break
-                }
-            }
-        }
+//        provider.getCredentialState(forUserID: userId) { (credentialState, error) in
+//            OperationQueue.main.addOperation {
+//                switch (credentialState){
+//                case .authorized:
+//                    completion?(true)
+//                case .revoked, .notFound:
+//                    completion?(false)
+//                default: break
+//                }
+//            }
+//        }
     }
 }

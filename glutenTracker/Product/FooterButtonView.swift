@@ -37,31 +37,25 @@ class FooterButtonView: UIStackView {
         self.setFavoriteTitle(text: "Add to favorites")
     }
     
-    @discardableResult
-    func setFavoriteTitle(text: String) ->Self {
+    func setFavoriteTitle(text: String) {
         self.favoriteButton?.setTitle(text, for: .normal)
-        return self
     }
     
-    @discardableResult
-    func showDetailButton(_ value: Bool) ->Self {
+    func showDetailButton(_ value: Bool) {
         detailButton?.isHidden = !value
-        return self
     }
     
-    @discardableResult
-    func showFavoriteButton(_ value: Bool, favoriteType: Favorite) ->Self {
+    func showFavoriteButton(_ value: Bool, favoriteType: Favorite) {
         self.favoriteButton?.isHidden = !value
         favoriteButton.titleLabel?.textAlignment = .center
         self._favoriteType = favoriteType
-        return self
     }
     
-    func configurationScanImage() {
-        let scanImage = UIImage(systemName: "barcode.viewfinder")
-        self.scanButton.setImage(scanImage, for: .normal)
-        self.scanButton.setTitle("Scan", for: .normal)
+//    func configurationScanImage() {
+//        let scanImage = UIImage(systemName: "barcode.viewfinder")
+//        self.scanButton.setImage(scanImage, for: .normal)
+//        self.scanButton.setTitle("Scan", for: .normal)
        //let scanImage = UIImage(systemName: "barcode.viewfinder")
        // let scanTab = UITabBarItem(title: "Scan", image: UIImage(named: "YOUR_IMAGE_NAME_FROM_ASSETS")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal), tag: 1)
-}
+//}
 }

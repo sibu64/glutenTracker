@@ -19,7 +19,7 @@ class FetchRecordsLogic_Tests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func test_fetch_records_haveBeenCalled() {
+    func test_fetch_records_hasBeenCalled() {
         let mockService = MockCloudKitService(database: nil)
         let logic = FetchRecordsLogic(service: mockService)
         
@@ -28,7 +28,7 @@ class FetchRecordsLogic_Tests: XCTestCase {
         XCTAssertEqual(mockService.fetchCountCalled, 1)
     }
 
-    func test_fetch_records_call_success() {
+    func test_fetch_records_calls_success() {
         let stubService = StubCloudKitServiceSuccess(database: nil)
         let logic = FetchRecordsLogic(service: stubService)
         
@@ -42,7 +42,7 @@ class FetchRecordsLogic_Tests: XCTestCase {
         XCTAssertEqual(model, Product.fake)
     }
     
-    func test_fetch_records_call_failure() {
+    func test_fetch_records_calls_failure() {
         let stubService = StubCloudKitServiceFailure(database: nil)
         let logic = FetchRecordsLogic(service: stubService)
     

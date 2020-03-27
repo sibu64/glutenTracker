@@ -9,18 +9,22 @@
 import UIKit
 import CloudKit
 
- class FavoritesViewController: UIViewController {
+class FavoritesViewController: UIViewController {
     
     // ***********************************************
     // MARK: - Interface
     // ***********************************************
     @IBOutlet weak var listView: FavoriteListView!
     @IBOutlet weak var buttonDeleteFavorites: UIBarButtonItem!
+    @IBOutlet weak var noFavoriteMessageLabel: UILabel!
+    
+    var glutenTrackerViewController: GlutenTrackerViewController!
     // ***********************************************
     // MARK: - Implementation
     // ***********************************************
     override func viewDidLoad() {
         super.viewDidLoad()
+        //displayNoFavoriteMessageLabel(codeLabel: glutenTrackerViewController?.codeLabel)
         
         self.listView.didSelect({ model in
             self.performSegue(
@@ -53,17 +57,26 @@ import CloudKit
             case .success(let models):
                 DispatchQueue.main.async {
                     self.success(models)
+                    var value: String? = nil
+                    value = models.isEmpty == true ? "No Favorite" : ""
+                    self.noFavoriteMessageLabel?.text = value
+                    if models.isEmpty == true {
+                        self.navigationItem.rightBarButtonItem = nil
+                    }else{
+                        self.navigationItem.rightBarButtonItem?.isEnabled = true
+                    }
                 }
             }
         }
     }
-
+    
     @IBAction func deleteAllFavorites(_ sender: Any) {
         DeleteAllLogic.default.run { result in
             switch result {
             case .success(_):
                 DispatchQueue.main.async {
                     self.listView.deleteAll()
+                    
                 }
             case .failure(let error):
                 DispatchQueue.main.async {

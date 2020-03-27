@@ -43,6 +43,10 @@
 		6E7F5DAE23FECB8D0070ED45 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7F5DAD23FECB8D0070ED45 /* FavoritesViewController.swift */; };
 		6EA4D94023FFD6E6007905E7 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EA4D93F23FFD6E6007905E7 /* Default-568h@2x.png */; };
 		6EBD17B8240562740083A14A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EBD17B7240562740083A14A /* Main.storyboard */; };
+		6EC2C783242DF13E002D446A /* NetworkRequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC2C782242DF13E002D446A /* NetworkRequestProtocol.swift */; };
+		6EC2C785242DF174002D446A /* NetworkProductManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC2C784242DF174002D446A /* NetworkProductManager.swift */; };
+		6EC2C787242DFF25002D446A /* NetworkRecipeManager_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC2C786242DFF25002D446A /* NetworkRecipeManager_Tests.swift */; };
+		6EC2C789242E006D002D446A /* APICallFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC2C788242E006D002D446A /* APICallFake.swift */; };
 		6EC9090C241B7E7F001CCA48 /* APICall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC9090B241B7E7F001CCA48 /* APICall.swift */; };
 		6ECF5385240667E600073A29 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECF5384240667E600073A29 /* ScannerViewController.swift */; };
 		6ECF53872406696F00073A29 /* GlutenTrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECF53862406696F00073A29 /* GlutenTrackerViewController.swift */; };
@@ -119,6 +123,10 @@
 		6E7F5DAD23FECB8D0070ED45 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		6EA4D93F23FFD6E6007905E7 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		6EBD17B7240562740083A14A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		6EC2C782242DF13E002D446A /* NetworkRequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestProtocol.swift; sourceTree = "<group>"; };
+		6EC2C784242DF174002D446A /* NetworkProductManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProductManager.swift; sourceTree = "<group>"; };
+		6EC2C786242DFF25002D446A /* NetworkRecipeManager_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkRecipeManager_Tests.swift; path = glutenTrackerTests/NetworkRecipeManager_Tests.swift; sourceTree = SOURCE_ROOT; };
+		6EC2C788242E006D002D446A /* APICallFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICallFake.swift; sourceTree = "<group>"; };
 		6EC9090B241B7E7F001CCA48 /* APICall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICall.swift; sourceTree = "<group>"; };
 		6ECF5384240667E600073A29 /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		6ECF53862406696F00073A29 /* GlutenTrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlutenTrackerViewController.swift; sourceTree = "<group>"; };
@@ -271,6 +279,15 @@
 			path = Root;
 			sourceTree = "<group>";
 		};
+		6E130A81242D294D00101530 /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				6E2681BB242CED9800BC1029 /* ProductViewModel.swift */,
+				6ECF538A24066C2000073A29 /* Product.swift */,
+			);
+			path = Product;
+			sourceTree = "<group>";
+		};
 		6E5471FE23F5787C00BE7C35 = {
 			isa = PBXGroup;
 			children = (
@@ -295,6 +312,7 @@
 		6E54720923F5787C00BE7C35 /* glutenTracker */ = {
 			isa = PBXGroup;
 			children = (
+				6EC2C781242DF0C8002D446A /* Network */,
 				6965AAAC2410DFF600C06366 /* Service */,
 				690658C2240CF3C900AD00C4 /* Extension */,
 				693F847C2407AC9A00008A41 /* Help */,
@@ -302,7 +320,6 @@
 				693F847A2407AC7300008A41 /* Favorites */,
 				691310F42407A36C009D5ACB /* Product */,
 				691310F32407A35E009D5ACB /* Scan */,
-				6EC9090B241B7E7F001CCA48 /* APICall.swift */,
 				6E62F204242BCD41005EF839 /* Model */,
 				6E54722F23F5795F00BE7C35 /* glutenTracker.entitlements */,
 				6E093BAB2405692A00E18364 /* Authentication */,
@@ -323,6 +340,8 @@
 			children = (
 				6EE8B5CB241A3D6C007C3F44 /* FAKE */,
 				6E62F1FE242BCABF005EF839 /* SaveRecordLogic_Tests.swift */,
+				6EC2C786242DFF25002D446A /* NetworkRecipeManager_Tests.swift */,
+				6EC2C788242E006D002D446A /* APICallFake.swift */,
 				6E62F200242BCBF9005EF839 /* GetRecordLogic_Tests.swift */,
 				6E2681B7242CEBC700BC1029 /* DeleteAllRecordLogic_Tests.swift */,
 				6E2681B9242CEC1A00BC1029 /* FetchRecordsLogic_Tests.swift */,
@@ -346,10 +365,19 @@
 		6E62F204242BCD41005EF839 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				6E2681BB242CED9800BC1029 /* ProductViewModel.swift */,
-				6ECF538A24066C2000073A29 /* Product.swift */,
+				6E130A81242D294D00101530 /* Product */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		6EC2C781242DF0C8002D446A /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				6EC9090B241B7E7F001CCA48 /* APICall.swift */,
+				6EC2C782242DF13E002D446A /* NetworkRequestProtocol.swift */,
+				6EC2C784242DF174002D446A /* NetworkProductManager.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		6EE8B5CB241A3D6C007C3F44 /* FAKE */ = {
@@ -551,10 +579,12 @@
 				6E2681BC242CED9800BC1029 /* ProductViewModel.swift in Sources */,
 				691310F62407A3E1009D5ACB /* IngredientListView.swift in Sources */,
 				695A3D09242203E5001D128B /* FavoriteCell.swift in Sources */,
+				6EC2C783242DF13E002D446A /* NetworkRequestProtocol.swift in Sources */,
 				69AC848F240F94E000ECFBB7 /* FooterButtonView.swift in Sources */,
 				6EDC2BFA241FA50E00FD1920 /* Product+CKRecord.swift in Sources */,
 				695A3D0624220332001D128B /* FavoriteListView.swift in Sources */,
 				691310FD2407A583009D5ACB /* SignInWithApple.swift in Sources */,
+				6EC2C785242DF174002D446A /* NetworkProductManager.swift in Sources */,
 				691310FC2407A57B009D5ACB /* Credential.swift in Sources */,
 				691310F82407A3FF009D5ACB /* IngredientCell.swift in Sources */,
 				6E226FDC24236DB2000E6E4F /* GetRecordLogic.swift in Sources */,
@@ -581,8 +611,10 @@
 				6E62F201242BCBF9005EF839 /* GetRecordLogic_Tests.swift in Sources */,
 				6E62F203242BCC6D005EF839 /* DeleteRecordLogic_Tests.swift in Sources */,
 				6E62F1FF242BCABF005EF839 /* SaveRecordLogic_Tests.swift in Sources */,
+				6EC2C787242DFF25002D446A /* NetworkRecipeManager_Tests.swift in Sources */,
 				6EE8B5C2241A3A45007C3F44 /* String_Tests.swift in Sources */,
 				6992D04C241F63DC001869F7 /* Fake.swift in Sources */,
+				6EC2C789242E006D002D446A /* APICallFake.swift in Sources */,
 				6E2681BA242CEC1A00BC1029 /* FetchRecordsLogic_Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

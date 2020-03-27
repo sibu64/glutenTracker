@@ -18,13 +18,13 @@ class MyTabBarController: UITabBarController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        /*SignInWithApple().isConnected { success in
+        SignInWithApple().isConnected { success in
             guard success == false else {
                 print("Connected")
                 return
             }
             self.performSegue(withIdentifier: "AuthenticationSegue", sender: nil)
-        }*/
+        }
     }
 
 

@@ -120,6 +120,6 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
 }
 extension UIViewController: ASAuthorizationControllerPresentationContextProviding {
     public func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
-        return self.view.window!
+        return self.view.window!//mettre un guard
     }
 }

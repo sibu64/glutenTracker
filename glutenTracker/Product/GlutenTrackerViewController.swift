@@ -30,12 +30,13 @@ class GlutenTrackerViewController: UIViewController {
         
         codeLabel?.text = "Scan to perform a research with a scan"
         productLabel?.text = "code on the product of your choice."
-        glutenLabel?.text = "Check if it is gluten free"
+        glutenLabel?.text = "Check if it is gluten free!"
+        
         
         footerButtonView?.showDetailButton(false)
     
         //loadBarCode(with: "3274080001005") // No Gluten
-        loadBarCode(with: "3038359004544") // With Gluten
+       loadBarCode(with: "3038359004544") // With Gluten
     }
     
     // ***********************************************
@@ -90,6 +91,7 @@ class GlutenTrackerViewController: UIViewController {
                 self.footerButtonView?.setFavoriteTitle(text: "Remove from favorites")
                 self.footerButtonView?.showFavoriteButton(true, favoriteType: .remove)
             case false:
+                
                 self.footerButtonView?.setFavoriteTitle(text: "Add to favorites")
                 self.footerButtonView?.showFavoriteButton(true, favoriteType: .add)
             }
@@ -102,6 +104,7 @@ class GlutenTrackerViewController: UIViewController {
             case .failure(_):
                 DispatchQueue.main.async {
                     completion?(false)
+                    
                 }
             case .success(_):
                 DispatchQueue.main.async {
@@ -131,9 +134,10 @@ class GlutenTrackerViewController: UIViewController {
         }
     }
     
-    private func removeToFavorite() {
+    private func removeFromFavorite() {
         guard let value = self.product else {
             fatalError("Product doesn't exist")
+            
         }
         DeleteRecordLogic.default.run(value) { result in
             switch result {
@@ -171,7 +175,7 @@ class GlutenTrackerViewController: UIViewController {
     @IBAction func actionFavorite(sender: UIButton) {
         switch footerButtonView.favoriteType {
         case .add: saveToFavorite()
-        case .remove: removeToFavorite()
+        case .remove: removeFromFavorite()
         }
     }
 }

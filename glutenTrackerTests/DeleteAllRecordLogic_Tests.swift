@@ -19,7 +19,7 @@ class DeleteAllRecordLogic_Tests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func test_delete_all_records_haveBeenCalled() {
+    func test_delete_all_records_hasBeenCalled() {
         let mockService = MockCloudKitService(database: nil)
         let logic = DeleteAllLogic(service: mockService)
         
@@ -28,7 +28,7 @@ class DeleteAllRecordLogic_Tests: XCTestCase {
         XCTAssertEqual(mockService.deleteAllCountCalled, 1)
     }
 
-    func test_delete_all_records_call_success() {
+    func test_delete_all_records_calls_success() {
         let stubService = StubCloudKitServiceSuccess(database: nil)
         let logic = DeleteAllLogic(service: stubService)
         
@@ -42,7 +42,7 @@ class DeleteAllRecordLogic_Tests: XCTestCase {
         XCTAssertEqual(successCalled, true)
     }
     
-    func test_delete_all_records_call_failure() {
+    func test_delete_all_records_calls_failure() {
         let stubService = StubCloudKitServiceFailure(database: nil)
         let logic = DeleteAllLogic(service: stubService)
         

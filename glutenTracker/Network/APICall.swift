@@ -9,14 +9,14 @@
 import Foundation
 import Alamofire
 
-class APICall {
+class APICall: NetworkRequestProtocol {
     
     private var baseUrl: String = "https://world.openfoodfacts.org/api/v0/products/"
     
     func searchProduct(with barCode: String, success: @escaping (Product?)->Void, failure: @escaping (Error)->Void) {
         let urlStringProduct: String = baseUrl + barCode + ".json"
         guard let url = URL(string: urlStringProduct)
-            else {return}
+            else { return }
         AF.request(url).responseJSON
         {
         (response) in
