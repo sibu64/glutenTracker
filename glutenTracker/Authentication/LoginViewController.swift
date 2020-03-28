@@ -38,8 +38,7 @@ class LoginViewController: UIViewController, LoginButtonDelegate {
         stackView.addArrangedSubview(button)
         
         let fbButton = FBLoginButton(permissions: [ .publicProfile, .email ])
-        //loginButton.center = view.center
-        //view.addSubview(loginButton)
+        
         stackView.addArrangedSubview(fbButton)
         
         if let accessToken = AccessToken.current{

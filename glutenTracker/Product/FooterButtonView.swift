@@ -50,12 +50,4 @@ class FooterButtonView: UIStackView {
         favoriteButton.titleLabel?.textAlignment = .center
         self._favoriteType = favoriteType
     }
-    
-//    func configurationScanImage() {
-//        let scanImage = UIImage(systemName: "barcode.viewfinder")
-//        self.scanButton.setImage(scanImage, for: .normal)
-//        self.scanButton.setTitle("Scan", for: .normal)
-       //let scanImage = UIImage(systemName: "barcode.viewfinder")
-       // let scanTab = UITabBarItem(title: "Scan", image: UIImage(named: "YOUR_IMAGE_NAME_FROM_ASSETS")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal), tag: 1)
-//}
 }

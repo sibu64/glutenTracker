@@ -42,8 +42,8 @@ class FBLoginManagerViewController: UIViewController {
         loginManager.logIn(
             permissions: [.publicProfile, .email],
             viewController: self
-        ) { result in
-            self.loginManagerDidComplete(result)
+        ) { [weak self] result in
+            self?.loginManagerDidComplete(result)
         }
     }
 

@@ -28,9 +28,19 @@ import CloudKit
             })
         })
     }
-}
 
-extension DeleteRecordLogic {
+func runDeleteAll(completion: GTResultVoidHandler?) {
+            self.service?.deleteAll(completion: { zoneId, error in
+                guard let err = error else {
+                    completion?(.success(()))
+                    return
+                }
+                completion?(.failure(err))
+            })
+        }
+    }
+
+    extension DeleteRecordLogic {
     public static var `default`: DeleteRecordLogic = {
         let service = CloudKitService()
         return DeleteRecordLogic(service: service)

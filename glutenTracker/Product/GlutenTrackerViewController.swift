@@ -85,15 +85,15 @@ class GlutenTrackerViewController: UIViewController {
         glutenLabel?.font = UIFont.boldSystemFont(ofSize: 21.0)
         wheatImage.isHidden = !viewModel.shouldDisplayWheatImage
         
-        doesRecordExist(with: model) { success in
+        doesRecordExist(with: model) { [weak self] success in
             switch success {
             case true:
-                self.footerButtonView?.setFavoriteTitle(text: "Remove from favorites")
-                self.footerButtonView?.showFavoriteButton(true, favoriteType: .remove)
+                self?.footerButtonView?.setFavoriteTitle(text: "Remove from favorites")
+                self?.footerButtonView?.showFavoriteButton(true, favoriteType: .remove)
             case false:
                 
-                self.footerButtonView?.setFavoriteTitle(text: "Add to favorites")
-                self.footerButtonView?.showFavoriteButton(true, favoriteType: .add)
+                self?.footerButtonView?.setFavoriteTitle(text: "Add to favorites")
+                self?.footerButtonView?.showFavoriteButton(true, favoriteType: .add)
             }
         }
     }
@@ -118,16 +118,16 @@ class GlutenTrackerViewController: UIViewController {
         guard let value = self.product else {
             fatalError("Product doesn't exist")
         }
-        SaveRecordLogic.default.run(with: value) { result in
+        SaveRecordLogic.default.run(with: value) { [weak self] result in
             switch result {
             case .failure(let error):
                 DispatchQueue.main.async {
-                    self.showError(error.localizedDescription)
+                    self?.showError(error.localizedDescription)
                 }
             case .success(_):
                 DispatchQueue.main.async {
-                    self.footerButtonView.setFavoriteTitle(text: "Remove from favorites")
-                    self.footerButtonView.showFavoriteButton(true, favoriteType: .remove)
+                    self?.footerButtonView.setFavoriteTitle(text: "Remove from favorites")
+                    self?.footerButtonView.showFavoriteButton(true, favoriteType: .remove)
                     UIAlertWrapper.presentAlert(title: "Favorite", message: "Your favorite has been added!", cancelButtonTitle: "Ok")
                 }
             }
@@ -139,16 +139,16 @@ class GlutenTrackerViewController: UIViewController {
             fatalError("Product doesn't exist")
             
         }
-        DeleteRecordLogic.default.run(value) { result in
+        DeleteRecordLogic.default.run(value) { [weak self] result in
             switch result {
             case .failure(let error):
                 DispatchQueue.main.async {
-                    self.showError(error.localizedDescription)
+                    self?.showError(error.localizedDescription)
                 }
             case .success(_):
                 DispatchQueue.main.async {
-                    self.footerButtonView.setFavoriteTitle(text: "Add to favorites")
-                    self.footerButtonView.showFavoriteButton(true, favoriteType: .add)
+                    self?.footerButtonView.setFavoriteTitle(text: "Add to favorites")
+                    self?.footerButtonView.showFavoriteButton(true, favoriteType: .add)
                     UIAlertWrapper.presentAlert(title: "Deletion", message: "Your favorite has been deleted!", cancelButtonTitle: "Ok")
                 }
             }

@@ -71,7 +71,7 @@ class FavoritesViewController: UIViewController {
     }
     
     @IBAction func deleteAllFavorites(_ sender: Any) {
-        DeleteAllLogic.default.run { result in
+        DeleteRecordLogic.default.runDeleteAll { result in
             switch result {
             case .success(_):
                 DispatchQueue.main.async {
