@@ -82,7 +82,7 @@ class GlutenTrackerViewController: UIViewController {
         codeLabel?.text = model.barCode
         productLabel?.text = viewModel.name
         glutenLabel?.text = viewModel.glutenLabel
-        glutenLabel?.font = UIFont.boldSystemFont(ofSize: 21.0)
+        glutenLabel?.font = UIFont.boldSystemFont(ofSize: 17.0)
         wheatImage.isHidden = !viewModel.shouldDisplayWheatImage
         
         doesRecordExist(with: model) { [weak self] success in
