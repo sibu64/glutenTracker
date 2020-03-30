@@ -32,11 +32,15 @@ class GlutenTrackerViewController: UIViewController {
         productLabel?.text = "code on the product of your choice."
         glutenLabel?.text = "Check if it is gluten free!"
         
-        
         footerButtonView?.showDetailButton(false)
     
         //loadBarCode(with: "3274080001005") // No Gluten
        loadBarCode(with: "3038359004544") // With Gluten
+    }
+    
+     func viewDidAppear() {
+        super.viewDidAppear(false)
+        removeFromFavorite()
     }
     
     // ***********************************************
@@ -91,7 +95,6 @@ class GlutenTrackerViewController: UIViewController {
                 self?.footerButtonView?.setFavoriteTitle(text: "Remove from favorites")
                 self?.footerButtonView?.showFavoriteButton(true, favoriteType: .remove)
             case false:
-                
                 self?.footerButtonView?.setFavoriteTitle(text: "Add to favorites")
                 self?.footerButtonView?.showFavoriteButton(true, favoriteType: .add)
             }
@@ -135,23 +138,28 @@ class GlutenTrackerViewController: UIViewController {
     }
     
     private func removeFromFavorite() {
-        guard let value = self.product else {
-            fatalError("Product doesn't exist")
-            
-        }
-        DeleteRecordLogic.default.run(value) { [weak self] result in
-            switch result {
-            case .failure(let error):
-                DispatchQueue.main.async {
-                    self?.showError(error.localizedDescription)
-                }
-            case .success(_):
-                DispatchQueue.main.async {
-                    self?.footerButtonView.setFavoriteTitle(text: "Add to favorites")
-                    self?.footerButtonView.showFavoriteButton(true, favoriteType: .add)
-                    UIAlertWrapper.presentAlert(title: "Deletion", message: "Your favorite has been deleted!", cancelButtonTitle: "Ok")
+        var _: Result<Any, Error>
+        let handlerBlock: (Bool) -> Void = { result in  }
+        guard let value = self.product else { return }
+
+        if doesRecordExist(with: product!, handlerBlock) == handlerBlock(true) {
+            DeleteRecordLogic.default.run(value) { [weak self] result in
+                switch result {
+                case .failure(let error):
+                    DispatchQueue.main.async {
+                        self?.showError(error.localizedDescription)
+                    }
+                case .success(_):
+                    DispatchQueue.main.async {
+                        self?.footerButtonView.setFavoriteTitle(text: "Add to favorites")
+                        self?.footerButtonView.showFavoriteButton(true, favoriteType: .add)
+                        UIAlertWrapper.presentAlert(title: "Deletion", message: "Your favorite has been deleted!", cancelButtonTitle: "Ok")
+                    }
                 }
             }
+        }else{
+            self.footerButtonView.showFavoriteButton(true, favoriteType: .add)
+            self.footerButtonView.setFavoriteTitle(text: "Add to favorites")
         }
     }
     

@@ -1,10 +1,10 @@
-////
-////  NetworkProductManager_Tests.swift
-////  glutenTrackerTests
-////
-////  Created by Darrieumerlou on 27/03/2020.
-////  Copyright © 2020 Darrieumerlou. All rights reserved.
-////
+//
+//  NetworkProductManager_Tests.swift
+//  glutenTrackerTests
+//
+//  Created by Darrieumerlou on 27/03/2020.
+//  Copyright © 2020 Darrieumerlou. All rights reserved.
+//
 import XCTest
 @testable import glutenTracker
 

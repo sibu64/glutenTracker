@@ -11,6 +11,10 @@ import Foundation
 typealias ProductResults = (Product)->Void
 
 protocol NetworkRequestProtocol {
-    func searchProduct(with barCode: String, success: @escaping (Product?)->Void, failure: @escaping (Error)->Void)
+    func searchProduct(
+        with barCode: String,
+        success: ((Product?)->Void)?,
+        failure: ((Error)->Void)?
+    )
 }
 

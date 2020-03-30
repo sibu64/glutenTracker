@@ -1,0 +1,14 @@
+{
+  "product": {
+    "_id": "10",
+    "product_name": "name",
+    "image_front_url": "https://icons.fr",
+    "ingredients_text_en": "lemon",
+    "allergens": "milk",
+    "code": "123",
+    "allergens_tags": [
+      "tags"
+    ]
+  }
+}
+

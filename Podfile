@@ -7,10 +7,9 @@ target 'glutenTracker' do
 
   # Pods for glutenTracker
   pod 'SwiftKeychainWrapper', '~> 3.4.0'
-  pod 'FacebookLogin', '~> 0.9.0'
-  pod 'FBSDKLoginKit', '~> 5.15.1'
-  pod 'FacebookCore', '~> 0.9.0'
-  pod 'FacebookShare','~> 0.9.0'
+  pod 'FBSDKLoginKit', '~> 6.3.0'
+  pod 'FBSDKCoreKit', '~> 6.3.0'
+  pod 'FBSDKShareKit','~> 6.3.0'
   pod 'Alamofire','>= 5.0.1'
   pod 'AlamofireImage', '~> 4.0'
   pod 'Kingfisher', '~> 5.13.2'

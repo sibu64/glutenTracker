@@ -21,19 +21,19 @@ class DeleteAllRecordLogic_Tests: XCTestCase {
 
     func test_delete_all_records_hasBeenCalled() {
         let mockService = MockCloudKitService(database: nil)
-        let logic = DeleteAllLogic(service: mockService)
+        let logic = DeleteRecordLogic(service: mockService)
         
-        logic.run(completion: nil)
+        logic.runDeleteAll(completion: nil)
         
         XCTAssertEqual(mockService.deleteAllCountCalled, 1)
     }
 
     func test_delete_all_records_calls_success() {
         let stubService = StubCloudKitServiceSuccess(database: nil)
-        let logic = DeleteAllLogic(service: stubService)
+        let logic = DeleteRecordLogic(service: stubService)
         
         var successCalled: Bool = false
-        logic.run { result in
+        logic.runDeleteAll { result in
             if case .success(_) = result {
                 successCalled = true
             }
@@ -44,10 +44,10 @@ class DeleteAllRecordLogic_Tests: XCTestCase {
     
     func test_delete_all_records_calls_failure() {
         let stubService = StubCloudKitServiceFailure(database: nil)
-        let logic = DeleteAllLogic(service: stubService)
+        let logic = DeleteRecordLogic(service: stubService)
         
         var error: Error? = nil
-        logic.run { result in
+        logic.runDeleteAll { result in
             if case .failure(let err) = result {
                 error = err
             }
@@ -57,7 +57,7 @@ class DeleteAllRecordLogic_Tests: XCTestCase {
     }
     
     func test_default_is_mapped() {
-        let logic = DeleteAllLogic.default
+        let logic = DeleteRecordLogic.default
         let service = (logic.service as Any) is CloudKitService
         
         XCTAssertEqual(service, true)

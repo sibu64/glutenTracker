@@ -16,9 +16,9 @@ extension Product {
             objectId: "10",
             name: "name",
             ingredients: ["lemon"],
-            allergens: nil,
+            allergens: "milk",
             barCode: "123",
-            imageUrlString: nil,
+            imageUrlString: "https://icons.fr",
             allergensTags: ["tags"]
         )
     }

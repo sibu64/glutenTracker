@@ -9,15 +9,13 @@
 import Foundation
 
 class NetworkProductManager {
-    var api: NetworkRequestProtocol?
-    var product: Product?
-    var error: Error?
+    private(set) var api: NetworkRequestProtocol?
        
-    init(api: NetworkRequestProtocol?){
+    init(api: NetworkRequestProtocol? = nil){
         self.api = api
     }
 
-    func searchProduct(with barCode: String, success: @escaping (Product?)->Void, failure: @escaping (Error)->Void) {
+    func searchProduct(with barCode: String, success: ((Product?)->Void)?, failure: ((Error)->Void)?) {
         api?.searchProduct(with: barCode, success: success , failure: failure )
     }
 }

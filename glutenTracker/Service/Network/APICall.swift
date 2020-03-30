@@ -10,10 +10,9 @@ import Foundation
 import Alamofire
 
 class APICall: NetworkRequestProtocol {
-    
     private var baseUrl: String = "https://world.openfoodfacts.org/api/v0/products/"
     
-    func searchProduct(with barCode: String, success: @escaping (Product?)->Void, failure: @escaping (Error)->Void) {
+    func searchProduct(with barCode: String, success: ((Product?) -> Void)?, failure: ((Error) -> Void)?) {
         let urlStringProduct: String = baseUrl + barCode + ".json"
         guard let url = URL(string: urlStringProduct)
             else { return }
@@ -25,17 +24,17 @@ class APICall: NetworkRequestProtocol {
                 if let response = response.value as? [String: AnyObject] {
                     let status_verbose = response["status_verbose"] as? String
                     if status_verbose == "product not found" {
-                        success(nil)
+                        success?(nil)
                         return
                     } else {
                         if let product = response["product"] as? [String: AnyObject] {
                             let prod = Product(json: product)
-                            success(prod)
+                            success?(prod)
                         }
                     }
                 }
             }else{
-                failure(response.error!)
+                failure?(response.error!)
             }
         }
     }

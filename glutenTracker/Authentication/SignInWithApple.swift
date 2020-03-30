@@ -15,7 +15,7 @@ public class SignInWithApple {
     func isConnected(_ completion: ((Bool)->Void)?) {
         let provider = ASAuthorizationAppleIDProvider()
         
-        guard let userId = Credential.loadUserId() else {
+        guard let userId = Credential.retrieveUserId() else {
             completion?(false)
             return
         }
