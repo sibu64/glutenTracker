@@ -17,26 +17,27 @@ class FavoritesViewController: UIViewController {
     @IBOutlet weak var listView: FavoriteListView!
     @IBOutlet weak var buttonDeleteFavorites: UIBarButtonItem!
     @IBOutlet weak var noFavoriteMessageLabel: UILabel!
-    
-    var glutenTrackerViewController: GlutenTrackerViewController!
+    // Properties
+    private var didDelete: ((ProductViewModel)->Void)?
+    private var didDeleteAll: (()->Void)?
     // ***********************************************
     // MARK: - Implementation
     // ***********************************************
     override func viewDidLoad() {
         super.viewDidLoad()
-        //displayNoFavoriteMessageLabel(codeLabel: glutenTrackerViewController?.codeLabel)
         
-        self.listView.didSelect({ model in
+        self.listView.didSelect({ viewModel in
             self.performSegue(
-                withIdentifier: Segue.productSegue,
-                sender: model
+                withIdentifier: .productSegue,
+                sender: viewModel
             )
         })
         
-        self.listView.didDelete({ model, indexPath in
+        self.listView.didDelete({ viewModel, indexPath in
             self.presentAlert {
-                self.delete(with: model) {
+                self.delete(with: viewModel.model) {
                     self.listView.deleteRow(at: indexPath)
+                    self.didDelete?(viewModel)
                 }
             }
         })
@@ -47,6 +48,17 @@ class FavoritesViewController: UIViewController {
         load()
     }
     
+    public func didDelete(_ completion: ((ProductViewModel)->Void)?) {
+        self.didDelete = completion
+    }
+    
+    public func didDeleteAll(_ completion: (()->Void)?) {
+        self.didDeleteAll = completion
+    }
+    
+    // ***********************************************
+    // MARK: - Private Methods
+    // ***********************************************
     private func load() {
         FetchRecordsLogic.default.run { result in
             switch result {
@@ -61,7 +73,7 @@ class FavoritesViewController: UIViewController {
                     value = models.isEmpty == true ? "No Favorite" : ""
                     self.noFavoriteMessageLabel?.text = value
                     if models.isEmpty == true {
-                        self.navigationItem.rightBarButtonItem = nil
+                        self.navigationItem.rightBarButtonItem?.isEnabled = false
                     }else{
                         self.navigationItem.rightBarButtonItem?.isEnabled = true
                     }
@@ -76,7 +88,7 @@ class FavoritesViewController: UIViewController {
             case .success(_):
                 DispatchQueue.main.async {
                     self.listView.deleteAll()
-                    
+                    self.didDeleteAll?()
                 }
             case .failure(let error):
                 DispatchQueue.main.async {
@@ -99,7 +111,8 @@ class FavoritesViewController: UIViewController {
     }
     
     private func success(_ models: [Product]) {
-        self.listView?.set(models)
+        let viewModels = models.toViewModels
+        self.listView?.set(viewModels)
     }
     
     private func delete(with model: Product, success: (()->Void)?) {
@@ -120,9 +133,9 @@ class FavoritesViewController: UIViewController {
     // MARK: - Segue
     // ***********************************************
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == Segue.productSegue {
+        if segue.identifier == .productSegue {
             let controller = segue.destination as? DetailsViewController
-            controller?.product = (sender as? Product)
+            controller?.productViewModel = (sender as? ProductViewModel)
         }
     }
 }

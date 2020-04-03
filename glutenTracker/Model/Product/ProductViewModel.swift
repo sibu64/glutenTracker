@@ -27,8 +27,20 @@ class ProductViewModel {
         return value == true ? "Gluten free: Yes" : "Gluten free: No"
     }
     
+    var allergensText: String {
+        return model.allergens?.isEmpty == true ?
+            "No allergen" :
+            "Others allergens: \(model.allergens!)"
+    }
+    
     var shouldDisplayWheatImage: Bool {
         guard let value = model.isGlutenFree else { return false }
         return !value
+    }
+}
+
+extension Array where Element == Product {
+    var toViewModels: [ProductViewModel] {
+        return self.map { ProductViewModel(model: $0) }
     }
 }

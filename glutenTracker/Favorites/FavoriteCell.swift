@@ -16,8 +16,8 @@ class FavoriteCell: UICollectionViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var pictureImageView: UIImageView!
     // Properties
-    private var model: Product?
-    private var didDelete: ((Product)->Void)?
+    private var viewModel: ProductViewModel?
+    private var didDelete: ((ProductViewModel)->Void)?
     lazy var longGesture: UILongPressGestureRecognizer = {
         let gesture = UILongPressGestureRecognizer(target: self, action: #selector(actionPress(sender:)))
         gesture.minimumPressDuration = 1
@@ -32,14 +32,14 @@ class FavoriteCell: UICollectionViewCell {
     }
 
 
-    func set(_ model: Product) {
-        self.model = model
-        self.titleLabel.text = model.name
+    func set(_ viewModel: ProductViewModel) {
+        self.viewModel = viewModel
+        self.titleLabel.text = viewModel.model.name
         self.pictureImageView.kf.indicatorType = .activity
-        self.pictureImageView.kf.setImage(with: model.imageUrl)
+        self.pictureImageView.kf.setImage(with: viewModel.model.imageUrl)
     }
     
-    func didDelete(_ completion: ((Product)->Void)?) {
+    func didDelete(_ completion: ((ProductViewModel)->Void)?) {
         self.didDelete = completion
     }
     
@@ -48,7 +48,7 @@ class FavoriteCell: UICollectionViewCell {
     // ***********************************************
     @objc func actionPress(sender: UILongPressGestureRecognizer) {
         if sender.state == .began {
-            guard let value = self.model else { return }
+            guard let value = self.viewModel else { return }
             self.didDelete?(value)
         }
     }

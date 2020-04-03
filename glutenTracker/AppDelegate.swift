@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import FBSDKCoreKit
+import FBSDKLoginKit
 import CoreData
 
 @UIApplicationMain
@@ -18,17 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        if url.scheme!.isEqual("497170927523972") {
-        
-        
-        
-            return ApplicationDelegate.shared.application(app, open: url, sourceApplication:
-                options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String, annotation:
-                options[UIApplication.OpenURLOptionsKey.annotation])
-    }
-        return false
-    }
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool { return ApplicationDelegate.shared.application(app, open: url, options: options) }
     
 //    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
 //        let signedIn = ApplicationDelegate.shared.application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)

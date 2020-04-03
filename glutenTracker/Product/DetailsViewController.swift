@@ -10,7 +10,7 @@ class DetailsViewController: UIViewController {
     // MARK: - Interface
     // ***********************************************
     // Public
-    var product: Product?
+    var productViewModel: ProductViewModel!
     // IBOutlet
     @IBOutlet weak var codeLabel: UILabel!
     @IBOutlet weak var productNameLabel: UILabel!
@@ -23,17 +23,16 @@ class DetailsViewController: UIViewController {
         super.viewDidLoad()
         self.navigationController?.navigationBar.tintColor = UIColor.systemYellow
 
-        codeLabel?.text = product?.barCode
-        productNameLabel?.text = product?.name
+        codeLabel?.text = productViewModel.model.barCode
+        productNameLabel?.text = productViewModel.name
 
-        let ingredientsProduct = product?.ingredients ?? []
+        let ingredientsProduct = productViewModel.model.ingredients ?? []
         for ingredient in ingredientsProduct {
             print("\(ingredient)")
         }
         self.listView?.setUp(ingredients: ingredientsProduct)
         
-        let allergenValue = product?.allergens?.isEmpty == true ? "No allergen" : "Others allergens: \(product!.allergens!)"
-        self.allergensProductNameLabel?.text = allergenValue
+        self.allergensProductNameLabel?.text = productViewModel.allergensText
         self.allergensProductNameLabel?.font = UIFont.boldSystemFont(ofSize: 21.0)
     }
     

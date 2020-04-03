@@ -28,16 +28,16 @@ class ProfileViewController: UIViewController {
     }
     
     func retrieveFBinformations(){
-        Profile.loadCurrentProfile(completion: {
-        profile, error in
-            _ = profile?.imageURL(forMode: Profile.PictureMode.square, size: self.profileImage.intrinsicContentSize)
-            if profile != nil {
-                let firstName = Profile.current?.firstName
-                let lastName = Profile.current?.lastName
-            print("FB user details \(String(describing: firstName))\(String(describing: lastName))")
-    }
+        /*Profile.loadCurrentProfile(completion: {
+            profile, error in
+                _ = profile?.imageURL(forMode: Profile.PictureMode.square, size: self.profileImage.intrinsicContentSize)
+                if profile != nil {
+                    let firstName = Profile.current?.firstName
+                    let lastName = Profile.current?.lastName
+                print("FB user details \(String(describing: firstName))\(String(describing: lastName))")
         }
-    )}
+            }
+    )*/}
 
     override func viewDidLoad() {
         super.viewDidLoad()

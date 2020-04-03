@@ -8,23 +8,12 @@
 
 import UIKit
 import AuthenticationServices
-import FBSDKCoreKit
 import FBSDKLoginKit
 
-class LoginViewController: UIViewController, LoginButtonDelegate {
-    
-    func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
-    }
-    
-    func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
-    }
-    
-    var fbLoginSuccess = false
-    
+class LoginViewController: UIViewController {
     // ***********************************************
     // MARK: - Interface
     // ***********************************************
-    
     @IBOutlet weak var stackView: UIStackView!
     // ***********************************************
     // MARK: - Implementation
@@ -32,24 +21,18 @@ class LoginViewController: UIViewController, LoginButtonDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Apple
         let button = ASAuthorizationAppleIDButton()
         button.addTarget(self, action: #selector(signInWithApple), for: .touchUpInside)
         stackView.addArrangedSubview(button)
         
-       // let fbButton = FBLoginButton(permissions: [ .publicProfile, .email ])
-        
-        //stackView.addArrangedSubview(fbButton)
-        
-        if let accessToken = AccessToken.current{
-            print("User is already logged in")
-            print(accessToken)
-        }
-        
-        func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            if segue.identifier == "show" {
-                _ = segue.destination as! MyTabBarController
-            }
-        }
+        // Facebook
+        let loginButton = FBLoginButton()
+        loginButton.permissions = ["public_profile", "email"]
+        loginButton.center = view.center
+        loginButton.delegate = self
+        stackView.addArrangedSubview(loginButton)
+       
         //fbButton.delegate = self
 //        func loginButton(_: FBLoginButton, result: LoginResult, error: Error){
 //            print("User logged in")
@@ -72,9 +55,6 @@ class LoginViewController: UIViewController, LoginButtonDelegate {
 //                //present(myTabbarController, animated: true, completion: nil)
 //        }
 //    }
-        func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
-            print("User logged out")
-        }
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -93,19 +73,30 @@ class LoginViewController: UIViewController, LoginButtonDelegate {
         controller.presentationContextProvider = self
         controller.performRequests()
     }
-//    func addOberserverForAppleIdChangeNotification(){
-//        NotificationCenter.default.addObserver(self, selector: #selector(appleIDStateChanged), name: NSNotification.Name.AccessTokenDidChange, object: nil) //ASAuthorizationAppleIDProviderCredentialRevoked, object: nil)
-//    }
-    
-    @objc func appleIDStateChanged(){
-        
-    }
-    
-    func appleLogout(){
-        
-    }
-    
 }
+
+// ***********************************************
+// MARK: - Facebook Authentication
+// ***********************************************
+extension LoginViewController: LoginButtonDelegate {
+    func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
+        guard error != nil else {
+            FacebookService().getData(success: { data in
+                print(data)
+            }, failure: { error in
+                print(error)
+            })
+            return
+        }
+    }
+    
+    func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
+        print("Facebook Logout: \(loginButton)")
+    }
+}
+// ***********************************************
+// MARK: - APPLE Authentication
+// ***********************************************
 extension LoginViewController: ASAuthorizationControllerDelegate {
     public func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
         print(error)
@@ -128,83 +119,40 @@ extension UIViewController: ASAuthorizationControllerPresentationContextProvidin
     }
 }
 
+struct FacebookData {
+    let fbId:String
+    let email:String
+    let firstname:String
+    let lastname:String
+}
 
 
-
-
-import UIKit
-import FBSDKCoreKit
-import FBSDKLoginKit
-import FBSDKShareKit
-
-class FacebookSignInManager: NSObject {
-    typealias LoginCompletionBlock = (Dictionary<String, AnyObject>?, NSError?) -> Void
+class FacebookService {
     
-    //MARK:- Public functions
-    class func basicInfoWithCompletionHandler(_ fromViewController:AnyObject, onCompletion: @escaping LoginCompletionBlock) -> Void {
-        
-        //Check internet connection if no internet connection then return
-        self.getBasicInfoWithCompletionHandler(fromViewController) { (dataDictionary:Dictionary<String, AnyObject>?, error: NSError?) -> Void in
-            onCompletion(dataDictionary, error)
+    func getData(success: ((FacebookData)->Void)?, failure: ((Error)->Void)?) {
+        if AccessToken.current != nil {
+            let request = GraphRequest(graphPath: "me", parameters: ["fields":"email, first_name, last_name"])
+            _ = request.start { (_, result, error) in
+                
+                guard let err = error else {
+                    if let rst = result {
+                        guard let email = (rst as AnyObject).value(forKey: "email") as? String,
+                            let fbId = (rst as AnyObject).value(forKey: "id") as? String
+                        else {
+                            print("Error")
+                            return
+                        }
+                        
+                        let firstname = (rst as AnyObject).value(forKey: "first_name") as! String
+                        let lastname = (rst as AnyObject).value(forKey: "last_name") as! String
+                        
+                        let data = FacebookData(fbId: fbId, email: email, firstname: firstname, lastname: lastname)
+                        success?(data)
+                    }
+                    return
+                }
+                failure?(err)
+            }
         }
     }
-    
-    class func logoutFromFacebook() {
-        LoginManager().logOut()
-        AccessToken.current = nil
-        Profile.current = nil
-    }
-    
-    //MARK:- Private functions
-    class fileprivate func getBasicInfoWithCompletionHandler(_ fromViewController:AnyObject, onCompletion: @escaping LoginCompletionBlock) -> Void {
-        
-        let permissionDictionary = [
-            "fields" : "id,name,first_name,last_name,gender,email,birthday,picture.type(large)"]
-        //"locale” : “en_US”
-        //]
-        if AccessToken.current != nil {
-            GraphRequest.init(graphPath: "/me", parameters: permissionDictionary)
-                .start(completionHandler:  { (connection, result, error) in
-                if error == nil {
-                onCompletion(result as? Dictionary<String, AnyObject>, nil)
-                } else {
-                onCompletion(nil, error as NSError?)
-                }
-                })
-            
-        } else {
-            
-            LoginManager().logIn(permissions: ["public_profile", "email"], from: LoginViewController() as? UIViewController, handler: {  (result, error) -> Void in
-                if error != nil {
-                LoginManager().logOut()
-                if let error = error as NSError? {
-                let errorDetails = [NSLocalizedDescriptionKey : "Processing Error. Please try again!"]
-                let customError = NSError(domain: "Error!", code: error.code, userInfo: errorDetails)
-                onCompletion(nil, customError)
-                } else {
-                onCompletion(nil, error as NSError?)
-                }
-                
-                } else if (result?.isCancelled)! {
-                LoginManager().logOut()
-                let errorDetails = [NSLocalizedDescriptionKey : "Request cancelled!"]
-                let customError = NSError(domain: "Request cancelled!", code: 1001, userInfo: errorDetails)
-                onCompletion(nil, customError)
-                } else {
-                    
-                let pictureRequest = GraphRequest(graphPath: "me", parameters: permissionDictionary)
-                let _ = pictureRequest.start(completionHandler: {
-                (connection, result, error) -> Void in
-                if error == nil {
-                onCompletion(result as? Dictionary<String, AnyObject>, nil)
-                
-                } else {
-                onCompletion(nil, error as NSError?)
-                }
-                })
-                }
-                })
-                }
-    }
-               
 }

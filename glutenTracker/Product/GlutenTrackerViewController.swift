@@ -20,8 +20,8 @@ class GlutenTrackerViewController: UIViewController {
     @IBOutlet weak var imageViewProduct: UIImageView!
     @IBOutlet weak var footerButtonView: FooterButtonView!
     @IBOutlet weak var loader: UIActivityIndicatorView!
-    //todo: remove Product (ProductViewModel instead)
-    private var product: Product?
+    
+    private var productViewModel: ProductViewModel?
     // ***********************************************
     // MARK: - Implementation
     // ***********************************************
@@ -35,7 +35,7 @@ class GlutenTrackerViewController: UIViewController {
         footerButtonView?.showDetailButton(false)
     
         //loadBarCode(with: "3274080001005") // No Gluten
-       loadBarCode(with: "3038359004544") // With Gluten
+        loadBarCode(with: "3038359004544") // With Gluten
     }
     
      func viewDidAppear() {
@@ -43,14 +43,23 @@ class GlutenTrackerViewController: UIViewController {
         removeFromFavorite()
     }
     
+    public func deletedProduct(_ viewModel: ProductViewModel) {
+        if viewModel.model == productViewModel?.model {
+            self.setAddFavoriteFooterView()
+        }
+    }
+    
+    public func deletedAllProducts() {
+        self.setAddFavoriteFooterView()
+    }
     // ***********************************************
     // MARK: - Segue
     // ***********************************************
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == Segue.segueToDetails {
+        if segue.identifier == .segueToDetails {
             let controller = segue.destination as? DetailsViewController
-            controller?.product = self.product
-        } else if segue.identifier == Segue.scannerSegue {
+            controller?.productViewModel = self.productViewModel!
+        } else if segue.identifier == .scannerSegue {
             let navigation = segue.destination as? UINavigationController
             let controller = navigation?.children.first as? ScannerViewController
             controller?.didDecodeBarcode({ scannedCode in
@@ -69,7 +78,8 @@ class GlutenTrackerViewController: UIViewController {
         api.searchProduct(with: scannedCode, success: { [weak self] product in
             //dump(product)
             guard let self = self else { return }
-            self.product = product
+            guard let model = product else { return }
+            self.productViewModel = ProductViewModel(model: model)
             self.modelingImageAndLabels()
             self.footerButtonView?.showDetailButton(true)
             self.loader?.stopAnimating()
@@ -80,25 +90,32 @@ class GlutenTrackerViewController: UIViewController {
     }
     
     private func modelingImageAndLabels(){
-        guard let model = product else { return }
-        let viewModel = ProductViewModel(model: model)
-        self.imageViewProduct?.af.setImage(withURL: (model.imageUrl!))
-        codeLabel?.text = model.barCode
+        guard let viewModel = productViewModel else { return }
+        self.imageViewProduct?.af.setImage(withURL: (viewModel.model.imageUrl!))
+        codeLabel?.text = "Barcode: " + viewModel.model.barCode!
         productLabel?.text = viewModel.name
         glutenLabel?.text = viewModel.glutenLabel
         glutenLabel?.font = UIFont.boldSystemFont(ofSize: 17.0)
         wheatImage.isHidden = !viewModel.shouldDisplayWheatImage
         
-        doesRecordExist(with: model) { [weak self] success in
+        doesRecordExist(with: viewModel.model) { [weak self] success in
             switch success {
             case true:
-                self?.footerButtonView?.setFavoriteTitle(text: "Remove from favorites")
-                self?.footerButtonView?.showFavoriteButton(true, favoriteType: .remove)
+                self?.setRemoveFavoriteFooterView()
             case false:
-                self?.footerButtonView?.setFavoriteTitle(text: "Add to favorites")
-                self?.footerButtonView?.showFavoriteButton(true, favoriteType: .add)
+                self?.setAddFavoriteFooterView()
             }
         }
+    }
+    
+    private func setRemoveFavoriteFooterView() {
+        self.footerButtonView?.setFavoriteTitle(text: "Remove from favorites")
+        self.footerButtonView?.showFavoriteButton(true, favoriteType: .remove)
+    }
+    
+    private func setAddFavoriteFooterView() {
+        self.footerButtonView?.setFavoriteTitle(text: "Add to favorites")
+        self.footerButtonView?.showFavoriteButton(true, favoriteType: .add)
     }
     
     private func doesRecordExist(with model: Product, _ completion: ((Bool)->Void)?) {
@@ -118,10 +135,10 @@ class GlutenTrackerViewController: UIViewController {
     }
     
     private func saveToFavorite() {
-        guard let value = self.product else {
+        guard let viewModel = self.productViewModel else {
             fatalError("Product doesn't exist")
         }
-        SaveRecordLogic.default.run(with: value) { [weak self] result in
+        SaveRecordLogic.default.run(with: viewModel.model) { [weak self] result in
             switch result {
             case .failure(let error):
                 DispatchQueue.main.async {
@@ -129,8 +146,7 @@ class GlutenTrackerViewController: UIViewController {
                 }
             case .success(_):
                 DispatchQueue.main.async {
-                    self?.footerButtonView.setFavoriteTitle(text: "Remove from favorites")
-                    self?.footerButtonView.showFavoriteButton(true, favoriteType: .remove)
+                    self?.setRemoveFavoriteFooterView()
                     UIAlertWrapper.presentAlert(title: "Favorite", message: "Your favorite has been added!", cancelButtonTitle: "Ok")
                 }
             }
@@ -138,28 +154,31 @@ class GlutenTrackerViewController: UIViewController {
     }
     
     private func removeFromFavorite() {
-        var _: Result<Any, Error>
-        let handlerBlock: (Bool) -> Void = { result in  }
-        guard let value = self.product else { return }
+        guard let viewModel = self.productViewModel else { return }
 
-        if doesRecordExist(with: product!, handlerBlock) == handlerBlock(true) {
-            DeleteRecordLogic.default.run(value) { [weak self] result in
-                switch result {
-                case .failure(let error):
-                    DispatchQueue.main.async {
-                        self?.showError(error.localizedDescription)
-                    }
-                case .success(_):
-                    DispatchQueue.main.async {
-                        self?.footerButtonView.setFavoriteTitle(text: "Add to favorites")
-                        self?.footerButtonView.showFavoriteButton(true, favoriteType: .add)
-                        UIAlertWrapper.presentAlert(title: "Deletion", message: "Your favorite has been deleted!", cancelButtonTitle: "Ok")
-                    }
+        doesRecordExist(with: viewModel.model, { success in
+            switch success {
+            case true:
+                self.delete(viewModel.model)
+            case false:
+                self.setAddFavoriteFooterView()
+            }
+        })
+    }
+    
+    private func delete(_ model: Product) {
+        DeleteRecordLogic.default.run(model) { [weak self] result in
+            switch result {
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    self?.showError(error.localizedDescription)
+                }
+            case .success(_):
+                DispatchQueue.main.async {
+                    self?.setAddFavoriteFooterView()
+                    UIAlertWrapper.presentAlert(title: "Deletion", message: "Your favorite has been deleted!", cancelButtonTitle: "Ok")
                 }
             }
-        }else{
-            self.footerButtonView.showFavoriteButton(true, favoriteType: .add)
-            self.footerButtonView.setFavoriteTitle(text: "Add to favorites")
         }
     }
     
@@ -175,8 +194,8 @@ class GlutenTrackerViewController: UIViewController {
     // MARK: - Actions
     // ***********************************************
     @IBAction func actionOpenDetails(sender: UIButton) {
-        if let _ = self.product {
-            self.performSegue(withIdentifier: Segue.segueToDetails, sender: nil)
+        if let _ = self.productViewModel {
+            self.performSegue(withIdentifier: .segueToDetails, sender: nil)
         }
     }
     

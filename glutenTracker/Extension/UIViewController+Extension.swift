@@ -9,7 +9,11 @@
 import UIKit
 
 extension UIViewController {
+    func showError() {
+        self.showError("An error has occured!")
+    }
+    
     func showError(_ message: String) {
-        UIAlertWrapper.presentAlert(title: "Warning!", message: "An error has occured!", cancelButtonTitle: "Ok")
+        UIAlertWrapper.presentAlert(title: "Warning!", message: message, cancelButtonTitle: "Ok")
     }
 }

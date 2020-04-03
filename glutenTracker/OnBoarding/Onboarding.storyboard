@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ybs-SE-8Ud">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Onboarding View Controller-->
+        <scene sceneID="Atg-kG-5h2">
+            <objects>
+                <viewController modalPresentationStyle="overFullScreen" id="ybs-SE-8Ud" customClass="OnboardingViewController" customModule="glutenTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0Gx-CA-zBg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="bfH-B2-Nec">
+                                <rect key="frame" x="22" y="504.33333333333326" width="335" height="50"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="h1i-XA-Hvx"/>
+                                </constraints>
+                                <state key="normal" title="Continue">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="actionNext:" destination="ybs-SE-8Ud" eventType="touchUpInside" id="jUc-fA-xxt"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c7H-b5-tbr">
+                                <rect key="frame" x="20.666666666666657" y="90.999999999999972" width="336.33333333333337" height="361.33333333333326"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GlutenTracker" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HDe-8l-TFY">
+                                        <rect key="frame" x="0.0" y="0.0" width="337.33333333333331" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="uXU-r4-z9c"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Rockwell-Bold" family="Rockwell" pointSize="35"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome !" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xM7-oJ-9bP">
+                                        <rect key="frame" x="0.0" y="57.999999999999993" width="337.33333333333331" height="26.666666666666664"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nSi-up-KXW">
+                                        <rect key="frame" x="1" y="94.999999999999986" width="337.33333333333331" height="182.66666666666663"/>
+                                        <string key="text">Welcome! And thanks for choosing GlutenTracker.
+With this app, you will be able to scan the products and to determine if the gluten is contained in it. This app is based on the OpenFoodFacts API. 
+I hope you will appreciate it! ;) </string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* To use the app you have to connect you (that is to say to own an icloud account and be autenticated)!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z3r-fG-bjd">
+                                        <rect key="frame" x="-8" y="282.66666666666669" width="357.33333333333331" height="61"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="nSi-up-KXW" firstAttribute="leading" secondItem="c7H-b5-tbr" secondAttribute="leading" constant="1" id="8Xr-K2-BWv"/>
+                                    <constraint firstAttribute="trailing" secondItem="z3r-fG-bjd" secondAttribute="trailing" constant="-13" id="92Y-wq-y4E"/>
+                                    <constraint firstItem="z3r-fG-bjd" firstAttribute="top" secondItem="nSi-up-KXW" secondAttribute="bottom" constant="5" id="9dn-Gv-rce"/>
+                                    <constraint firstItem="HDe-8l-TFY" firstAttribute="leading" secondItem="c7H-b5-tbr" secondAttribute="leading" id="FOR-8N-EcG"/>
+                                    <constraint firstItem="z3r-fG-bjd" firstAttribute="leading" secondItem="c7H-b5-tbr" secondAttribute="leading" constant="-8" id="R9c-6m-RvY"/>
+                                    <constraint firstItem="xM7-oJ-9bP" firstAttribute="leading" secondItem="c7H-b5-tbr" secondAttribute="leading" id="TEb-8f-W3B"/>
+                                    <constraint firstAttribute="trailing" secondItem="nSi-up-KXW" secondAttribute="trailing" constant="-2" id="TRc-TD-3ro"/>
+                                    <constraint firstAttribute="trailing" secondItem="HDe-8l-TFY" secondAttribute="trailing" constant="-1" id="W2e-fx-ibx"/>
+                                    <constraint firstItem="xM7-oJ-9bP" firstAttribute="top" secondItem="HDe-8l-TFY" secondAttribute="bottom" constant="-2" id="b8T-IU-dxp"/>
+                                    <constraint firstItem="nSi-up-KXW" firstAttribute="top" secondItem="xM7-oJ-9bP" secondAttribute="bottom" constant="10.5" id="icy-LW-jaa"/>
+                                    <constraint firstAttribute="trailing" secondItem="xM7-oJ-9bP" secondAttribute="trailing" constant="-1" id="sxK-Kj-X68"/>
+                                    <constraint firstAttribute="bottom" secondItem="nSi-up-KXW" secondAttribute="bottom" constant="83.5" id="uYv-bJ-Erl"/>
+                                    <constraint firstItem="HDe-8l-TFY" firstAttribute="top" secondItem="c7H-b5-tbr" secondAttribute="top" id="yyg-Me-mag"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="bfH-B2-Nec" firstAttribute="top" secondItem="c7H-b5-tbr" secondAttribute="bottom" constant="52" id="L4a-YR-p4R"/>
+                            <constraint firstItem="c7H-b5-tbr" firstAttribute="top" secondItem="vUZ-Ar-mEK" secondAttribute="top" constant="47" id="TN4-0D-fMl"/>
+                            <constraint firstItem="c7H-b5-tbr" firstAttribute="centerX" secondItem="0Gx-CA-zBg" secondAttribute="centerX" constant="1.25" id="dcR-Nz-3OV"/>
+                            <constraint firstItem="c7H-b5-tbr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="0Gx-CA-zBg" secondAttribute="leading" constant="20" id="k7N-zh-ykd"/>
+                            <constraint firstItem="bfH-B2-Nec" firstAttribute="leading" secondItem="vUZ-Ar-mEK" secondAttribute="leading" constant="22" id="mfI-75-5jH"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="c7H-b5-tbr" secondAttribute="trailing" constant="18" id="wRa-SI-BFV"/>
+                            <constraint firstItem="vUZ-Ar-mEK" firstAttribute="trailing" secondItem="bfH-B2-Nec" secondAttribute="trailing" constant="18" id="y6m-q1-4mW"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="vUZ-Ar-mEK"/>
+                    </view>
+                    <connections>
+                        <outlet property="nextButton" destination="bfH-B2-Nec" id="Jga-wg-1Ja"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uCV-as-ygJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="56.25" y="140.49295774647888"/>
+        </scene>
+    </scenes>
+</document>

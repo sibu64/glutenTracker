@@ -9,33 +9,54 @@
 import UIKit
 
 class MyTabBarController: UITabBarController {
-
+    // ***********************************************
+    // MARK: - Interface
+    // ***********************************************
+    var homeViewController: GlutenTrackerViewController? {
+        let navigation = viewControllers?.first as? UINavigationController
+        return navigation?.children.first as? GlutenTrackerViewController
+    }
+    
+    var favoriteViewController: FavoritesViewController? {
+        let navigation = viewControllers?[1] as? UINavigationController
+        return navigation?.children.first as? FavoritesViewController
+    }
+    // ***********************************************
+    // MARK: - Implementation
+    // ***********************************************
     override func viewDidLoad() {
         super.viewDidLoad()
         barItemAppereance()
+        
+        favoriteViewController?.didDelete({ viewModel in
+            self.homeViewController?.deletedProduct(viewModel)
+        })
+        
+        favoriteViewController?.didDeleteAll({
+            self.homeViewController?.deletedAllProducts()
+        })
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        SignInWithApple().isConnected { [weak self] success in
-            guard success == false else {
-                print("Connected")
-                return
-            }
-            self?.performSegue(withIdentifier: "AuthenticationSegue", sender: nil)
+        if OnboardingLogic.default.isFirstLaunch {
+            self.performSegue(withIdentifier: .showOnboardingSegue, sender: nil)
+            return
         }
+        
+        CloudKitAvailability.checkIfAvailable(success: {
+            print("🔥 iCloud available")
+        }, failure: { error in
+            self.showError(error.localizedDescription)
+        })
     }
 
 
-func barItemAppereance(){
-    UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Copperplate", size: 15)!], for: .normal)
-    UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Copperplate", size: 15)!], for: .selected)
+    func barItemAppereance(){
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Copperplate", size: 15)!], for: .normal)
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Copperplate", size: 15)!], for: .selected)
+    }
 }
-    
-
-    
-}
-
 
 

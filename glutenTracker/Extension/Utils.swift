@@ -22,12 +22,13 @@ extension UIViewController {
     }
 }
 
-public struct Segue {
+extension String {
     static var scannerSegue = "scannerSegue"
     static var segueToDetails = "segueToDetails"
     static var showMyTabBarController = "show"
     static var productSegue = "productSegue"
     static var popUpSegue = "popUpSegue"
+    static var showOnboardingSegue = "showOnboardingSegue"
 }
 
 public struct Identifier{
