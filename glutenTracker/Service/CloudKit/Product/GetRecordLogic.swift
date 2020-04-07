@@ -16,7 +16,7 @@ class GetRecordLogic {
     }
     
     public func run(with model: Product, completion: GTResultProductHandler?) {
-        guard let value = model.objectId else { fatalError("Unknown ObjectId") }
+        guard let value = model.objectId else { return }
         self.service?.get(by: value, completion: { records, error in
             guard let err = error else {
                 guard let record = records?.first,

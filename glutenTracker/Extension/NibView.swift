@@ -27,7 +27,7 @@ public extension NibLoadable where Self: UIView {
     }
     
     func setFromNib() {
-        guard let view = Self.nib.instantiate(withOwner: self, options: nil).first as? UIView else { fatalError("Error loading \(self) from nib") }
+        guard let view = Self.nib.instantiate(withOwner: self, options: nil).first as? UIView else { return }
         addSubview(view)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true

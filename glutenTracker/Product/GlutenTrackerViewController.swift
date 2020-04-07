@@ -138,7 +138,7 @@ class GlutenTrackerViewController: UIViewController {
     
     private func saveToFavorite() {
         guard let viewModel = self.productViewModel else {
-            fatalError("Product doesn't exist")
+            return
         }
         SaveRecordLogic.default.run(with: viewModel.model) { [weak self] result in
             switch result {
