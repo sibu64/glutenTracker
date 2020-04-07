@@ -42,7 +42,6 @@
 		6E54721723F5787E00BE7C35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E54721623F5787E00BE7C35 /* Assets.xcassets */; };
 		6E54723223F5796400BE7C35 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E54723123F5796400BE7C35 /* CloudKit.framework */; };
 		6E54723623F5943C00BE7C35 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E54723523F5943C00BE7C35 /* HelpViewController.swift */; };
-		6E59341E2439D85A00934675 /* CustomPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E59341D2439D85A00934675 /* CustomPageViewController.swift */; };
 		6E62F1FF242BCABF005EF839 /* SaveRecordLogic_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E62F1FE242BCABF005EF839 /* SaveRecordLogic_Tests.swift */; };
 		6E62F201242BCBF9005EF839 /* GetRecordLogic_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E62F200242BCBF9005EF839 /* GetRecordLogic_Tests.swift */; };
 		6E62F203242BCC6D005EF839 /* DeleteRecordLogic_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E62F202242BCC6D005EF839 /* DeleteRecordLogic_Tests.swift */; };
@@ -136,7 +135,6 @@
 		6E54722F23F5795F00BE7C35 /* glutenTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = glutenTracker.entitlements; sourceTree = "<group>"; };
 		6E54723123F5796400BE7C35 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		6E54723523F5943C00BE7C35 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
-		6E59341D2439D85A00934675 /* CustomPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageViewController.swift; sourceTree = "<group>"; };
 		6E62F1FE242BCABF005EF839 /* SaveRecordLogic_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveRecordLogic_Tests.swift; sourceTree = "<group>"; };
 		6E62F200242BCBF9005EF839 /* GetRecordLogic_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRecordLogic_Tests.swift; sourceTree = "<group>"; };
 		6E62F202242BCC6D005EF839 /* DeleteRecordLogic_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteRecordLogic_Tests.swift; sourceTree = "<group>"; };
@@ -453,7 +451,6 @@
 			children = (
 				6E80D5C5243605EF00F4EBD9 /* OnboardingViewController.swift */,
 				6E80D5C7243605F900F4EBD9 /* Onboarding.storyboard */,
-				6E59341D2439D85A00934675 /* CustomPageViewController.swift */,
 				6E80D5C92436060600F4EBD9 /* OnboardingLogic.swift */,
 			);
 			path = OnBoarding;
@@ -708,7 +705,6 @@
 				6ECF53872406696F00073A29 /* GlutenTrackerViewController.swift in Sources */,
 				6ECF5389240669F200073A29 /* DetailsViewController.swift in Sources */,
 				690658C4240CF3D600AD00C4 /* Utils.swift in Sources */,
-				6E59341E2439D85A00934675 /* CustomPageViewController.swift in Sources */,
 				6E051647242A4437001A1076 /* Error+Extension.swift in Sources */,
 				6ECF538B24066C2000073A29 /* Product.swift in Sources */,
 			);

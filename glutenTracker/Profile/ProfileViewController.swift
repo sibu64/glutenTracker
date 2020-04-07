@@ -108,6 +108,8 @@ class ProfileViewController: UITableViewController {
     @IBAction func actionSave(_ sender: UIBarButtonItem) {
         if self.viewModel.isValid {
             self.saveProfile()
+            self.saveBarButtonItem.isEnabled = false
+            
         }
     }
 }

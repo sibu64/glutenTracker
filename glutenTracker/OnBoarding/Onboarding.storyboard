@@ -100,13 +100,5 @@ I hope you will appreciate it! ;) </string>
             </objects>
             <point key="canvasLocation" x="458" y="136"/>
         </scene>
-        <!--Custom Page View Controller-->
-        <scene sceneID="NtM-vP-SBw">
-            <objects>
-                <pageViewController storyboardIdentifier="CustomPageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="6OT-F9-pTA" customClass="CustomPageViewController" customModule="glutenTracker" customModuleProvider="target" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BNC-KO-xCr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1343" y="131"/>
-        </scene>
     </scenes>
 </document>

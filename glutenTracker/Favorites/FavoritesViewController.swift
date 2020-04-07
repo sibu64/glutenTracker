@@ -25,6 +25,7 @@ class FavoritesViewController: UIViewController {
     // ***********************************************
     override func viewDidLoad() {
         super.viewDidLoad()
+        leftBarButtonItemTintColor()
         
         self.listView.didSelect({ viewModel in
             self.performSegue(
@@ -54,6 +55,10 @@ class FavoritesViewController: UIViewController {
     
     public func didDeleteAll(_ completion: (()->Void)?) {
         self.didDeleteAll = completion
+    }
+    
+    public func leftBarButtonItemTintColor() {
+        self.navigationItem.leftBarButtonItem?.tintColor = UIColor.systemYellow
     }
     
     // ***********************************************
