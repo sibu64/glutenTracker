@@ -2,16 +2,6 @@ PODS:
   - Alamofire (5.0.5)
   - AlamofireImage (4.0.3):
     - Alamofire (< 6.0.0, >= 5.0.2)
-  - FBSDKCoreKit (6.3.0):
-    - FBSDKCoreKit/Basics (= 6.3.0)
-    - FBSDKCoreKit/Core (= 6.3.0)
-  - FBSDKCoreKit/Basics (6.3.0)
-  - FBSDKCoreKit/Core (6.3.0):
-    - FBSDKCoreKit/Basics
-  - FBSDKLoginKit (6.3.0):
-    - FBSDKLoginKit/Login (= 6.3.0)
-  - FBSDKLoginKit/Login (6.3.0):
-    - FBSDKCoreKit (~> 6.3.0)
   - Kingfisher (5.13.2):
     - Kingfisher/Core (= 5.13.2)
   - Kingfisher/Core (5.13.2)
@@ -20,7 +10,6 @@ PODS:
 DEPENDENCIES:
   - Alamofire (>= 5.0.1)
   - AlamofireImage (~> 4.0)
-  - FBSDKLoginKit (~> 6.3.0)
   - Kingfisher (~> 5.13.2)
   - SwiftKeychainWrapper (~> 3.4.0)
 
@@ -28,19 +17,15 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - AlamofireImage
-    - FBSDKCoreKit
-    - FBSDKLoginKit
     - Kingfisher
     - SwiftKeychainWrapper
 
 SPEC CHECKSUMS:
   Alamofire: df2f8f826963b08b9a870791ad48e07a10090b2e
   AlamofireImage: 3d1a2010519e58675318735580eb856e88840ff7
-  FBSDKCoreKit: 5d55c8f3007c9c49b793617b9102e46355fc7e17
-  FBSDKLoginKit: d46aa04d9bb9990a4deb6441736fae24a8c94496
   Kingfisher: d342c8354c10c3d85a27d6d4c42c41285924b898
   SwiftKeychainWrapper: 6fc49fbf7d4a6b0772917acb0e53a1639f6078d6
 
-PODFILE CHECKSUM: 2d5345deeb39a8d9e1f7621afefd48bd8c8638d3
+PODFILE CHECKSUM: 9de388c16a72fec36abbda826ca46a90ad9c361e
 
 COCOAPODS: 1.9.1

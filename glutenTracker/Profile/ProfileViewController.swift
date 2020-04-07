@@ -7,44 +7,107 @@
 //
 
 import UIKit
-import FBSDKCoreKit
+import CloudKit
 
-class ProfileViewController: UIViewController {
-    
-    
-    @IBOutlet weak var email: UILabel!
-    @IBOutlet weak var appleID: UILabel!
-    @IBOutlet weak var firstname: UILabel!
-    @IBOutlet weak var lastname: UILabel!
-    @IBOutlet weak var profileImage: UIImageView!
-    
-    
-    func retrieveAppleEmail() {
-        email.text =  Credential.rerieveUserEmail()
-    }
-    
-    func retrieveAppleID() {
-        appleID.text =  Credential.retrieveUserId()
-    }
-    
-    func retrieveFBinformations(){
-        /*Profile.loadCurrentProfile(completion: {
-            profile, error in
-                _ = profile?.imageURL(forMode: Profile.PictureMode.square, size: self.profileImage.intrinsicContentSize)
-                if profile != nil {
-                    let firstName = Profile.current?.firstName
-                    let lastName = Profile.current?.lastName
-                print("FB user details \(String(describing: firstName))\(String(describing: lastName))")
+class ProfileViewController: UITableViewController {
+    // ***********************************************
+    // MARK: - Interface
+    // ***********************************************
+    @IBOutlet weak var firstnameFormView: TextFieldFormView?
+    @IBOutlet weak var lastnameFormView: TextFieldFormView?
+    @IBOutlet weak var emailFormView: TextFieldFormView?
+    @IBOutlet weak var saveBarButtonItem: UIBarButtonItem!
+    // Properties
+    private var viewModel: ProfileViewModel = ProfileViewModel() {
+        didSet {
+            self.enableSaveButton()
         }
-            }
-    )*/}
-
+    }
+    private let saveLogic = SaveProfileLogic.default
+    private let getLogic = GetProfileLogic.default
+    // ***********************************************
+    // MARK: - Implementation
+    // ***********************************************
+    override func loadView() {
+        super.loadView()
+        self.enableSaveButton()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        retrieveAppleEmail()
-        retrieveAppleID()
-        retrieveFBinformations()
+     
+        getProfile()
+        
+        // Firstname
+        firstnameFormView?
+            .configure(with: "Firstname", placeholderTitle: "Enter your firstname")
+        firstnameFormView?.didChange({ value in
+            self.viewModel.firstname = value
+            self.enableSaveButton()
+        })
+        
+        // Lastname
+        lastnameFormView?.configure(with: "Lastname", placeholderTitle: "Enter your lastname")
+        lastnameFormView?.didChange({ value in
+            self.viewModel.lastname = value
+            self.enableSaveButton()
+        })
+        
+        // Email
+        emailFormView?.configure(with: "Email", placeholderTitle: "Enter your email")
+        emailFormView?.didChange({ value in
+            self.viewModel.email = value
+            self.enableSaveButton()
+        })
+    }
+    // ***********************************************
+    // MARK: - Private Methods
+    // ***********************************************
+    private func set(_ viewModel: ProfileViewModel) {
+        firstnameFormView?.set(viewModel.firstname)
+        lastnameFormView?.set(viewModel.lastname)
+        emailFormView?.set(viewModel.email)
     }
     
+    private func enableSaveButton() {
+        self.saveBarButtonItem.isEnabled = self.viewModel.isValid
+    }
+    
+    private func getProfile() {
+        getLogic.run { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .failure(_): return
+                case .success(let profile):
+                    let viewModel = profile.toViewModel
+                    self.viewModel = viewModel
+                    self.set(viewModel)
+                }
+            }
+        }
+    }
+    
+    private func saveProfile() {
+        saveLogic.run(with: viewModel.toModel) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .failure(let err):
+                    self.showError(err.localizedDescription)
+                case .success(_):
+                    self.showAlert(
+                        title: "Profile",
+                        message: "Your profile has been saved !"
+                    )
+                }
+            }
+        }
+    }
+    // ***********************************************
+    // MARK: - Action
+    // ***********************************************
+    @IBAction func actionSave(_ sender: UIBarButtonItem) {
+        if self.viewModel.isValid {
+            self.saveProfile()
+        }
+    }
 }
-

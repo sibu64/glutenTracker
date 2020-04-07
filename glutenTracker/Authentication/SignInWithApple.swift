@@ -21,7 +21,7 @@ public class SignInWithApple {
         }
         
         provider.getCredentialState(forUserID: userId) { (credentialState, error) in
-            OperationQueue.main.addOperation {
+            DispatchQueue.main.async {
                 switch (credentialState){
                 case .authorized:
                     completion?(true)

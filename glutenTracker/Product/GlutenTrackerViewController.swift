@@ -22,12 +22,12 @@ class GlutenTrackerViewController: UIViewController {
     @IBOutlet weak var loader: UIActivityIndicatorView!
     
     private var productViewModel: ProductViewModel?
+    var favoriteViewController: FavoritesViewController?
     // ***********************************************
     // MARK: - Implementation
     // ***********************************************
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         codeLabel?.text = "Scan to perform a research with a scan"
         productLabel?.text = "code on the product of your choice."
         glutenLabel?.text = "Check if it is gluten free!"
@@ -109,12 +109,12 @@ class GlutenTrackerViewController: UIViewController {
     }
     
     private func setRemoveFavoriteFooterView() {
-        self.footerButtonView?.setFavoriteTitle(text: "Remove from favorites")
+        //self.footerButtonView?.setFavoriteTitle(text: "Remove from favorites")
         self.footerButtonView?.showFavoriteButton(true, favoriteType: .remove)
     }
     
     private func setAddFavoriteFooterView() {
-        self.footerButtonView?.setFavoriteTitle(text: "Add to favorites")
+        //self.footerButtonView?.setFavoriteTitle(text: "Add to favorites")
         self.footerButtonView?.showFavoriteButton(true, favoriteType: .add)
     }
     
@@ -124,10 +124,12 @@ class GlutenTrackerViewController: UIViewController {
             case .failure(_):
                 DispatchQueue.main.async {
                     completion?(false)
+                    //self.favoriteViewController?.noFavoriteMessageLabel.text = "No favorites"
                     
                 }
             case .success(_):
                 DispatchQueue.main.async {
+                    //self.favoriteViewController?.noFavoriteMessageLabel.text = ""
                     completion?(true)
                 }
             }

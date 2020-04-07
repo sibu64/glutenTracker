@@ -21,7 +21,7 @@ public struct Credential {
         return KeychainWrapper.standard.string(forKey: "userId")
     }
     
-    static func rerieveUserEmail()->String? {
+    static func retrieveUserEmail()->String? {
         return KeychainWrapper.standard.string(forKey: "email")
     }
 }

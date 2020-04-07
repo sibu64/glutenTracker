@@ -17,14 +17,38 @@ public class SaveProfileLogic {
     }
     
     public func run(with profile: Profile, completion: GTResultVoidHandler?) {
-        let record = profile.toOffline
-        service?.save(record, completion: { value, error in
+        service?.getProfile(by: profile.email!, completion: { records, error in
+            guard let err = error else {
+                guard let savedRecord = records?.first else {
+                    self.save(record: profile.toOffline, completion: completion)
+                    return
+                }
+                let record = profile.toOffline(with: savedRecord.recordID)
+                self.update(record: record, completion: completion)
+                return
+            }
+            completion?(.failure(err))
+        })
+    }
+    
+    private func update(record: CKRecord, completion: GTResultVoidHandler?) {
+        service?.updateProfile(record, completion: { record, error in
             guard let err = error else {
                 completion?(.success(()))
                 return
             }
             completion?(.failure(err))
         })
+    }
+    
+    private func save(record: CKRecord, completion: GTResultVoidHandler?) {
+        service?.save(record, completion: { value, error in
+           guard let err = error else {
+               completion?(.success(()))
+               return
+           }
+           completion?(.failure(err))
+       })
     }
 }
 

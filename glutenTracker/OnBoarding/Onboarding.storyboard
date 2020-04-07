@@ -10,7 +10,7 @@
         <!--Onboarding View Controller-->
         <scene sceneID="Atg-kG-5h2">
             <objects>
-                <viewController modalPresentationStyle="overFullScreen" id="ybs-SE-8Ud" customClass="OnboardingViewController" customModule="glutenTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OnboardingViewController" modalPresentationStyle="overFullScreen" id="ybs-SE-8Ud" customClass="OnboardingViewController" customModule="glutenTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0Gx-CA-zBg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -47,7 +47,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nSi-up-KXW">
-                                        <rect key="frame" x="1" y="94.999999999999986" width="337.33333333333331" height="182.66666666666663"/>
+                                        <rect key="frame" x="1" y="95.333333333333357" width="337.33333333333331" height="182.66666666666663"/>
                                         <string key="text">Welcome! And thanks for choosing GlutenTracker.
 With this app, you will be able to scan the products and to determine if the gluten is contained in it. This app is based on the OpenFoodFacts API. 
 I hope you will appreciate it! ;) </string>
@@ -56,7 +56,7 @@ I hope you will appreciate it! ;) </string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* To use the app you have to connect you (that is to say to own an icloud account and be autenticated)!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z3r-fG-bjd">
-                                        <rect key="frame" x="-8" y="282.66666666666669" width="357.33333333333331" height="61"/>
+                                        <rect key="frame" x="-8" y="283" width="357.33333333333331" height="61"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -98,7 +98,15 @@ I hope you will appreciate it! ;) </string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uCV-as-ygJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="56.25" y="140.49295774647888"/>
+            <point key="canvasLocation" x="458" y="136"/>
+        </scene>
+        <!--Custom Page View Controller-->
+        <scene sceneID="NtM-vP-SBw">
+            <objects>
+                <pageViewController storyboardIdentifier="CustomPageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="6OT-F9-pTA" customClass="CustomPageViewController" customModule="glutenTracker" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BNC-KO-xCr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1343" y="131"/>
         </scene>
     </scenes>
 </document>

@@ -13,6 +13,4 @@ public struct Profile: Equatable {
     public let firstname: String?
     public let lastname: String?
     public let email: String?
-    public let fbId: String?
-    public let appleId: String?
 }

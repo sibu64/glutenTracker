@@ -16,4 +16,8 @@ extension UIViewController {
     func showError(_ message: String) {
         UIAlertWrapper.presentAlert(title: "Warning!", message: message, cancelButtonTitle: "Ok")
     }
+    
+    func showAlert(title: String, message: String) {
+        UIAlertWrapper.presentAlert(title: title, message: message, cancelButtonTitle: "Ok")
+    }
 }

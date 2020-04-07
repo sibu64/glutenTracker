@@ -31,10 +31,6 @@ class MyTabBarController: UITabBarController {
         favoriteViewController?.didDelete({ viewModel in
             self.homeViewController?.deletedProduct(viewModel)
         })
-        
-        favoriteViewController?.didDeleteAll({
-            self.homeViewController?.deletedAllProducts()
-        })
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -49,6 +45,11 @@ class MyTabBarController: UITabBarController {
             print("🔥 iCloud available")
         }, failure: { error in
             self.showError(error.localizedDescription)
+        })
+        
+        favoriteViewController?.didDeleteAll({
+            self.homeViewController?.deletedAllProducts()
+            self.favoriteViewController?.buttonDeleteFavorites.isEnabled = false
         })
     }
 

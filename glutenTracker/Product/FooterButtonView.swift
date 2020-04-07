@@ -34,7 +34,7 @@ class FooterButtonView: UIStackView {
         
         self.showDetailButton(false)
         self.showFavoriteButton(false, favoriteType: .add)
-        self.setFavoriteTitle(text: "Add to favorites")
+        //self.setFavoriteTitle(text: "Add to favorites")
     }
     
     func setFavoriteTitle(text: String) {

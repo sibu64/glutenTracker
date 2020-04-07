@@ -69,9 +69,6 @@ class FavoritesViewController: UIViewController {
             case .success(let models):
                 DispatchQueue.main.async {
                     self.success(models)
-                    var value: String? = nil
-                    value = models.isEmpty == true ? "No Favorite" : ""
-                    self.noFavoriteMessageLabel?.text = value
                     if models.isEmpty == true {
                         self.navigationItem.rightBarButtonItem?.isEnabled = false
                     }else{
