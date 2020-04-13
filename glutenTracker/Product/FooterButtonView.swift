@@ -16,8 +16,8 @@ class FooterButtonView: UIStackView {
     @IBOutlet weak var detailButton: UIButton!
     @IBOutlet weak var favoriteButton: UIButton!
     // Properties
-    public enum Favorite {
-        case add, remove
+    public enum Favorite: String {
+        case add = "plus", remove = "minus"
     }
     private var _favoriteType: Favorite = .add
     public var favoriteType: Favorite {
@@ -34,11 +34,18 @@ class FooterButtonView: UIStackView {
         
         self.showDetailButton(false)
         self.showFavoriteButton(false, favoriteType: .add)
-        //self.setFavoriteTitle(text: "Add to favorites")
+        self.setFavoriteTitle(value: .add)
     }
     
-    func setFavoriteTitle(text: String) {
-        self.favoriteButton?.setTitle(text, for: .normal)
+    func setFavoriteTitle(value: Favorite) {
+        switch value {
+        case .add:
+            let image = UIImage(named: "add-favorite")
+            self.favoriteButton.setImage(image, for: .normal)
+        case .remove:
+            let image = UIImage(named: "remove-favorite")
+            self.favoriteButton.setImage(image, for: .normal)
+        }
     }
     
     func showDetailButton(_ value: Bool) {

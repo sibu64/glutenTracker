@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CRP-dl-X9A">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CRP-dl-X9A">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -41,6 +41,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.28627450980000002" green="0.62745098040000002" blue="0.47058823529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <sections>
                             <tableViewSection id="nju-CZ-meH">
                                 <cells>
@@ -113,6 +114,7 @@
                         <connections>
                             <outlet property="dataSource" destination="4wU-Ez-W9b" id="Nrc-bj-eqF"/>
                             <outlet property="delegate" destination="4wU-Ez-W9b" id="IT5-BF-aM0"/>
+                            <outletCollection property="gestureRecognizers" destination="lS5-Oe-2NC" appends="YES" id="Ghq-VD-cXQ"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Profile" id="Ioa-WL-iXO">
@@ -131,6 +133,11 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KDI-Ep-dI2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="lS5-Oe-2NC">
+                    <connections>
+                        <action selector="actionDismissKeyboard:" destination="4wU-Ez-W9b" id="VWP-9H-Dyy"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2437.68115942029" y="-514.28571428571422"/>
         </scene>

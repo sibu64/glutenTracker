@@ -12,12 +12,7 @@
 		690658C4240CF3D600AD00C4 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690658C3240CF3D600AD00C4 /* Utils.swift */; };
 		691310F62407A3E1009D5ACB /* IngredientListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691310F52407A3E1009D5ACB /* IngredientListView.swift */; };
 		691310F82407A3FF009D5ACB /* IngredientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691310F72407A3FF009D5ACB /* IngredientCell.swift */; };
-		691310F92407A490009D5ACB /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E093BAE2405692A00E18364 /* Login.storyboard */; };
 		691310FA2407A56D009D5ACB /* MyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E093BB324056B4C00E18364 /* MyTabBarController.swift */; };
-		691310FB2407A578009D5ACB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E093BAD2405692A00E18364 /* LoginViewController.swift */; };
-		691310FC2407A57B009D5ACB /* Credential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E093BAF2405692A00E18364 /* Credential.swift */; };
-		691310FD2407A583009D5ACB /* SignInWithApple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E093BAC2405692A00E18364 /* SignInWithApple.swift */; };
-		6917920C243C5510001113C6 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6917920B243C5510001113C6 /* ProfileViewModel.swift */; };
 		6917920E243C5679001113C6 /* GetProfileLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6917920D243C5679001113C6 /* GetProfileLogic.swift */; };
 		693F84792407AA4F00008A41 /* Scanner.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 693F84782407AA4F00008A41 /* Scanner.storyboard */; };
 		693F847E2407AD3800008A41 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 693F847D2407AD3800008A41 /* Profile.storyboard */; };
@@ -25,19 +20,19 @@
 		695A3D0624220332001D128B /* FavoriteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695A3D0524220332001D128B /* FavoriteListView.swift */; };
 		695A3D09242203E5001D128B /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695A3D07242203E5001D128B /* FavoriteCell.swift */; };
 		695A3D0A242203E5001D128B /* FavoriteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 695A3D08242203E5001D128B /* FavoriteCell.xib */; };
+		697363B52444476600E0A78E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697363B42444476600E0A78E /* SceneDelegate.swift */; };
 		69845527243B04FB0026FA7C /* TextFieldFormView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69845526243B04FB0026FA7C /* TextFieldFormView.xib */; };
 		69845529243B05170026FA7C /* TextFieldFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69845528243B05170026FA7C /* TextFieldFormView.swift */; };
 		6984552D243B06D90026FA7C /* NibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6984552C243B06D90026FA7C /* NibView.swift */; };
 		6992D04C241F63DC001869F7 /* Fake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE8B5CC241A3D6C007C3F44 /* Fake.swift */; };
 		69AC848F240F94E000ECFBB7 /* FooterButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69AC848E240F94E000ECFBB7 /* FooterButtonView.swift */; };
+		69E276F0243DAC4500ED8E50 /* GlutenInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E276EF243DAC4500ED8E50 /* GlutenInformationViewController.swift */; };
 		6E051647242A4437001A1076 /* Error+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E051646242A4437001A1076 /* Error+Extension.swift */; };
 		6E1772E2240E852100E2D944 /* beep-07.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6E1772E1240E852100E2D944 /* beep-07.mp3 */; };
 		6E226FDC24236DB2000E6E4F /* GetRecordLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E226FDB24236DB2000E6E4F /* GetRecordLogic.swift */; };
 		6E2681B8242CEBC700BC1029 /* DeleteAllRecordLogic_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2681B7242CEBC700BC1029 /* DeleteAllRecordLogic_Tests.swift */; };
 		6E2681BA242CEC1A00BC1029 /* FetchRecordsLogic_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2681B9242CEC1A00BC1029 /* FetchRecordsLogic_Tests.swift */; };
-		6E2681BC242CED9800BC1029 /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2681BB242CED9800BC1029 /* ProductViewModel.swift */; };
 		6E54720B23F5787C00BE7C35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E54720A23F5787C00BE7C35 /* AppDelegate.swift */; };
-		6E54720D23F5787C00BE7C35 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E54720C23F5787C00BE7C35 /* SceneDelegate.swift */; };
 		6E54721523F5787C00BE7C35 /* glutenTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6E54721323F5787C00BE7C35 /* glutenTracker.xcdatamodeld */; };
 		6E54721723F5787E00BE7C35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E54721623F5787E00BE7C35 /* Assets.xcassets */; };
 		6E54723223F5796400BE7C35 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E54723123F5796400BE7C35 /* CloudKit.framework */; };
@@ -101,7 +96,6 @@
 		690658C3240CF3D600AD00C4 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		691310F52407A3E1009D5ACB /* IngredientListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientListView.swift; sourceTree = "<group>"; };
 		691310F72407A3FF009D5ACB /* IngredientCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientCell.swift; sourceTree = "<group>"; };
-		6917920B243C5510001113C6 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		6917920D243C5679001113C6 /* GetProfileLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProfileLogic.swift; sourceTree = "<group>"; };
 		693F84782407AA4F00008A41 /* Scanner.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Scanner.storyboard; sourceTree = "<group>"; };
 		693F847D2407AD3800008A41 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
@@ -109,24 +103,20 @@
 		695A3D0524220332001D128B /* FavoriteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListView.swift; sourceTree = "<group>"; };
 		695A3D07242203E5001D128B /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
 		695A3D08242203E5001D128B /* FavoriteCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteCell.xib; sourceTree = "<group>"; };
+		697363B42444476600E0A78E /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		69845526243B04FB0026FA7C /* TextFieldFormView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextFieldFormView.xib; sourceTree = "<group>"; };
 		69845528243B05170026FA7C /* TextFieldFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldFormView.swift; sourceTree = "<group>"; };
 		6984552C243B06D90026FA7C /* NibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibView.swift; sourceTree = "<group>"; };
 		69AC848E240F94E000ECFBB7 /* FooterButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterButtonView.swift; sourceTree = "<group>"; };
+		69E276EF243DAC4500ED8E50 /* GlutenInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GlutenInformationViewController.swift; path = "/Users/steverobert/Desktop/glutenTracker-master-2-2-2-2-2-2-2-3/glutenTracker/OnBoarding/GlutenInformationViewController.swift"; sourceTree = "<absolute>"; };
 		6E051646242A4437001A1076 /* Error+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Extension.swift"; sourceTree = "<group>"; };
-		6E093BAC2405692A00E18364 /* SignInWithApple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithApple.swift; sourceTree = "<group>"; };
-		6E093BAD2405692A00E18364 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		6E093BAE2405692A00E18364 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
-		6E093BAF2405692A00E18364 /* Credential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credential.swift; sourceTree = "<group>"; };
 		6E093BB324056B4C00E18364 /* MyTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabBarController.swift; sourceTree = "<group>"; };
 		6E1772E1240E852100E2D944 /* beep-07.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "beep-07.mp3"; sourceTree = "<group>"; };
 		6E226FDB24236DB2000E6E4F /* GetRecordLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRecordLogic.swift; sourceTree = "<group>"; };
 		6E2681B7242CEBC700BC1029 /* DeleteAllRecordLogic_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DeleteAllRecordLogic_Tests.swift; path = glutenTrackerTests/DeleteAllRecordLogic_Tests.swift; sourceTree = SOURCE_ROOT; };
 		6E2681B9242CEC1A00BC1029 /* FetchRecordsLogic_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchRecordsLogic_Tests.swift; sourceTree = "<group>"; };
-		6E2681BB242CED9800BC1029 /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
 		6E54720723F5787C00BE7C35 /* glutenTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = glutenTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E54720A23F5787C00BE7C35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6E54720C23F5787C00BE7C35 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		6E54721423F5787C00BE7C35 /* glutenTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = glutenTracker.xcdatamodel; sourceTree = "<group>"; };
 		6E54721623F5787E00BE7C35 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6E54721B23F5787E00BE7C35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -257,7 +247,6 @@
 			children = (
 				693F847D2407AD3800008A41 /* Profile.storyboard */,
 				6EDC0B862403DF25009449B8 /* ProfileViewController.swift */,
-				6917920B243C5510001113C6 /* ProfileViewModel.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -302,10 +291,6 @@
 		6E093BAB2405692A00E18364 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
-				6E093BAD2405692A00E18364 /* LoginViewController.swift */,
-				6E093BAF2405692A00E18364 /* Credential.swift */,
-				6E093BAE2405692A00E18364 /* Login.storyboard */,
-				6E093BAC2405692A00E18364 /* SignInWithApple.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -322,7 +307,6 @@
 		6E130A81242D294D00101530 /* Product */ = {
 			isa = PBXGroup;
 			children = (
-				6E2681BB242CED9800BC1029 /* ProductViewModel.swift */,
 				6ECF538A24066C2000073A29 /* Product.swift */,
 			);
 			path = Product;
@@ -366,8 +350,8 @@
 				6E093BAB2405692A00E18364 /* Authentication */,
 				6E093BB224056B4C00E18364 /* Root */,
 				6E54720A23F5787C00BE7C35 /* AppDelegate.swift */,
+				697363B42444476600E0A78E /* SceneDelegate.swift */,
 				6E1772E1240E852100E2D944 /* beep-07.mp3 */,
-				6E54720C23F5787C00BE7C35 /* SceneDelegate.swift */,
 				6ED8886A24041DDD00DDF760 /* Launch Screen.storyboard */,
 				6E54721623F5787E00BE7C35 /* Assets.xcassets */,
 				6E54721B23F5787E00BE7C35 /* Info.plist */,
@@ -449,6 +433,7 @@
 		6E80D5C4243605C900F4EBD9 /* OnBoarding */ = {
 			isa = PBXGroup;
 			children = (
+				69E276EF243DAC4500ED8E50 /* GlutenInformationViewController.swift */,
 				6E80D5C5243605EF00F4EBD9 /* OnboardingViewController.swift */,
 				6E80D5C7243605F900F4EBD9 /* Onboarding.storyboard */,
 				6E80D5C92436060600F4EBD9 /* OnboardingLogic.swift */,
@@ -574,7 +559,6 @@
 				690658C1240CF32600AD00C4 /* Favorites.storyboard in Resources */,
 				6E1772E2240E852100E2D944 /* beep-07.mp3 in Resources */,
 				695A3D0A242203E5001D128B /* FavoriteCell.xib in Resources */,
-				691310F92407A490009D5ACB /* Login.storyboard in Resources */,
 				6ED8886B24041DDD00DDF760 /* Launch Screen.storyboard in Resources */,
 				693F847E2407AD3800008A41 /* Profile.storyboard in Resources */,
 				690658BF240CF28200AD00C4 /* Product.storyboard in Resources */,
@@ -666,7 +650,6 @@
 				6ED3DCFE2428D9DB00A657D4 /* UIViewController+Extension.swift in Sources */,
 				6917920E243C5679001113C6 /* GetProfileLogic.swift in Sources */,
 				6E80D5BC2436038900F4EBD9 /* CloudKitAvaibility.swift in Sources */,
-				691310FB2407A578009D5ACB /* LoginViewController.swift in Sources */,
 				6E54721523F5787C00BE7C35 /* glutenTracker.xcdatamodeld in Sources */,
 				6EDC2BF9241FA50E00FD1920 /* CloudKitService.swift in Sources */,
 				6E54723623F5943C00BE7C35 /* HelpViewController.swift in Sources */,
@@ -675,20 +658,18 @@
 				6984552D243B06D90026FA7C /* NibView.swift in Sources */,
 				6EDC2BF8241FA50E00FD1920 /* SaveRecordLogic.swift in Sources */,
 				6ED3DCFB2428CF1E00A657D4 /* UIAlertWrapper.swift in Sources */,
-				6E2681BC242CED9800BC1029 /* ProductViewModel.swift in Sources */,
 				691310F62407A3E1009D5ACB /* IngredientListView.swift in Sources */,
 				6E80D5C6243605EF00F4EBD9 /* OnboardingViewController.swift in Sources */,
 				695A3D09242203E5001D128B /* FavoriteCell.swift in Sources */,
 				6EC2C783242DF13E002D446A /* NetworkRequestProtocol.swift in Sources */,
+				697363B52444476600E0A78E /* SceneDelegate.swift in Sources */,
 				6E80D5BE243603B900F4EBD9 /* SaveProfileLogic.swift in Sources */,
 				6E80D5CA2436060600F4EBD9 /* OnboardingLogic.swift in Sources */,
-				6917920C243C5510001113C6 /* ProfileViewModel.swift in Sources */,
+				69E276F0243DAC4500ED8E50 /* GlutenInformationViewController.swift in Sources */,
 				69AC848F240F94E000ECFBB7 /* FooterButtonView.swift in Sources */,
 				6EDC2BFA241FA50E00FD1920 /* Product+CKRecord.swift in Sources */,
 				695A3D0624220332001D128B /* FavoriteListView.swift in Sources */,
-				691310FD2407A583009D5ACB /* SignInWithApple.swift in Sources */,
 				6EC2C785242DF174002D446A /* NetworkProductManager.swift in Sources */,
-				691310FC2407A57B009D5ACB /* Credential.swift in Sources */,
 				6E80D5C0243603E100F4EBD9 /* Profile.swift in Sources */,
 				691310F82407A3FF009D5ACB /* IngredientCell.swift in Sources */,
 				6E226FDC24236DB2000E6E4F /* GetRecordLogic.swift in Sources */,
@@ -699,7 +680,6 @@
 				6E80D5CD2436068500F4EBD9 /* SaverService.swift in Sources */,
 				6EC9090C241B7E7F001CCA48 /* APICall.swift in Sources */,
 				6E54720B23F5787C00BE7C35 /* AppDelegate.swift in Sources */,
-				6E54720D23F5787C00BE7C35 /* SceneDelegate.swift in Sources */,
 				69845529243B05170026FA7C /* TextFieldFormView.swift in Sources */,
 				6E7F5DAE23FECB8D0070ED45 /* FavoritesViewController.swift in Sources */,
 				6ECF53872406696F00073A29 /* GlutenTrackerViewController.swift in Sources */,
@@ -861,6 +841,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6QDN94WAYA;
 				INFOPLIST_FILE = glutenTracker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -881,6 +862,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6QDN94WAYA;
 				INFOPLIST_FILE = glutenTracker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

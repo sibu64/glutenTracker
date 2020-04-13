@@ -30,9 +30,16 @@ public extension NibLoadable where Self: UIView {
         guard let view = Self.nib.instantiate(withOwner: self, options: nil).first as? UIView else { return }
         addSubview(view)
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
-        view.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
-        view.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
-        view.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
+        if #available(iOS 11.0, *) {
+            view.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
+            view.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
+            view.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
+            view.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
+        } else {
+            view.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0).isActive = true
+            view.topAnchor.constraint(equalTo: self.topAnchor, constant: 0).isActive = true
+            view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0).isActive = true
+            view.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0).isActive = true
+        }
     }
 }

@@ -18,7 +18,7 @@ class ProfileViewController: UITableViewController {
     @IBOutlet weak var emailFormView: TextFieldFormView?
     @IBOutlet weak var saveBarButtonItem: UIBarButtonItem!
     // Properties
-    private var viewModel: ProfileViewModel = ProfileViewModel() {
+    private var model: Profile = Profile() {
         didSet {
             self.enableSaveButton()
         }
@@ -42,35 +42,39 @@ class ProfileViewController: UITableViewController {
         firstnameFormView?
             .configure(with: "Firstname", placeholderTitle: "Enter your firstname")
         firstnameFormView?.didChange({ value in
-            self.viewModel.firstname = value
+            self.model.firstname = value
             self.enableSaveButton()
         })
         
         // Lastname
         lastnameFormView?.configure(with: "Lastname", placeholderTitle: "Enter your lastname")
         lastnameFormView?.didChange({ value in
-            self.viewModel.lastname = value
+            self.model.lastname = value
             self.enableSaveButton()
         })
         
         // Email
         emailFormView?.configure(with: "Email", placeholderTitle: "Enter your email")
         emailFormView?.didChange({ value in
-            self.viewModel.email = value
+            self.model.email = value
             self.enableSaveButton()
         })
     }
     // ***********************************************
     // MARK: - Private Methods
     // ***********************************************
-    private func set(_ viewModel: ProfileViewModel) {
-        firstnameFormView?.set(viewModel.firstname)
-        lastnameFormView?.set(viewModel.lastname)
-        emailFormView?.set(viewModel.email)
+    @IBAction func actionDismissKeyboard(_ sender: UITapGestureRecognizer) {
+        self.tableView.endEditing(true)
+    }
+    
+    private func set(_ model: Profile) {
+        firstnameFormView?.set(model.firstname)
+        lastnameFormView?.set(model.lastname)
+        emailFormView?.set(model.email)
     }
     
     private func enableSaveButton() {
-        self.saveBarButtonItem.isEnabled = self.viewModel.isValid
+        self.saveBarButtonItem.isEnabled = self.model.isValid
     }
     
     private func getProfile() {
@@ -79,16 +83,15 @@ class ProfileViewController: UITableViewController {
                 switch result {
                 case .failure(_): return
                 case .success(let profile):
-                    let viewModel = profile.toViewModel
-                    self.viewModel = viewModel
-                    self.set(viewModel)
+                    self.model = profile
+                    self.set(profile)
                 }
             }
         }
     }
     
     private func saveProfile() {
-        saveLogic.run(with: viewModel.toModel) { result in
+        saveLogic.run(with: self.model) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .failure(let err):
@@ -106,10 +109,9 @@ class ProfileViewController: UITableViewController {
     // MARK: - Action
     // ***********************************************
     @IBAction func actionSave(_ sender: UIBarButtonItem) {
-        if self.viewModel.isValid {
+        if self.model.isValid {
             self.saveProfile()
             self.saveBarButtonItem.isEnabled = false
-            
         }
     }
 }

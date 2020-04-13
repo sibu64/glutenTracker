@@ -28,7 +28,7 @@ extension Profile {
 }
 
 extension Profile {
-    init?(with record: CKRecord) {
+    convenience init?(with record: CKRecord) {
         guard record.recordType == "Profile" else { return nil }
         self.init(
             firstname: record["firstname"],

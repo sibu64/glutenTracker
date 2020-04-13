@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eHk-ci-4u2">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -27,7 +28,6 @@
                         </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
-                        <segue destination="vCA-dc-EFy" kind="presentation" identifier="AuthenticationSegue" modalTransitionStyle="crossDissolve" id="zZp-jR-2Fw"/>
                         <segue destination="SaJ-oq-dCZ" kind="relationship" relationship="viewControllers" id="VpO-Ie-zSD"/>
                         <segue destination="8oI-nJ-YpV" kind="relationship" relationship="viewControllers" id="4wh-Qp-HJA"/>
                         <segue destination="8CB-BY-VGZ" kind="relationship" relationship="viewControllers" id="x5c-LC-fij"/>
@@ -45,15 +45,7 @@
                 <viewControllerPlaceholder storyboardName="Onboarding" id="xaS-qI-leU" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ztv-Ej-OUb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-738" y="-528"/>
-        </scene>
-        <!--Login-->
-        <scene sceneID="tvB-ia-onM">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Login" id="vCA-dc-EFy" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wEn-SF-UBy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-473" y="-524"/>
+            <point key="canvasLocation" x="-601" y="-580"/>
         </scene>
         <!--Product-->
         <scene sceneID="cWO-ua-Psz">

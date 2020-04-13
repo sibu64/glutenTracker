@@ -12,9 +12,16 @@ class FavoriteListView: UICollectionView {
     // ***********************************************
     // MARK: - Interface
     // ***********************************************
-    private var collection = [ProductViewModel]()
-    private var didSelect: ((ProductViewModel)->Void)?
-    private var didDelete: ((ProductViewModel, IndexPath)->Void)?
+    @IBOutlet var placeholderView: UIView!
+    // Properties
+    private var didSelect: ((Product)->Void)?
+    private var didDelete: ((Product, IndexPath)->Void)?
+    var collection = [Product]() {
+        didSet {
+            self.backgroundView = self.collection.isEmpty == true ?
+                placeholderView : nil
+        }
+    }
     // ***********************************************
     // MARK: - Implementation
     // ***********************************************
@@ -27,16 +34,16 @@ class FavoriteListView: UICollectionView {
         self.register(nib, forCellWithReuseIdentifier: Identifier.favoriteCellIdentifier)
     }
     
-    func set(_ collection: [ProductViewModel]) {
+    func set(_ collection: [Product]) {
         self.collection = collection
         self.reloadData()
     }
     
-    func didSelect(_ completion: ((ProductViewModel)->Void)?) {
+    func didSelect(_ completion: ((Product)->Void)?) {
         self.didSelect = completion
     }
     
-    func didDelete(_ completion: ((ProductViewModel, IndexPath)->Void)?) {
+    func didDelete(_ completion: ((Product, IndexPath)->Void)?) {
         self.didDelete = completion
     }
     

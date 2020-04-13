@@ -29,6 +29,31 @@ public struct Product: Equatable {
         return self.imageUrl
     }
     
+    var productName: String {
+        return name ?? "Unknown Product"
+    }
+    
+    var glutenLabel: String {
+        guard let value = isGlutenFree else {
+            return "Gluten free: This information is not available"
+        }
+        
+        return value == true ? "Gluten free: Yes" : "Gluten free: No"
+    }
+    
+    var allergensText: String {
+        return allergens?.isEmpty == true ?
+            "No allergen" :
+            "Others allergens: \(allergens!)"
+    }
+    
+    var shouldDisplayWheatImage: Bool {
+        guard let value = isGlutenFree else {
+            return false
+        }
+        return !value
+    }
+    
     init(objectId: String?, name: String?, ingredients: [String]?, allergens: String?, barCode: String?, imageUrlString: String?, allergensTags: [String]?) {
         self.objectId = objectId
         self.name = name
