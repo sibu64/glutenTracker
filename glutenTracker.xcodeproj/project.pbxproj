@@ -157,7 +157,7 @@
 		6EDC2BF4241FA50E00FD1920 /* SaveRecordLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveRecordLogic.swift; sourceTree = "<group>"; };
 		6EDC2BF5241FA50E00FD1920 /* CloudKitService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitService.swift; sourceTree = "<group>"; };
 		6EDC2BF6241FA50E00FD1920 /* Product+CKRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Product+CKRecord.swift"; sourceTree = "<group>"; };
-		6EE645C524445D7400E761D9 /* GlutenInformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GlutenInformationViewController.swift; path = "../../../glutenTracker-master/glutenTracker/OnBoarding/GlutenInformationViewController.swift"; sourceTree = "<group>"; };
+		6EE645C524445D7400E761D9 /* GlutenInformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlutenInformationViewController.swift; sourceTree = "<group>"; };
 		6EE8B5C1241A3A45007C3F44 /* String_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String_Tests.swift; sourceTree = "<group>"; };
 		6EE8B5CC241A3D6C007C3F44 /* Fake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fake.swift; sourceTree = "<group>"; };
 		6EFFB3E724212604002EBDFC /* DeleteRecordLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteRecordLogic.swift; sourceTree = "<group>"; };
@@ -288,6 +288,14 @@
 			path = Form;
 			sourceTree = "<group>";
 		};
+		6E081E012445BCBB00C0E87A /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				6E80D5BF243603E100F4EBD9 /* Profile.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		6E093BAB2405692A00E18364 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
@@ -391,6 +399,7 @@
 		6E62F204242BCD41005EF839 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6E081E012445BCBB00C0E87A /* Profile */,
 				6E130A81242D294D00101530 /* Product */,
 			);
 			path = Model;
@@ -424,7 +433,6 @@
 			children = (
 				6E80D5BD243603B900F4EBD9 /* SaveProfileLogic.swift */,
 				6917920D243C5679001113C6 /* GetProfileLogic.swift */,
-				6E80D5BF243603E100F4EBD9 /* Profile.swift */,
 				6E80D5C1243603F700F4EBD9 /* Profile+CKRecord.swift */,
 			);
 			path = Profile;

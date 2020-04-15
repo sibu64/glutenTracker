@@ -82,7 +82,7 @@ I hope you will appreciate it! ;) </string>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w18-mC-2Nc">
                                 <rect key="frame" x="10" y="467.33333333333331" width="355" height="30"/>
-                                <state key="normal" title="Gluten effects">
+                                <state key="normal" title="See gluten effects">
                                     <color key="titleColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -138,12 +138,12 @@ I hope you will appreciate it! ;) </string>
                                 <rect key="frame" x="16" y="54" width="343" height="674"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5nf-q5-1AF">
-                                        <rect key="frame" x="8" y="8" width="335" height="150"/>
+                                        <rect key="frame" x="8" y="262" width="335" height="150"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SC4-17-bxe">
                                                 <rect key="frame" x="8" y="8" width="319" height="134"/>
-                                                <string key="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <string key="text">Gluten is realy dangerous. It can causes many deseases like: gastro intestinal problems, respiratory problems, chronic fatigue, cancers,  etc...To avoid it many solutions exist like eating fruits and vegetables in great amount. Consuming rice instead of bread and pasta is also a good idea (more digestible). Potatoes ,quinoa, corn, for example, are well adapted for a diet without gluten.                                   </string>
+                                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -159,11 +159,11 @@ I hope you will appreciate it! ;) </string>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="5nf-q5-1AF" firstAttribute="bottom" secondItem="sZb-yv-gSD" secondAttribute="bottom" constant="136" id="5RC-xh-qaU"/>
                                     <constraint firstItem="5nf-q5-1AF" firstAttribute="leading" secondItem="sZb-yv-gSD" secondAttribute="leading" constant="8" id="7Yt-ot-0tG"/>
+                                    <constraint firstItem="5nf-q5-1AF" firstAttribute="centerY" secondItem="sZb-yv-gSD" secondAttribute="centerY" id="Dm6-OS-XuZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="5nf-q5-1AF" secondAttribute="bottom" constant="262" id="Xtg-yf-fyt"/>
                                     <constraint firstItem="5nf-q5-1AF" firstAttribute="width" secondItem="sZb-yv-gSD" secondAttribute="width" multiplier="0.976676" id="ZWL-tB-2Ww"/>
                                     <constraint firstItem="5nf-q5-1AF" firstAttribute="trailing" secondItem="sZb-yv-gSD" secondAttribute="trailing" constant="248" id="lxt-Vj-3vn"/>
-                                    <constraint firstItem="5nf-q5-1AF" firstAttribute="top" secondItem="sZb-yv-gSD" secondAttribute="top" constant="8" id="re2-Ju-jAf"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -173,6 +173,7 @@ I hope you will appreciate it! ;) </string>
                             <constraint firstItem="sZb-yv-gSD" firstAttribute="bottom" secondItem="a03-8o-9EY" secondAttribute="bottom" constant="4" id="Vbg-W1-2un"/>
                             <constraint firstItem="a03-8o-9EY" firstAttribute="trailing" secondItem="sZb-yv-gSD" secondAttribute="trailing" constant="16" id="XgM-OZ-Rzq"/>
                             <constraint firstItem="sZb-yv-gSD" firstAttribute="top" secondItem="n2s-v3-Vhr" secondAttribute="bottom" constant="4" id="abB-pl-QXc"/>
+                            <constraint firstItem="sZb-yv-gSD" firstAttribute="bottom" secondItem="a03-8o-9EY" secondAttribute="bottom" constant="4" id="isO-fS-6sI"/>
                             <constraint firstItem="sZb-yv-gSD" firstAttribute="leading" secondItem="a03-8o-9EY" secondAttribute="leading" constant="16" id="uoz-mq-WE0"/>
                             <constraint firstItem="n2s-v3-Vhr" firstAttribute="top" secondItem="a03-8o-9EY" secondAttribute="top" constant="20" id="wDi-b0-n9J"/>
                         </constraints>

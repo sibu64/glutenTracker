@@ -15,6 +15,7 @@ class FavoriteCell: UICollectionViewCell {
     // ***********************************************
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var pictureImageView: UIImageView!
+    @IBOutlet weak var isGlutenFreeImageView: UIImageView!
     // Properties
     private var model: Product!
     private var didDelete: ((Product)->Void)?
@@ -35,6 +36,12 @@ class FavoriteCell: UICollectionViewCell {
     func set(_ model: Product) {
         self.model = model
         self.titleLabel.text = model.productName
+        if model.isGlutenFree == true {
+            self.isGlutenFreeImageView.image = UIImage(named: "gluten-free")
+        }
+        else{
+            self.isGlutenFreeImageView.image = UIImage(named: "gluten")
+        }
         self.pictureImageView.kf.indicatorType = .activity
         self.pictureImageView.kf.setImage(with: model.imageUrl)
     }

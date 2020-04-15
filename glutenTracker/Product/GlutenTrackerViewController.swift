@@ -34,8 +34,8 @@ class GlutenTrackerViewController: UIViewController {
         
         footerButtonView?.showDetailButton(false)
     
-        //loadBarCode(with: "3274080001005") // No Gluten
-        loadBarCode(with: "3038359004544") // With Gluten
+        loadBarCode(with: "3274080001005") // No Gluten
+        //loadBarCode(with: "3038359004544") // With Gluten
     }
     
      func viewDidAppear() {
