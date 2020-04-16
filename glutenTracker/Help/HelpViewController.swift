@@ -10,9 +10,18 @@ import UIKit
 
 class HelpViewController: UIViewController {
     
+    @IBOutlet weak var glutenFreeImageView: UIImageView!
+    @IBOutlet weak var glutenImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        displayImages()
     }
     
+    
+    func displayImages(){
+    glutenFreeImageView.image = UIImage(named: "gluten-free")
+    glutenImageView.image = UIImage(named: "gluten")
+    }
     
 }

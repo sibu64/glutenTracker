@@ -60,6 +60,7 @@ class ProfileViewController: UITableViewController {
             self.enableSaveButton()
         })
     }
+
     // ***********************************************
     // MARK: - Private Methods
     // ***********************************************

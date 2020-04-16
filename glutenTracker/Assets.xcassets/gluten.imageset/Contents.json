@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "icons8-wheat-50.png",
+      "filename" : "icons8-wheat-50-2.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "icons8-wheat-51.png",
+      "filename" : "icons8-wheat-50-3.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "icons8-wheat-100.png",
+      "filename" : "icons8-wheat-100-2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -138,12 +138,12 @@ I hope you will appreciate it! ;) </string>
                                 <rect key="frame" x="16" y="54" width="343" height="674"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5nf-q5-1AF">
-                                        <rect key="frame" x="8" y="262" width="335" height="150"/>
+                                        <rect key="frame" x="4" y="263" width="335" height="150"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SC4-17-bxe">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SC4-17-bxe">
                                                 <rect key="frame" x="8" y="8" width="319" height="134"/>
-                                                <string key="text">Gluten is realy dangerous. It can causes many deseases like: gastro intestinal problems, respiratory problems, chronic fatigue, cancers,  etc...To avoid it many solutions exist like eating fruits and vegetables in great amount. Consuming rice instead of bread and pasta is also a good idea (more digestible). Potatoes ,quinoa, corn, for example, are well adapted for a diet without gluten.                                   </string>
-                                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="18"/>
+                                                <string key="text">Gluten is really dangerous. It can cause many deseases like: gastro intestinal problems, respiratory problems, chronic fatigue, cancers,  etc... To avoid it many solutions exist like eating fruits and vegetables in great amount. Consuming rice instead of bread and pasta is also a good idea (more digestible). Potatoes, quinoa, corn, for example, are well adapted for a diet without gluten.                                   </string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -159,11 +159,12 @@ I hope you will appreciate it! ;) </string>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="5nf-q5-1AF" firstAttribute="leading" secondItem="sZb-yv-gSD" secondAttribute="leading" constant="8" id="7Yt-ot-0tG"/>
-                                    <constraint firstItem="5nf-q5-1AF" firstAttribute="centerY" secondItem="sZb-yv-gSD" secondAttribute="centerY" id="Dm6-OS-XuZ"/>
-                                    <constraint firstAttribute="bottom" secondItem="5nf-q5-1AF" secondAttribute="bottom" constant="262" id="Xtg-yf-fyt"/>
+                                    <constraint firstItem="5nf-q5-1AF" firstAttribute="leading" secondItem="sZb-yv-gSD" secondAttribute="leading" constant="4" id="7Yt-ot-0tG"/>
+                                    <constraint firstAttribute="trailing" secondItem="5nf-q5-1AF" secondAttribute="trailing" constant="4" id="C4r-eY-lhi"/>
+                                    <constraint firstItem="5nf-q5-1AF" firstAttribute="centerY" secondItem="sZb-yv-gSD" secondAttribute="centerY" constant="1" id="Dm6-OS-XuZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="5nf-q5-1AF" secondAttribute="trailing" constant="4" id="QNc-Qo-nIf"/>
+                                    <constraint firstAttribute="bottom" secondItem="5nf-q5-1AF" secondAttribute="bottom" constant="261" id="Xtg-yf-fyt"/>
                                     <constraint firstItem="5nf-q5-1AF" firstAttribute="width" secondItem="sZb-yv-gSD" secondAttribute="width" multiplier="0.976676" id="ZWL-tB-2Ww"/>
-                                    <constraint firstItem="5nf-q5-1AF" firstAttribute="trailing" secondItem="sZb-yv-gSD" secondAttribute="trailing" constant="248" id="lxt-Vj-3vn"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
