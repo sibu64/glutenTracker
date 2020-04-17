@@ -15,6 +15,7 @@ class GlutenTrackerViewController: UIViewController {
     @IBOutlet weak var codeLabel: UILabel!
     @IBOutlet weak var productLabel: UILabel!
     @IBOutlet weak var glutenLabel: UILabel!
+    @IBOutlet weak var checkLabel: UILabel!
     @IBOutlet weak var wheatImage: UIImageView!
     @IBOutlet weak var widthWheatImageConstraint: NSLayoutConstraint!
     @IBOutlet weak var imageViewProduct: UIImageView!
@@ -30,12 +31,12 @@ class GlutenTrackerViewController: UIViewController {
         super.viewDidLoad()
         codeLabel?.text = "Scan to perform a research with a scan"
         productLabel?.text = "code on the product of your choice."
-        glutenLabel?.text = "Check if it is gluten free!"
+        glutenLabel?.text = ""
         
         footerButtonView?.showDetailButton(false)
     
         //loadBarCode(with: "3274080001005") // No Gluten
-        loadBarCode(with: "3038359004544") // With Gluten
+        //loadBarCode(with: "3038359004544") // With Gluten
     }
     
      func viewDidAppear() {
@@ -99,6 +100,7 @@ class GlutenTrackerViewController: UIViewController {
         productLabel?.text = model.productName
         glutenLabel?.text = model.glutenLabel
         glutenLabel?.font = UIFont.boldSystemFont(ofSize: 17.0)
+        checkLabel?.isHidden = true
         let value = !model.shouldDisplayWheatImage
         if value == true {
             wheatImage.isHidden = true

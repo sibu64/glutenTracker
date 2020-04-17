@@ -56,8 +56,12 @@ I hope you will appreciate it! ;) </string>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* To use the app you have to connect you (that is to say to own an icloud account and be autenticated)!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z3r-fG-bjd">
-                                        <rect key="frame" x="-8" y="283" width="357.33333333333331" height="61"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z3r-fG-bjd">
+                                        <rect key="frame" x="-8" y="283" width="357.33333333333331" height="84"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="84" id="2Ea-ir-w7f"/>
+                                        </constraints>
+                                        <string key="text">* To use the app you have to connect you (that is to say to own an icloud account and be authenticated) and to have an internet connection!</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -111,7 +115,7 @@ I hope you will appreciate it! ;) </string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uCV-as-ygJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="458" y="136"/>
+            <point key="canvasLocation" x="456.80000000000001" y="135.96059113300493"/>
         </scene>
         <!--Gluten Information View Controller-->
         <scene sceneID="JxL-XZ-Ug2">
