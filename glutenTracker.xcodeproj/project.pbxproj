@@ -34,7 +34,6 @@
 		6E3FF315244875BD0043BE91 /* Credential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3FF314244875BD0043BE91 /* Credential.swift */; };
 		6E54720B23F5787C00BE7C35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E54720A23F5787C00BE7C35 /* AppDelegate.swift */; };
 		6E54721523F5787C00BE7C35 /* glutenTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6E54721323F5787C00BE7C35 /* glutenTracker.xcdatamodeld */; };
-		6E54721723F5787E00BE7C35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E54721623F5787E00BE7C35 /* Assets.xcassets */; };
 		6E54723223F5796400BE7C35 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E54723123F5796400BE7C35 /* CloudKit.framework */; };
 		6E54723623F5943C00BE7C35 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E54723523F5943C00BE7C35 /* HelpViewController.swift */; };
 		6E62F1FF242BCABF005EF839 /* SaveRecordLogic_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E62F1FE242BCABF005EF839 /* SaveRecordLogic_Tests.swift */; };
@@ -62,6 +61,9 @@
 		6ECF53872406696F00073A29 /* GlutenTrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECF53862406696F00073A29 /* GlutenTrackerViewController.swift */; };
 		6ECF5389240669F200073A29 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECF5388240669F200073A29 /* DetailsViewController.swift */; };
 		6ECF538B24066C2000073A29 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECF538A24066C2000073A29 /* Product.swift */; };
+		6ED385FA244C7BED0058D3EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6ED385F9244C7BED0058D3EB /* Assets.xcassets */; };
+		6ED385FF244C90A80058D3EB /* gluten-free.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ED38601244C90A80058D3EB /* gluten-free.png */; };
+		6ED38602244C90B60058D3EB /* gluten.png in Resources */ = {isa = PBXBuildFile; fileRef = 6ED38604244C90B60058D3EB /* gluten.png */; };
 		6ED3DCFB2428CF1E00A657D4 /* UIAlertWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED3DCFA2428CF1E00A657D4 /* UIAlertWrapper.swift */; };
 		6ED3DCFE2428D9DB00A657D4 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED3DCF82428CECB00A657D4 /* UIViewController+Extension.swift */; };
 		6ED8886B24041DDD00DDF760 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6ED8886A24041DDD00DDF760 /* Launch Screen.storyboard */; };
@@ -119,7 +121,6 @@
 		6E54720723F5787C00BE7C35 /* glutenTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = glutenTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E54720A23F5787C00BE7C35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6E54721423F5787C00BE7C35 /* glutenTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = glutenTracker.xcdatamodel; sourceTree = "<group>"; };
-		6E54721623F5787E00BE7C35 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6E54721B23F5787E00BE7C35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6E54722023F5787E00BE7C35 /* glutenTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = glutenTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E54722623F5787E00BE7C35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -151,6 +152,11 @@
 		6ECF53862406696F00073A29 /* GlutenTrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlutenTrackerViewController.swift; sourceTree = "<group>"; };
 		6ECF5388240669F200073A29 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		6ECF538A24066C2000073A29 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		6ED385F9244C7BED0058D3EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6ED385FB244C8B740058D3EB /* gluten-free.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "gluten-free.png"; path = "glutenTracker/gluten-free.png"; sourceTree = "<group>"; };
+		6ED385FC244C8B740058D3EB /* gluten.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gluten.png; path = glutenTracker/gluten.png; sourceTree = "<group>"; };
+		6ED38600244C90A80058D3EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Base; path = "Base.lproj/gluten-free.png"; sourceTree = "<group>"; };
+		6ED38603244C90B60058D3EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Base; path = Base.lproj/gluten.png; sourceTree = "<group>"; };
 		6ED3DCF82428CECB00A657D4 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		6ED3DCFA2428CF1E00A657D4 /* UIAlertWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIAlertWrapper.swift; path = glutenTracker/Extension/UIAlertWrapper.swift; sourceTree = SOURCE_ROOT; };
 		6ED8886A24041DDD00DDF760 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -326,6 +332,8 @@
 		6E5471FE23F5787C00BE7C35 = {
 			isa = PBXGroup;
 			children = (
+				6ED385FB244C8B740058D3EB /* gluten-free.png */,
+				6ED385FC244C8B740058D3EB /* gluten.png */,
 				6EA4D93F23FFD6E6007905E7 /* Default-568h@2x.png */,
 				6E54720923F5787C00BE7C35 /* glutenTracker */,
 				6E54722323F5787E00BE7C35 /* glutenTrackerTests */,
@@ -347,6 +355,7 @@
 		6E54720923F5787C00BE7C35 /* glutenTracker */ = {
 			isa = PBXGroup;
 			children = (
+				6ED385F9244C7BED0058D3EB /* Assets.xcassets */,
 				69845524243B04DA0026FA7C /* Components */,
 				6E80D5C4243605C900F4EBD9 /* OnBoarding */,
 				6965AAAC2410DFF600C06366 /* Service */,
@@ -358,13 +367,14 @@
 				691310F32407A35E009D5ACB /* Scan */,
 				6E62F204242BCD41005EF839 /* Model */,
 				6E54722F23F5795F00BE7C35 /* glutenTracker.entitlements */,
+				6ED38604244C90B60058D3EB /* gluten.png */,
+				6ED38601244C90A80058D3EB /* gluten-free.png */,
 				6E093BAB2405692A00E18364 /* Authentication */,
 				6E093BB224056B4C00E18364 /* Root */,
 				6E54720A23F5787C00BE7C35 /* AppDelegate.swift */,
 				697363B42444476600E0A78E /* SceneDelegate.swift */,
 				6E1772E1240E852100E2D944 /* beep-07.mp3 */,
 				6ED8886A24041DDD00DDF760 /* Launch Screen.storyboard */,
-				6E54721623F5787E00BE7C35 /* Assets.xcassets */,
 				6E54721B23F5787E00BE7C35 /* Info.plist */,
 				6E54721323F5787C00BE7C35 /* glutenTracker.xcdatamodeld */,
 			);
@@ -565,13 +575,15 @@
 			files = (
 				6EA4D94023FFD6E6007905E7 /* Default-568h@2x.png in Resources */,
 				6EBD17B8240562740083A14A /* Main.storyboard in Resources */,
-				6E54721723F5787E00BE7C35 /* Assets.xcassets in Resources */,
 				6E80D5C8243605F900F4EBD9 /* Onboarding.storyboard in Resources */,
+				6ED385FA244C7BED0058D3EB /* Assets.xcassets in Resources */,
 				690658C1240CF32600AD00C4 /* Favorites.storyboard in Resources */,
 				6E1772E2240E852100E2D944 /* beep-07.mp3 in Resources */,
 				695A3D0A242203E5001D128B /* FavoriteCell.xib in Resources */,
 				6ED8886B24041DDD00DDF760 /* Launch Screen.storyboard in Resources */,
+				6ED38602244C90B60058D3EB /* gluten.png in Resources */,
 				693F847E2407AD3800008A41 /* Profile.storyboard in Resources */,
+				6ED385FF244C90A80058D3EB /* gluten-free.png in Resources */,
 				690658BF240CF28200AD00C4 /* Product.storyboard in Resources */,
 				693F84792407AA4F00008A41 /* Scanner.storyboard in Resources */,
 				69845527243B04FB0026FA7C /* TextFieldFormView.xib in Resources */,
@@ -728,6 +740,25 @@
 			targetProxy = 6E54722123F5787E00BE7C35 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		6ED38601244C90A80058D3EB /* gluten-free.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6ED38600244C90A80058D3EB /* Base */,
+			);
+			name = "gluten-free.png";
+			sourceTree = "<group>";
+		};
+		6ED38604244C90B60058D3EB /* gluten.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6ED38603244C90B60058D3EB /* Base */,
+			);
+			name = gluten.png;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		6E54722723F5787E00BE7C35 /* Debug */ = {

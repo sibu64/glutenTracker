@@ -17,7 +17,7 @@ class FooterButtonView: UIStackView {
     @IBOutlet weak var favoriteButton: UIButton!
     // Properties
     public enum Favorite: String {
-        case add = "plus", remove = "minus"
+        case add = "add-favorite", remove = "remove-favorite"
     }
     private var _favoriteType: Favorite = .add
     public var favoriteType: Favorite {

@@ -17,11 +17,11 @@ class GlutenTrackerViewController: UIViewController {
     @IBOutlet weak var glutenLabel: UILabel!
     @IBOutlet weak var checkLabel: UILabel!
     @IBOutlet weak var wheatImage: UIImageView!
-    @IBOutlet weak var widthWheatImageConstraint: NSLayoutConstraint!
     @IBOutlet weak var imageViewProduct: UIImageView!
     @IBOutlet weak var footerButtonView: FooterButtonView!
     @IBOutlet weak var loader: UIActivityIndicatorView!
     
+    @IBOutlet weak var glutenView: UIView!
     // Keep Product reference from API call
     private var model: Product?
     // ***********************************************
@@ -36,7 +36,7 @@ class GlutenTrackerViewController: UIViewController {
         footerButtonView?.showDetailButton(false)
     
         //loadBarCode(with: "3274080001005") // No Gluten
-        //loadBarCode(with: "3038359004544") // With Gluten
+        loadBarCode(with: "3038359004544") // With Gluten
     }
     
      func viewDidAppear() {
@@ -101,14 +101,7 @@ class GlutenTrackerViewController: UIViewController {
         glutenLabel?.text = model.glutenLabel
         glutenLabel?.font = UIFont.boldSystemFont(ofSize: 17.0)
         checkLabel?.isHidden = true
-        let value = !model.shouldDisplayWheatImage
-        if value == true {
-            wheatImage.isHidden = true
-            widthWheatImageConstraint.constant = 0
-        } else {
-            wheatImage.isHidden = false
-            widthWheatImageConstraint.constant = 70
-        }
+        shouldDisplayWheatImage()
         
         doesRecordExist(with: model) { [weak self] success in
             switch success {
@@ -117,6 +110,20 @@ class GlutenTrackerViewController: UIViewController {
             case false:
                 self?.setFavoriteFooterView(with: .add)
             }
+        }
+    }
+    
+    public func shouldDisplayWheatImage() {
+        if model?.isGlutenFree == true {
+            let glutenFree = UIImage(named: "gluten-free")
+            let imageView = UIImageView(image: glutenFree)
+            imageView.center = CGPoint(x: glutenView.bounds.height * 2.35, y: glutenView.bounds.width / 2)
+            self.glutenView.addSubview(imageView)
+        }else{
+            let gluten = UIImage(named: "gluten")
+            let imageView = UIImageView(image: gluten)
+            imageView.center = CGPoint(x: glutenView.bounds.height * 2.25, y: glutenView.bounds.width / 2)
+            self.glutenView.addSubview(imageView)
         }
     }
     

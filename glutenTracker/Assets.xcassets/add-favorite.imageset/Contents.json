@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "favorites-1.png",
+      "filename" : "favorites_removed-50.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "favorites.png",
+      "filename" : "favorites_removed-51.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "icons8-favorites-100.png",
+      "filename" : "favorites_removed.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
