@@ -153,8 +153,6 @@
 		6ECF5388240669F200073A29 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		6ECF538A24066C2000073A29 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		6ED385F9244C7BED0058D3EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		6ED385FB244C8B740058D3EB /* gluten-free.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "gluten-free.png"; path = "glutenTracker/gluten-free.png"; sourceTree = "<group>"; };
-		6ED385FC244C8B740058D3EB /* gluten.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gluten.png; path = glutenTracker/gluten.png; sourceTree = "<group>"; };
 		6ED38600244C90A80058D3EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Base; path = "Base.lproj/gluten-free.png"; sourceTree = "<group>"; };
 		6ED38603244C90B60058D3EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Base; path = Base.lproj/gluten.png; sourceTree = "<group>"; };
 		6ED3DCF82428CECB00A657D4 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
@@ -332,8 +330,6 @@
 		6E5471FE23F5787C00BE7C35 = {
 			isa = PBXGroup;
 			children = (
-				6ED385FB244C8B740058D3EB /* gluten-free.png */,
-				6ED385FC244C8B740058D3EB /* gluten.png */,
 				6EA4D93F23FFD6E6007905E7 /* Default-568h@2x.png */,
 				6E54720923F5787C00BE7C35 /* glutenTracker */,
 				6E54722323F5787E00BE7C35 /* glutenTrackerTests */,
