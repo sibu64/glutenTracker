@@ -8,6 +8,7 @@
 
 import Foundation
 
+// class to set up a protocol to save and load data to userDefaults
 class SaverService: ProtocolSaverService {
     // ***********************************************
     // MARK: - Interface
@@ -29,7 +30,7 @@ class SaverService: ProtocolSaverService {
         return userDefaults.value(forKey: key)
     }
 }
-
+// Extension to declare the default use case of SaverService
 extension SaverService {
     static var `default`: SaverService = {
         return SaverService()

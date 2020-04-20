@@ -9,26 +9,28 @@
 import UIKit
 import CloudKit
 
+// Controller to show the onboarding screen
 class OnboardingViewController: UIViewController {
     
     // ***********************************************
     // MARK: - Interface
     // ***********************************************
+    //Button to go to the next screen
     @IBOutlet weak var nextButton: UIButton!
-   // @IBOutlet weak var onboardingCollectionView: UICollectionView!
     // ***********************************************
     // MARK: - Properties
     // ***********************************************
+    // Width of the cell
     let cellPercentWidth: CGFloat = 0.7
-    //var centeredCollectionViewFlowLayout: CenteredCollectionViewFlowLayout!
     // ***********************************************
     // MARK: - Implementation
     // ***********************************************
+    // Creates the view that the controller manages.
     override func loadView() {
         super.loadView()
         nextButton.layer.cornerRadius = nextButton.bounds.height / 2
     }
-    
+    // Called after the controller's view is loaded into memory.
     override func viewDidLoad() {
             super.viewDidLoad()
 
@@ -38,7 +40,7 @@ class OnboardingViewController: UIViewController {
     // ***********************************************
     // MARK: - Private Methods
     // ***********************************************
-    
+    // Verifies that iCloud is available
     private func checkIcloudAvailability() {
         CloudKitAvailability.checkIfAvailable(success: {
             self.dismiss(animated: true) {
@@ -51,6 +53,7 @@ class OnboardingViewController: UIViewController {
     // ***********************************************
     // MARK: - Actions
     // ***********************************************
+    // Defines what action to set up i(f iCloud is available or not)
     @IBAction func actionNext(_ sender: UIButton) {
         self.checkIcloudAvailability()
     }

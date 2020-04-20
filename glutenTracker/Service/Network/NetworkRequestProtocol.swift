@@ -10,6 +10,7 @@ import Foundation
 
 typealias ProductResults = (Product)->Void
 
+// Protocol for the API call
 protocol NetworkRequestProtocol {
     func searchProduct(
         with barCode: String,

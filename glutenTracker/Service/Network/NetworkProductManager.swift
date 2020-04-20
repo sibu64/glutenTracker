@@ -8,6 +8,7 @@
 
 import Foundation
 
+// Manager which implement the NetworkRequestProtocol
 class NetworkProductManager {
     private(set) var api: NetworkRequestProtocol?
        
