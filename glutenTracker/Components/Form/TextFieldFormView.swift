@@ -19,7 +19,7 @@ class TextFieldFormView: UIView, NibLoadable {
     // TextField for TextField's component
     @IBOutlet private weak var nameTextField: UITextField!
     // Properties
-    // CallBack for changed value
+    // Completion handler for changed value
     private var didChange: ((String)->Void)?
     // ***********************************************
     // MARK: - Implementation
@@ -43,16 +43,16 @@ class TextFieldFormView: UIView, NibLoadable {
         super.awakeFromNib()
     }
     // Configuration of the component (TextField and Label)
-    public func configure(with title: String, placeholderTitle: String) {
-        self.titleLabel?.text = title
-        self.nameTextField?.placeholder = placeholderTitle
-    }
+//    public func configure(with title: String, placeholderTitle: String) {
+//        self.titleLabel?.text = title
+//        self.nameTextField?.placeholder = placeholderTitle
+//    }
     
     // setting up the nameTextField
     public func set(_ name: String?) {
         self.nameTextField?.text = name
     }
-    // Expose change callback to public
+    // Expose change completion handler to public
     func didChange(_ completion: ((String)->Void)?) {
         self.didChange = completion
     }

@@ -9,6 +9,7 @@
 import Foundation
 import CloudKit
 
+//extension to transform a product in a record
 extension Product {
     public var toOffline: CKRecord {
         let record = CKRecord(recordType: "Product")
@@ -23,6 +24,7 @@ extension Product {
     }
 }
 
+// initilization to transform a product in a record
 extension Product {
     init?(with record: CKRecord) {
         guard record.recordType == "Product" else { return nil }
@@ -38,6 +40,7 @@ extension Product {
     }
 }
 
+// extension to transform a record in a product
 extension Array where Element == CKRecord {
     public var toModels: [Product]? {
         return self.compactMap { Product(with: $0) }

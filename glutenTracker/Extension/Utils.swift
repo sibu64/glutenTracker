@@ -9,6 +9,7 @@
 import UIKit
 import AudioToolbox
 
+// Function to play a bip when a product is scanned
 extension UIViewController {
     func playSound(sound: String) {
         if let customSoundUrl = Bundle.main.url(forResource: sound, withExtension: "mp3") {
@@ -22,6 +23,7 @@ extension UIViewController {
     }
 }
 
+// Segues
 extension String {
     static var scannerSegue = "scannerSegue"
     static var segueToDetails = "segueToDetails"
@@ -31,11 +33,13 @@ extension String {
     static var showOnboardingSegue = "showOnboardingSegue"
 }
 
+// Identifier
 public struct Identifier{
     static var favoriteCellIdentifier = "FavoriteCell"
     static var ingredientsCellIdentifier = "ingredientsCell"
 }
 
+// Functions to clean the string, remove tags and joined strings by coma (from the API)
 extension String {
     public var cleanString: String? {
         let value = self.components(separatedBy: CharacterSet.decimalDigits)
@@ -57,13 +61,5 @@ extension String {
         let value = self.split(separator: ",")
                         .map { String($0) }
         return value
-    }
-}
-
-extension String {
-    public var isValidEmail: Bool {
-        let range = NSRange(location: 0, length: self.utf16.count)
-        let regex = try! NSRegularExpression(pattern: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}")
-        return regex.firstMatch(in: self, options: [], range: range) != nil
     }
 }

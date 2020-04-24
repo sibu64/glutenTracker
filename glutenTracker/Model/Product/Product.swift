@@ -13,7 +13,7 @@ public struct Product: Equatable {
     public let name: String?
     public let ingredients: [String]?
     public let allergens: String?
-    public let barCode: String?
+    public let barCode: String!
     public let imageUrlString: String?
     public let allergensTags: [String]?
     public var isGlutenFree: Bool? {
@@ -24,7 +24,7 @@ public struct Product: Equatable {
     }
     public var imageUrl: URL? {
         if let string = imageUrlString {
-            return URL(string: string)!
+            return URL(string: string)
         }
         return self.imageUrl
     }
@@ -35,7 +35,7 @@ public struct Product: Equatable {
     
     var glutenLabel: String {
         guard let value = isGlutenFree else {
-            return "Gluten free: This information is not available"
+            return "Gluten free: ..."
         }
         
         return value == true ? "Gluten free: Yes" : "Gluten free: No"
@@ -44,7 +44,7 @@ public struct Product: Equatable {
     var allergensText: String {
         return allergens?.isEmpty == true ?
             "No allergen" :
-            "Others allergens: \(allergens!)"
+        "Others allergens: \(allergens ?? "")"
     }
     
     var shouldDisplayWheatImage: Bool {
@@ -60,7 +60,7 @@ public struct Product: Equatable {
         self.ingredients = ingredients
         self.allergens = allergens
         self.barCode = barCode
-        self.imageUrlString = imageUrlString
+        self.imageUrlString = (imageUrlString != nil) ? imageUrlString! :"No photo found"
         self.allergensTags = allergensTags
     }
 }
@@ -84,7 +84,7 @@ extension Product {
         self.allergens = allergens?.removeTags
         
         self.barCode = barcode
-        self.imageUrlString = imageUrlString
+        self.imageUrlString = (imageUrlString != nil) ? imageUrlString! :"No photo found"
         self.allergensTags = allergensTags
     }
 }

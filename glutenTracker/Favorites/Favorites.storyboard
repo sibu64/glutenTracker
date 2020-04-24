@@ -53,13 +53,11 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                                 </collectionViewFlowLayout>
-                                <label key="backgroundView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fwB-QJ-sei">
-                                    <rect key="frame" x="0.0" y="-88" width="414" height="896"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
-                                    <color key="textColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
+                                <activityIndicatorView key="backgroundView" hidden="YES" opaque="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" id="WcF-mx-9Tp">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                    <color key="color" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </activityIndicatorView>
                                 <cells/>
                                 <connections>
                                     <outlet property="placeholderView" destination="rWS-sW-f1D" id="oYq-ZN-TGH"/>
@@ -86,7 +84,7 @@
                     <connections>
                         <outlet property="buttonDeleteFavorites" destination="hmx-1v-m8T" id="bSX-RH-W5A"/>
                         <outlet property="listView" destination="L7h-L6-B4J" id="JpF-wD-AYw"/>
-                        <outlet property="noFavoriteMessageLabel" destination="fwB-QJ-sei" id="zsj-Dg-ukA"/>
+                        <outlet property="loader" destination="WcF-mx-9Tp" id="88z-zj-yif"/>
                         <segue destination="rtS-SJ-5ax" kind="show" identifier="productSegue" id="g6R-yo-LMA"/>
                     </connections>
                 </viewController>

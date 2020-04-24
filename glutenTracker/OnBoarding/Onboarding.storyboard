@@ -62,7 +62,7 @@ I hope you will appreciate it! ;) </string>
                                             <constraint firstAttribute="height" constant="84" id="2Ea-ir-w7f"/>
                                         </constraints>
                                         <string key="text">* To use the app you have to connect you (that is to say to own an icloud account and be authenticated) and to have an internet connection!</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>

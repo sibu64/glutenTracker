@@ -45,23 +45,9 @@
                         <color key="backgroundColor" red="0.28627450980000002" green="0.62745098040000002" blue="0.47058823529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="3kP-xN-PVO">
-                            <rect key="frame" x="0.0" y="266" width="414" height="128"/>
+                            <rect key="frame" x="0.0" y="126" width="414" height="128"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8wk-Am-7g5">
-                                    <rect key="frame" x="133.66666666666666" y="61" width="146.99999999999997" height="33"/>
-                                    <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <state key="normal" title="Logout from iCloud">
-                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </state>
-                                </button>
-                            </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <constraints>
-                                <constraint firstItem="8wk-Am-7g5" firstAttribute="top" secondItem="ocg-mR-U2T" secondAttribute="top" constant="61" id="67v-wY-5pf"/>
-                                <constraint firstItem="8wk-Am-7g5" firstAttribute="centerX" secondItem="3kP-xN-PVO" secondAttribute="centerX" id="zb1-02-Bgw"/>
-                            </constraints>
                             <viewLayoutGuide key="safeArea" id="ocg-mR-U2T"/>
                         </view>
                         <sections>
@@ -74,9 +60,31 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="slw-SP-W5k" customClass="TextFieldFormView" customModule="glutenTracker" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="slw-SP-W5k" userLabel="View">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
+                                                    <subviews>
+                                                        <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fullname: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZrG-ud-SDN">
+                                                            <rect key="frame" x="25" y="34" width="78" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HRk-ht-cqv">
+                                                            <rect key="frame" x="111" y="34" width="150" height="0.0"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="efq-Fw-ZvK"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="HRk-ht-cqv" firstAttribute="top" secondItem="slw-SP-W5k" secondAttribute="top" constant="34" id="4oY-U8-UXI"/>
+                                                        <constraint firstItem="HRk-ht-cqv" firstAttribute="leading" secondItem="slw-SP-W5k" secondAttribute="leading" constant="111" id="i5h-vY-5Ua"/>
+                                                    </constraints>
                                                 </view>
                                             </subviews>
                                             <constraints>
@@ -84,48 +92,6 @@
                                                 <constraint firstAttribute="trailing" secondItem="slw-SP-W5k" secondAttribute="trailing" id="WLL-xR-vmv"/>
                                                 <constraint firstItem="slw-SP-W5k" firstAttribute="top" secondItem="cX8-nI-kZg" secondAttribute="top" id="iZY-yz-uKb"/>
                                                 <constraint firstItem="slw-SP-W5k" firstAttribute="leading" secondItem="cX8-nI-kZg" secondAttribute="leading" id="se7-Oy-kOW"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="70" id="fk6-Ks-eks">
-                                        <rect key="frame" x="0.0" y="98" width="414" height="70"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fk6-Ks-eks" id="s5o-Gx-lBQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZyE-43-1b5" customClass="TextFieldFormView" customModule="glutenTracker" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </view>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="ZyE-43-1b5" secondAttribute="bottom" id="MJq-ir-T6f"/>
-                                                <constraint firstItem="ZyE-43-1b5" firstAttribute="leading" secondItem="s5o-Gx-lBQ" secondAttribute="leading" id="UNi-JQ-W13"/>
-                                                <constraint firstItem="ZyE-43-1b5" firstAttribute="top" secondItem="s5o-Gx-lBQ" secondAttribute="top" id="iOz-cl-jkX"/>
-                                                <constraint firstAttribute="trailing" secondItem="ZyE-43-1b5" secondAttribute="trailing" id="xe8-9f-U78"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="70" id="SJK-3p-Ta0">
-                                        <rect key="frame" x="0.0" y="168" width="414" height="70"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SJK-3p-Ta0" id="7nh-jn-Jrg">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f0T-1S-tN7" customClass="TextFieldFormView" customModule="glutenTracker" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </view>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="f0T-1S-tN7" secondAttribute="bottom" id="23L-di-P5p"/>
-                                                <constraint firstItem="f0T-1S-tN7" firstAttribute="top" secondItem="7nh-jn-Jrg" secondAttribute="top" id="Y7X-JS-KR6"/>
-                                                <constraint firstAttribute="trailing" secondItem="f0T-1S-tN7" secondAttribute="trailing" id="eB1-Yz-VSs"/>
-                                                <constraint firstItem="f0T-1S-tN7" firstAttribute="leading" secondItem="7nh-jn-Jrg" secondAttribute="leading" id="n1v-vd-HE2"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -139,19 +105,9 @@
                             <outletCollection property="gestureRecognizers" destination="lS5-Oe-2NC" appends="YES" id="Ghq-VD-cXQ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Profile" id="Ioa-WL-iXO">
-                        <barButtonItem key="rightBarButtonItem" title="Save" style="done" id="dl5-hb-Kae">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="actionSave:" destination="4wU-Ez-W9b" id="3yn-Im-rKk"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Profile" id="Ioa-WL-iXO"/>
                     <connections>
-                        <outlet property="emailFormView" destination="f0T-1S-tN7" id="FgX-th-TDv"/>
-                        <outlet property="firstnameFormView" destination="slw-SP-W5k" id="I9Y-qg-Psb"/>
-                        <outlet property="lastnameFormView" destination="ZyE-43-1b5" id="h0y-Jt-JhQ"/>
-                        <outlet property="saveBarButtonItem" destination="dl5-hb-Kae" id="uOe-Ca-cth"/>
+                        <outlet property="firstAndLastname" destination="HRk-ht-cqv" id="ugL-aT-2b9"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KDI-Ep-dI2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -9,6 +9,7 @@
 import Foundation
 import CloudKit
 
+// Structure wich verify CloudKitAvailability
 public struct CloudKitAvailability {
     public static func checkIfAvailable(success: (()->Void)?, failure: ((Error)->Void)?) {
         CKContainer.default().accountStatus { status, error in

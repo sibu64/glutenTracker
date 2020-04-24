@@ -28,12 +28,4 @@ public struct Credential {
     static func retrieveUserEmail()->String? {
         return KeychainWrapper.standard.string(forKey: "email")
     }
-    
-    
-//    static func notificationObserver(){
-//    NotificationCenter.default.addObserver(self,
-//    selector: #selector(startDiscoveryProcess),
-//    name: Notification.Name.CKAccountChanged,
-//    object: nil)
-   // }
 }

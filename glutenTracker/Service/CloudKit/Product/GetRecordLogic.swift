@@ -11,10 +11,12 @@ import Foundation
 class GetRecordLogic {
     private(set) var service: CloudKitService?
     
+// Initialization of the service CloudKitService
     init(service: CloudKitService? = nil) {
         self.service = service
     }
-    
+
+// Method getting the records
     public func run(with model: Product, completion: GTResultProductHandler?) {
         guard let value = model.objectId else { return }
         self.service?.get(by: value, completion: { records, error in
@@ -33,8 +35,10 @@ class GetRecordLogic {
     }
 }
 
+// Completion handler
 typealias GTResultProductHandler = (Result<Product, Error>) ->Void
 
+//Default use
 extension GetRecordLogic {
     public static var `default`: GetRecordLogic = {
         let service = CloudKitService()

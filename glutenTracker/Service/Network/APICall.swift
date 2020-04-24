@@ -11,7 +11,7 @@ import Alamofire
 
 // Class to make the APICall. Implements the NetworkRequestProtocol.
 class APICall: NetworkRequestProtocol {
-    private var baseUrl: String = "https://world.openfoodfacts.org/api/v0/products/"
+    private var baseUrl: String = "https://fr.openfoodfacts.org/api/v0/produit/"
     
     func searchProduct(with barCode: String, success: ((Product?) -> Void)?, failure: ((Error) -> Void)?) {
         let urlStringProduct: String = baseUrl + barCode + ".json"

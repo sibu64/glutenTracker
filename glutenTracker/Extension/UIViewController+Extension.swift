@@ -8,6 +8,7 @@
 
 import UIKit
 
+// some alerts in case of error and a general case
 extension UIViewController {
     func showError() {
         self.showError("An error has occured!")

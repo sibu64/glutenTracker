@@ -9,6 +9,7 @@
 import Foundation
 import CloudKit
 
+// class wich implements methods to save, fetch, get, delete and delete all the products.
 class CloudKitService {
     private(set) var database: CKDatabase?
     
@@ -20,21 +21,21 @@ class CloudKitService {
         database?.save(record, completionHandler: completion)
     }
     
-    func updateProfile(_ record: CKRecord, completion: @escaping ((CKRecord?, Error?) ->Void)) {
-        let modify = CKModifyRecordsOperation(recordsToSave: [record], recordIDsToDelete: nil)
-        modify.savePolicy = .allKeys
-        modify.qualityOfService = .userInitiated
-        modify.modifyRecordsCompletionBlock = { savedRecords, _, error in
-            completion(savedRecords?.first, error)
-        }
-        database?.add(modify)
-    }
+//    func updateProfile(_ record: CKRecord, completion: @escaping ((CKRecord?, Error?) ->Void)) {
+//        let modify = CKModifyRecordsOperation(recordsToSave: [record], recordIDsToDelete: nil)
+//        modify.savePolicy = .allKeys
+//        modify.qualityOfService = .userInitiated
+//        modify.modifyRecordsCompletionBlock = { savedRecords, _, error in
+//            completion(savedRecords?.first, error)
+//        }
+//        database?.add(modify)
+//    }
     
-    func fetchProfile(completion: @escaping (([CKRecord]?, Error?) ->Void)) {
-        let predicate = NSPredicate(value: true)
-        let query = CKQuery(recordType: "Profile", predicate: predicate)
-        database?.perform(query, inZoneWith: nil, completionHandler: completion)
-    }
+//    func fetchProfile(completion: @escaping (([CKRecord]?, Error?) ->Void)) {
+//        let predicate = NSPredicate(value: true)
+//        let query = CKQuery(recordType: "Profile", predicate: predicate)
+//        database?.perform(query, inZoneWith: nil, completionHandler: completion)
+//    }
     
     func fetch(completion: @escaping (([CKRecord]?, Error?) ->Void)) {
         let predicate = NSPredicate(value: true)
@@ -46,12 +47,12 @@ class CloudKitService {
         database?.perform(query, inZoneWith: nil, completionHandler: completion)
     }
     
-    func getProfile(by email: String,  completion: @escaping (([CKRecord]?, Error?) ->Void)) {
-        let predicate = NSPredicate(format: "email = %@", email)
-        let query = CKQuery(recordType: "Profile", predicate: predicate)
-        
-        database?.perform(query, inZoneWith: nil, completionHandler: completion)
-    }
+//    func getProfile(by email: String,  completion: @escaping (([CKRecord]?, Error?) ->Void)) {
+//        let predicate = NSPredicate(format: "email = %@", email)
+//        let query = CKQuery(recordType: "Profile", predicate: predicate)
+//
+//        database?.perform(query, inZoneWith: nil, completionHandler: completion)
+//    }
     
     func get(by objectId: String, completion: @escaping (([CKRecord]?, Error?) ->Void)) {
         let predicate = NSPredicate(format: "objectId = %@", objectId)

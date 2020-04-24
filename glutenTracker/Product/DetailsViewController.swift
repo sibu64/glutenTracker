@@ -28,9 +28,7 @@ class DetailsViewController: UIViewController {
         productNameLabel?.text = model.productName
 
         let ingredientsProduct = model.ingredients ?? []
-        for ingredient in ingredientsProduct {
-            print("\(ingredient)")
-        }
+        
         self.listView?.setUp(ingredients: ingredientsProduct)
         
         self.allergensProductNameLabel?.text = model.allergensText

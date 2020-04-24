@@ -17,11 +17,11 @@ class FavoritesViewController: UIViewController {
     // ***********************************************
     @IBOutlet weak var listView: FavoriteListView!
     @IBOutlet weak var buttonDeleteFavorites: UIBarButtonItem!
-    @IBOutlet weak var noFavoriteMessageLabel: UILabel!
+    @IBOutlet weak var loader: UIActivityIndicatorView!
     // Properties
-    // Callback for deleted value
+    // Completion handlerfor deleted value
     private var didDelete: ((Product)->Void)?
-    // Callback for deleted all values
+    // Completion handler for deleted all values
     private var didDeleteAll: (()->Void)?
     // ***********************************************
     // MARK: - Implementation
@@ -32,7 +32,7 @@ class FavoritesViewController: UIViewController {
         leftBarButtonItemTintColor()
         enableDeleteAllButton(enabled: false)
         
-        // Callback when selected value from ListView
+        // Completion handler when selected value from ListView
         self.listView.didSelect({ model in
             self.performSegue(
                 withIdentifier: .productSegue,
@@ -40,7 +40,7 @@ class FavoritesViewController: UIViewController {
             )
         })
         
-        // Callback when deleted value from ListView
+        // Completion handler when deleted value from ListView
         self.listView.didDelete({ model, indexPath in
             self.presentAlert {
                 self.delete(with: model) {
@@ -58,12 +58,12 @@ class FavoritesViewController: UIViewController {
         load()
     }
     
-    // Expose delete callback to public
+    // Expose delete completion handler to public
     public func didDelete(_ completion: ((Product)->Void)?) {
         self.didDelete = completion
     }
     
-    // Expose delete all callback to public
+    // Expose delete all completion handler to public
     public func didDeleteAll(_ completion: (()->Void)?) {
         self.didDeleteAll = completion
     }
@@ -78,6 +78,7 @@ class FavoritesViewController: UIViewController {
     // ***********************************************
     // Load Favorites Products from CloudKit
     private func load() {
+        self.loader?.startAnimating()
         FetchRecordsLogic.default.run { result in
             switch result {
             case .failure(let err):
@@ -87,6 +88,7 @@ class FavoritesViewController: UIViewController {
             case .success(let models):
                 DispatchQueue.main.async {
                     self.success(models)
+                    self.loader?.stopAnimating()
                 }
             }
         }

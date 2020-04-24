@@ -42,7 +42,6 @@ class MyTabBarController: UITabBarController {
         }
         
         CloudKitAvailability.checkIfAvailable(success: {
-            print("🔥 iCloud available")
         }, failure: { error in
             self.showError(error.localizedDescription)
         })

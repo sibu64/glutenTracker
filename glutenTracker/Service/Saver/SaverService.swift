@@ -21,11 +21,12 @@ class SaverService: ProtocolSaverService {
         self.userDefaults = userDefaults
     }
     
+    //function to save
     func save(key: String, value: Any?) {
         userDefaults.set(value, forKey: key)
         userDefaults.synchronize()
     }
-    
+    // function to load
     func load(key: String) -> Any? {
         return userDefaults.value(forKey: key)
     }

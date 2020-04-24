@@ -24,7 +24,7 @@
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nKO-xx-HfD">
                                                 <rect key="frame" x="8" y="22" width="350" height="304.5"/>
-                                                <mutableString key="text">To scan the product, go on the scan tab and aim at the barcode of the product. If the barcode is referenced, the gluten's presence is indicated (gluten-free or not).  To put the product on the favorites click on the button wich is on the middle of the "Product" screen. You remove it clicking it again or clicking on the product a long time in the "Favorites" screen. You can delete all the favorites in this last screen clicking on the button "Delete all" from the top.   You can visualize in the Favorites if the scanned product is gluten-fre or not.</mutableString>
+                                                <string key="text">To scan the product, go on the scan tab and aim at the barcode of the product. If the barcode is referenced, the gluten's presence is indicated (gluten-free or not).  To put the product on the favorites click on the button wich is on the middle of the "Product" screen. You remove it clicking it again or clicking on the product a long time in the "Favorites" screen. You can delete all the favorites in this last screen clicking on the button "Delete all" from the top.   You can visualize in the Favorites if the scanned product is gluten-fre or not.</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -33,28 +33,29 @@
                                                 <rect key="frame" x="53" y="335" width="260" height="179"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mbo-zu-N8q">
-                                                        <rect key="frame" x="120" y="20" width="120" height="64"/>
+                                                        <rect key="frame" x="160" y="20" width="80" height="64"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="120" id="5yU-Dy-qO7"/>
                                                             <constraint firstAttribute="height" constant="64" id="R3Z-Bh-5VN"/>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="w9N-i0-r6K"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="gluten-free" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JGO-qE-36u">
-                                                        <rect key="frame" x="29" y="34" width="86" height="21"/>
+                                                        <rect key="frame" x="69" y="34" width="86" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="gluten" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v7m-no-e1S">
-                                                        <rect key="frame" x="65" y="113" width="48" height="21"/>
+                                                        <rect key="frame" x="105" y="113" width="48" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ysv-Oy-EG2">
-                                                        <rect key="frame" x="120" y="95" width="120" height="64"/>
+                                                        <rect key="frame" x="160" y="95" width="80" height="64"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="64" id="Wd3-EC-UL5"/>
+                                                            <constraint firstAttribute="width" constant="80" id="ejs-nF-u7a"/>
                                                         </constraints>
                                                     </imageView>
                                                 </subviews>
@@ -62,7 +63,6 @@
                                                 <constraints>
                                                     <constraint firstItem="ysv-Oy-EG2" firstAttribute="top" secondItem="Mbo-zu-N8q" secondAttribute="bottom" constant="11" id="6FN-yF-w3S"/>
                                                     <constraint firstItem="v7m-no-e1S" firstAttribute="top" secondItem="JGO-qE-36u" secondAttribute="bottom" constant="58" id="S9V-oc-jaa"/>
-                                                    <constraint firstAttribute="trailing" secondItem="Mbo-zu-N8q" secondAttribute="trailing" constant="20" id="WBe-VG-3uI"/>
                                                     <constraint firstItem="ysv-Oy-EG2" firstAttribute="leading" secondItem="v7m-no-e1S" secondAttribute="trailing" constant="7" id="YZ0-f7-Cl0"/>
                                                     <constraint firstItem="Mbo-zu-N8q" firstAttribute="leading" secondItem="JGO-qE-36u" secondAttribute="trailing" constant="5" id="mVm-Od-j3c"/>
                                                     <constraint firstItem="Mbo-zu-N8q" firstAttribute="trailing" secondItem="ysv-Oy-EG2" secondAttribute="trailing" id="qX1-9L-amO"/>
@@ -71,13 +71,22 @@
                                                     <constraint firstItem="Mbo-zu-N8q" firstAttribute="leading" secondItem="ysv-Oy-EG2" secondAttribute="leading" id="yIk-ay-2nf"/>
                                                 </constraints>
                                             </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="V 1.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q2H-Uq-NYo">
+                                                <rect key="frame" x="297" y="656" width="37" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="CIr-Nq-WyJ" firstAttribute="leading" secondItem="E6O-vd-yBy" secondAttribute="leading" constant="53" id="3yv-4N-fGL"/>
                                             <constraint firstAttribute="height" constant="706" id="8Ul-6g-ENN"/>
+                                            <constraint firstAttribute="trailing" secondItem="Mbo-zu-N8q" secondAttribute="trailing" constant="73" id="CXC-5i-tQO"/>
                                             <constraint firstItem="nKO-xx-HfD" firstAttribute="leading" secondItem="E6O-vd-yBy" secondAttribute="leading" constant="8" id="Iky-aE-yWc"/>
                                             <constraint firstAttribute="bottom" secondItem="CIr-Nq-WyJ" secondAttribute="bottom" constant="192" id="LG5-Nh-n5y"/>
+                                            <constraint firstAttribute="trailing" secondItem="ysv-Oy-EG2" secondAttribute="trailing" constant="73" id="OL1-Ag-v49"/>
                                             <constraint firstAttribute="trailing" secondItem="nKO-xx-HfD" secondAttribute="trailing" constant="8" id="kje-GF-7vf"/>
                                             <constraint firstItem="CIr-Nq-WyJ" firstAttribute="centerX" secondItem="E6O-vd-yBy" secondAttribute="centerX" id="lUa-7E-ve1"/>
                                             <constraint firstItem="CIr-Nq-WyJ" firstAttribute="top" secondItem="nKO-xx-HfD" secondAttribute="bottom" constant="8.5" id="xBb-W1-dc4"/>

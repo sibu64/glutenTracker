@@ -20,7 +20,6 @@ class GlutenTrackerViewController: UIViewController {
     @IBOutlet weak var imageViewProduct: UIImageView!
     @IBOutlet weak var footerButtonView: FooterButtonView!
     @IBOutlet weak var loader: UIActivityIndicatorView!
-    
     @IBOutlet weak var glutenView: UIView!
     // Keep Product reference from API call
     private var model: Product?
@@ -37,6 +36,9 @@ class GlutenTrackerViewController: UIViewController {
     
         //loadBarCode(with: "3274080001005") // No Gluten
         loadBarCode(with: "3038359004544") // With Gluten
+        
+        
+        
     }
     
      func viewDidAppear() {
@@ -48,12 +50,16 @@ class GlutenTrackerViewController: UIViewController {
     public func deletedProduct(_ model: Product) {
         if model == model {
             self.setFavoriteFooterView(with: .add)
+            self.footerButtonView.showFavoriteButton(true, favoriteType: .add)
+            
         }
     }
     
     // Change button image when all products are deleted
     public func deletedAllProducts() {
         self.setFavoriteFooterView(with: .add)
+        self.footerButtonView.showFavoriteButton(true, favoriteType: .add)
+        self.footerButtonView.showDetailButton(true)
     }
     // ***********************************************
     // MARK: - Segue
@@ -78,28 +84,32 @@ class GlutenTrackerViewController: UIViewController {
     private func loadBarCode(with scannedCode: String) {
         let api = APICall()
 
-        self.loader?.startAnimating()
+        self.loader.startAnimating()
         api.searchProduct(with: scannedCode, success: { [weak self] product in
-            //dump(product)
             guard let self = self else { return }
             self.model = product
             self.modelingImageAndLabels()
             self.footerButtonView?.showDetailButton(true)
             self.loader?.stopAnimating()
         }) { [weak self] error in
-            print(error)
-            self?.loader?.stopAnimating()
+            self?.loader.stopAnimating()
         }
     }
     
     // Manage UI when Product is loaded
     private func modelingImageAndLabels(){
         guard let model = model else { return }
-        self.imageViewProduct?.af.setImage(withURL: (model.imageUrl!))
-        codeLabel?.text = "Barcode: " + model.barCode!
+        if model.imageUrl == nil {
+                let image1 = UIImage (named: "noPhotoFound.png")
+                imageViewProduct.image = image1
+            }else{
+                self.imageViewProduct?.af.setImage(withURL: (model.imageUrl!))
+        }
+            imageViewProduct.center = CGPoint (x: view.center.x, y: view.center.y)
+            view.addSubview (imageViewProduct)
+        codeLabel?.text = "Barcode: " + model.barCode 
         productLabel?.text = model.productName
         glutenLabel?.text = model.glutenLabel
-        glutenLabel?.font = UIFont.boldSystemFont(ofSize: 17.0)
         checkLabel?.isHidden = true
         shouldDisplayWheatImage()
         
@@ -119,12 +129,12 @@ class GlutenTrackerViewController: UIViewController {
             let imageView = UIImageView(image: glutenFree)
             imageView.center = CGPoint(x: glutenView.bounds.height * 2.35, y: glutenView.bounds.width / 2)
             self.glutenView.addSubview(imageView)
-        }else{
+        }else if model?.isGlutenFree == false {
             let gluten = UIImage(named: "gluten")
             let imageView = UIImageView(image: gluten)
             imageView.center = CGPoint(x: glutenView.bounds.height * 2.25, y: glutenView.bounds.width / 2)
             self.glutenView.addSubview(imageView)
-        }
+    }
     }
     
     // Update favorite button
