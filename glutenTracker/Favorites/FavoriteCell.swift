@@ -9,10 +9,12 @@
 import UIKit
 import Kingfisher
 
+// Class tho show Favorites'cells
 class FavoriteCell: UICollectionViewCell {
     // ***********************************************
     // MARK: - Interface
     // ***********************************************
+    // Outlets
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var pictureImageView: UIImageView!
     @IBOutlet weak var isGlutenFreeImageView: UIImageView!
@@ -27,12 +29,13 @@ class FavoriteCell: UICollectionViewCell {
     // ***********************************************
     // MARK: - Implementation
     // ***********************************************
+    // Adding a gesture recognizer
     override func awakeFromNib() {
         super.awakeFromNib()
         self.addGestureRecognizer(longGesture)
     }
 
-
+    // Setting up the name and the image of the favorite's cell
     func set(_ model: Product) {
         self.model = model
         self.titleLabel.text = model.productName

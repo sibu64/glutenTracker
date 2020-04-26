@@ -8,13 +8,14 @@
 
 import UIKit
 
+//Class to show ingredient's cell
 class IngredientCell: UITableViewCell {
     // ***********************************************
     // MARK: - Interface
     // ***********************************************
     @IBOutlet weak var mainView: IngredientViewCell?
 }
-
+// Class to show IngredientViewCell
 class IngredientViewCell: UIView {
     // ***********************************************
     // MARK: - Interface

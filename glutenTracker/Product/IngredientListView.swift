@@ -8,6 +8,7 @@
 
 import UIKit
 
+// tableView to show ingredients (DetailsViewController)
 class IngredientListView: UITableView {
     // ***********************************************
     // MARK: - Interface
@@ -28,12 +29,14 @@ class IngredientListView: UITableView {
     }
 }
 
+// tableView's dataSource
 extension IngredientListView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return collection.count
     } 
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+// tableView's delegate
+func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Identifier.ingredientsCellIdentifier, for: indexPath) as! IngredientCell
         let title = collection[indexPath.row]
         cell.mainView?.setUp(with: title)

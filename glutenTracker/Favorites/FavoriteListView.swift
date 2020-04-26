@@ -8,6 +8,7 @@
 
 import UIKit
 
+// Class to show collectionView
 class FavoriteListView: UICollectionView {
     // ***********************************************
     // MARK: - Interface
@@ -16,6 +17,8 @@ class FavoriteListView: UICollectionView {
     // Properties
     private var didSelect: ((Product)->Void)?
     private var didDelete: ((Product, IndexPath)->Void)?
+    
+    // Instantiation of collection
     var collection = [Product]() {
         didSet {
             self.backgroundView = self.collection.isEmpty == true ?
@@ -34,6 +37,7 @@ class FavoriteListView: UICollectionView {
         self.register(nib, forCellWithReuseIdentifier: Identifier.favoriteCellIdentifier)
     }
     
+    // setting up collection
     func set(_ collection: [Product]) {
         self.collection = collection
         self.reloadData()
@@ -63,6 +67,7 @@ class FavoriteListView: UICollectionView {
 
 }
 
+// DataSource for UICollectionView
 extension FavoriteListView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return collection.count
@@ -79,6 +84,7 @@ extension FavoriteListView: UICollectionViewDataSource {
     }
 }
 
+// Delegate for UICollectionView
 extension FavoriteListView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let model = self.collection[indexPath.row]

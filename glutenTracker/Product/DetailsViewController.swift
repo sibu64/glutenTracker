@@ -4,6 +4,7 @@
 
 import UIKit
 
+// Controller to show Details of the product(barcode, name, allergen(s) and ingredients)
 class DetailsViewController: UIViewController {
 
     // ***********************************************

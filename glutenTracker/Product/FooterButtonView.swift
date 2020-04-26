@@ -8,6 +8,7 @@
 
 import UIKit
 
+//Class to manage the three buttons of the GlutenTrackerViewController (scan, details and favorite buttons)
 class FooterButtonView: UIStackView {
     // ***********************************************
     // MARK: - Interface
@@ -36,7 +37,7 @@ class FooterButtonView: UIStackView {
         self.showFavoriteButton(false, favoriteType: .add)
         self.setFavoriteTitle(value: .add)
     }
-    
+    // Setting up the image for the favorite button according to the actions (add or remove)
     func setFavoriteTitle(value: Favorite) {
         switch value {
         case .add:
@@ -48,10 +49,12 @@ class FooterButtonView: UIStackView {
         }
     }
     
+    // Setting up the show's action for details button
     func showDetailButton(_ value: Bool) {
         detailButton?.isHidden = !value
     }
     
+    // Setting up the show's action for favorite button
     func showFavoriteButton(_ value: Bool, favoriteType: Favorite) {
         self.favoriteButton?.isHidden = !value
         favoriteButton.titleLabel?.textAlignment = .center

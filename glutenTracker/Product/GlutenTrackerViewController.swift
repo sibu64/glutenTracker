@@ -7,6 +7,7 @@ import UIKit
 import AlamofireImage
 import Alamofire
 
+// Controller to show Product. The main class
 class GlutenTrackerViewController: UIViewController {
     // ***********************************************
     // MARK: - Interface
@@ -123,6 +124,7 @@ class GlutenTrackerViewController: UIViewController {
         }
     }
     
+    // Display wheat image
     public func shouldDisplayWheatImage() {
         if model?.isGlutenFree == true {
             let glutenFree = UIImage(named: "gluten-free")

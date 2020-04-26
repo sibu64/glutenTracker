@@ -7,6 +7,7 @@
 import UIKit
 import AVFoundation
 
+// Controller to show the scan view and enable the scan action.
 class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     // ***********************************************
     // MARK: - Interface
@@ -14,6 +15,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     private var captureDevice:AVCaptureDevice?
     private var videoPreviewLayer:AVCaptureVideoPreviewLayer?
     private var captureSession:AVCaptureSession?
+    // Completion handler
     private var didDecodeBarcode: ((String)->Void)?
     // ***********************************************
     // MARK: - Implementation
@@ -29,6 +31,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         navigationItem.title = "Scanner"
         view.backgroundColor = .white
         
+        // Instantiation of captureDevice (with AVCaptureDevice())
         captureDevice = AVCaptureDevice.default(for: .video)
         
         
@@ -36,11 +39,12 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             
             do {
                 let input = try AVCaptureDeviceInput(device: captureDevice)
-                
+                // isntantiation of captureSession with AVCaptureSession()
                 captureSession = AVCaptureSession()
                 guard let captureSession = captureSession else { return }
                 captureSession.addInput(input)
                 
+                // isntantiation of captureSession with AVCaptureMetaDataOutput().Beggining of the scan
                 let captureMetadataOutput = AVCaptureMetadataOutput()
                 captureSession.addOutput(captureMetadataOutput)
                 
@@ -54,7 +58,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
                 videoPreviewLayer?.videoGravity = .resizeAspectFill
                 videoPreviewLayer?.frame = view.layer.bounds
                 view.layer.addSublayer(videoPreviewLayer!)
-                
+            //Catching the error
             } catch {
                 print("Problem with the reader... 😫  ")
             }
@@ -62,7 +66,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         }
         
     }
-    
+    // Appearance of the barcode viewFinder
     private let codeFrame:UIView = {
         let codeFrame = UIView()
         codeFrame.layer.borderColor = UIColor.green.cgColor
@@ -87,8 +91,10 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
 
         guard let barcodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObject) else { return }
         codeFrame.frame = barcodeObject.bounds
+        // "Bip" when scanned product found
         self.playSound(sound: "beep-07")
-
+        
+        //End of scanning
         captureSession?.stopRunning()
         
         self.dismiss(animated: true) {
@@ -96,12 +102,14 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         }
     }
     
+    // Expose did Decode BarCode to public
     public func didDecodeBarcode(_ completion: ((String)->Void)?) {
         self.didDecodeBarcode = completion
     }
     // ***********************************************
     // MARK: - Actions
     // ***********************************************
+    // Close action
     @IBAction func actionClose(sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }

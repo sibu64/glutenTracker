@@ -8,6 +8,7 @@
 
 import Foundation
 
+// Structure of the Product's model
 public struct Product: Equatable {
     public let objectId: String?
     public let name: String?
@@ -65,6 +66,7 @@ public struct Product: Equatable {
     }
 }
 
+// Extension to decode the Json
 extension Product {
     init(json: [String: Any]) {
         let objectId = json["_id"] as? String
