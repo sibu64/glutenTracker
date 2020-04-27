@@ -9,6 +9,7 @@
 import Foundation
 @testable import glutenTracker
 
+// Mock for API
 class MockApiCall: NetworkRequestProtocol {
     private(set) var countCalled: NSInteger = 0
        private(set) var params: String?
@@ -19,6 +20,7 @@ class MockApiCall: NetworkRequestProtocol {
     }
 }
 
+// Stub for API in case of sucess
 class StubApiCallSuccess: NetworkRequestProtocol {
     func searchProduct(with barCode: String, success: ((Product?) -> Void)?, failure: ((Error) -> Void)?) {
                 
@@ -30,6 +32,7 @@ class StubApiCallSuccess: NetworkRequestProtocol {
     }
 }
 
+// Stub for API in case of a failure
 class StubApiCallFailure: NetworkRequestProtocol {
     func searchProduct(with barCode: String, success: ((Product?) -> Void)?, failure: ((Error) -> Void)?) {
         failure?(NSError.fake)

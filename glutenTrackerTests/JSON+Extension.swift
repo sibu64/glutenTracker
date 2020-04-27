@@ -8,6 +8,7 @@
 
 import Foundation
 
+//Extensions to retrieve the JSON from the Bundle
 extension Bundle {
     static var bundle:Bundle? = {
         let testBundle = Bundle.allBundles

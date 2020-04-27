@@ -9,16 +9,10 @@
 import XCTest
 @testable import glutenTracker
 
+// Delete all test class 
 class DeleteAllRecordLogic_Tests: XCTestCase {
 
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
+    // Mock for delete records in case of success
     func test_delete_all_records_hasBeenCalled() {
         let mockService = MockCloudKitService(database: nil)
         let logic = DeleteRecordLogic(service: mockService)
@@ -28,6 +22,7 @@ class DeleteAllRecordLogic_Tests: XCTestCase {
         XCTAssertEqual(mockService.deleteAllCountCalled, 1)
     }
 
+    // Stub for delete records in case of success
     func test_delete_all_records_calls_success() {
         let stubService = StubCloudKitServiceSuccess(database: nil)
         let logic = DeleteRecordLogic(service: stubService)
@@ -42,6 +37,7 @@ class DeleteAllRecordLogic_Tests: XCTestCase {
         XCTAssertEqual(successCalled, true)
     }
     
+    // Stub for delete records in case of failure
     func test_delete_all_records_calls_failure() {
         let stubService = StubCloudKitServiceFailure(database: nil)
         let logic = DeleteRecordLogic(service: stubService)
@@ -56,6 +52,7 @@ class DeleteAllRecordLogic_Tests: XCTestCase {
         XCTAssertEqual(error?.localizedDescription, "error")
     }
     
+    // Test to verify default is used
     func test_default_is_mapped() {
         let logic = DeleteRecordLogic.default
         let service = (logic.service as Any) is CloudKitService

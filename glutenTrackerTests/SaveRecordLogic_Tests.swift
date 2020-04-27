@@ -10,16 +10,10 @@ import XCTest
 import CloudKit
 @testable import glutenTracker
 
-class CloudKitService_Tests: XCTestCase {
+// Save test class 
+class SaveRecordLogic_Tests: XCTestCase {
 
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
+    // Mock for save records in case of success
     func test_save_record_hasBeenCalled() {
         let mockService = MockCloudKitService(database: nil)
         let logic = SaveRecordLogic(service: mockService)
@@ -33,7 +27,7 @@ class CloudKitService_Tests: XCTestCase {
         XCTAssertEqual(product, model)
     }
     
-    
+    // Stub for save records in case of success
     func test_save_record_calls_success() {
         let stubService = StubCloudKitServiceSuccess(database: nil)
         let logic = SaveRecordLogic(service: stubService)
@@ -48,6 +42,7 @@ class CloudKitService_Tests: XCTestCase {
         XCTAssertEqual(successCalled, true)
     }
     
+    // Stub for save records in case of failure
     func test_save_record_calls_failure() {
         let stubService = StubCloudKitServiceFailure(database: nil)
         let logic = SaveRecordLogic(service: stubService)
@@ -62,6 +57,7 @@ class CloudKitService_Tests: XCTestCase {
         XCTAssertEqual(error?.localizedDescription, "error")
     }
     
+    // Test to verify default is used
     func test_default_is_mapped() {
         let logic = SaveRecordLogic.default
         let service = (logic.service as Any) is CloudKitService

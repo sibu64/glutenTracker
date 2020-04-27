@@ -10,6 +10,7 @@ import Foundation
 import CloudKit
 @testable import glutenTracker
 
+// Fake product
 extension Product {
     static var fake: Product {
         return Product(
@@ -24,12 +25,14 @@ extension Product {
     }
 }
 
+// Fake error
 extension NSError {
     static var fake: NSError {
         return NSError(domain: "com.simon", code: 10, userInfo: [NSLocalizedDescriptionKey: "error"])
     }
 }
 
+// Stubs for failure
 class StubCloudKitServiceFailure: CloudKitService {
     override func save(_ record: CKRecord, completion: @escaping ((CKRecord?, Error?) -> Void)) {
         completion(nil, NSError.fake)
@@ -48,6 +51,7 @@ class StubCloudKitServiceFailure: CloudKitService {
     }
 }
 
+// Stubs for success
 class StubCloudKitServiceSuccess: CloudKitService {
     var record: CKRecord? = nil
     
@@ -70,6 +74,7 @@ class StubCloudKitServiceSuccess: CloudKitService {
     }
 }
 
+//Mocks for sucess
 class MockCloudKitService: CloudKitService {
     private(set) var record: CKRecord? = nil
     // Save
@@ -107,7 +112,7 @@ class MockCloudKitService: CloudKitService {
         self.deleteAllCountCalled += 1
     }
 }
-
+ 
 class FakeDeleteRecordSuccessService: CloudKitService {
     override func get(by objectId: String, completion: @escaping (([CKRecord]?, Error?) -> Void)) {
         completion([Product.fake.toOffline], nil)

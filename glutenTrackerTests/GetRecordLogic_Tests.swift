@@ -9,16 +9,10 @@
 import XCTest
 @testable import glutenTracker
 
+// Get test class 
 class GetRecordLogic_Tests: XCTestCase {
 
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
+    // Mock for get records in case of success
     func test_get_record_hasBeenCalled() {
         let mockService = MockCloudKitService(database: nil)
         let logic = GetRecordLogic(service: mockService)
@@ -30,6 +24,7 @@ class GetRecordLogic_Tests: XCTestCase {
         XCTAssertEqual(mockService.objectId, "10")
     }
     
+    // Stub for get records in case of success
     func test_get_record_calls_success_with_data() {
         let stubService = StubCloudKitServiceSuccess(database: nil)
         stubService.record = Product.fake.toOffline
@@ -45,6 +40,7 @@ class GetRecordLogic_Tests: XCTestCase {
         XCTAssertEqual(model, Product.fake)
     }
     
+    // Stub for get records in case of failure with empty data
     func test_get_record_calls_failure_with_empty_data() {
         let stubService = StubCloudKitServiceSuccess(database: nil)
         let logic = GetRecordLogic(service: stubService)
@@ -60,6 +56,7 @@ class GetRecordLogic_Tests: XCTestCase {
         XCTAssertEqual(error?.localizedDescription, "Data not found")
     }
     
+    // Stub for get records in case of failure
     func test_get_record_calls_failure() {
         let stubService = StubCloudKitServiceFailure(database: nil)
         let logic = GetRecordLogic(service: stubService)

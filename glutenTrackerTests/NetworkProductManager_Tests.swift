@@ -8,8 +8,10 @@
 import XCTest
 @testable import glutenTracker
 
+// NetworkProductManager test class 
 class NetworkProductManager_Tests: XCTestCase {
-    
+   
+    // Mock for API in case of success
     func test_manager_hasBeenCalled() {
         let mock = MockApiCall()
         let manager = NetworkProductManager(api: mock)
@@ -19,7 +21,8 @@ class NetworkProductManager_Tests: XCTestCase {
         XCTAssertEqual(mock.params, "123")
         XCTAssertEqual(mock.countCalled, 1)
     }
-
+    
+    // Stub for API in case of success
     func test_manager_calls_success() {
         let stub = StubApiCallSuccess()
         let manager = NetworkProductManager(api: stub)
@@ -32,6 +35,7 @@ class NetworkProductManager_Tests: XCTestCase {
         XCTAssertEqual(model, Product.fake)
     }
     
+    // Stub for API in case of failure
     func test_manager_calls_failure() {
         let stub = StubApiCallFailure()
         let manager = NetworkProductManager(api: stub)
@@ -44,6 +48,7 @@ class NetworkProductManager_Tests: XCTestCase {
         XCTAssertEqual(error?.localizedDescription, "error")
     }
 
+    // Test to verify default is used
     func test_manager_with_default_value() {
         let manager = NetworkProductManager.default
         let api = manager.api is APICall
