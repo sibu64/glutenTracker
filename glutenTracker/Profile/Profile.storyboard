@@ -111,11 +111,7 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KDI-Ep-dI2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="lS5-Oe-2NC">
-                    <connections>
-                        <action selector="actionDismissKeyboard:" destination="4wU-Ez-W9b" id="VWP-9H-Dyy"/>
-                    </connections>
-                </tapGestureRecognizer>
+                <tapGestureRecognizer id="lS5-Oe-2NC"/>
             </objects>
             <point key="canvasLocation" x="2437.68115942029" y="-514.28571428571422"/>
         </scene>

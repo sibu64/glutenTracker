@@ -16,8 +16,6 @@ class ProfileViewController: UITableViewController {
     // ***********************************************
     // Fullname of the user
     @IBOutlet weak var firstAndLastname: UILabel!
-    @IBOutlet weak var countLabel: UILabel!
-    var favoritesViewController: FavoritesViewController?
     // ***********************************************
     // MARK: - Implementation
     // ***********************************************

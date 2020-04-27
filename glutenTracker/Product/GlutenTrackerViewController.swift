@@ -17,11 +17,9 @@ class GlutenTrackerViewController: UIViewController {
     @IBOutlet weak var productLabel: UILabel!
     @IBOutlet weak var glutenLabel: UILabel!
     @IBOutlet weak var checkLabel: UILabel!
-    @IBOutlet weak var wheatImage: UIImageView!
     @IBOutlet weak var imageViewProduct: UIImageView!
     @IBOutlet weak var footerButtonView: FooterButtonView!
     @IBOutlet weak var loader: UIActivityIndicatorView!
-    @IBOutlet weak var glutenView: UIView!
     // Keep Product reference from API call
     private var model: Product?
     // ***********************************************
@@ -34,15 +32,9 @@ class GlutenTrackerViewController: UIViewController {
         glutenLabel?.text = ""
         
         footerButtonView?.showDetailButton(false)
-    
-        //loadBarCode(with: "3274080001005") // No Gluten
-        loadBarCode(with: "3038359004544") // With Gluten
-        
-        
-        
     }
     
-     func viewDidAppear() {
+    func viewDidAppear() {
         super.viewDidAppear(false)
         removeFromFavorite()
     }
@@ -52,7 +44,6 @@ class GlutenTrackerViewController: UIViewController {
         if model == model {
             self.setFavoriteFooterView(with: .add)
             self.footerButtonView.showFavoriteButton(true, favoriteType: .add)
-            
         }
     }
     
@@ -84,7 +75,6 @@ class GlutenTrackerViewController: UIViewController {
     // Fetch API with bar code from OpenFoodFacts
     private func loadBarCode(with scannedCode: String) {
         let api = APICall()
-
         self.loader.startAnimating()
         api.searchProduct(with: scannedCode, success: { [weak self] product in
             guard let self = self else { return }
@@ -101,19 +91,17 @@ class GlutenTrackerViewController: UIViewController {
     private func modelingImageAndLabels(){
         guard let model = model else { return }
         if model.imageUrl == nil {
-                let image1 = UIImage (named: "noPhotoFound.png")
-                imageViewProduct.image = image1
-            }else{
-                self.imageViewProduct?.af.setImage(withURL: (model.imageUrl!))
+            let image1 = UIImage (named: "noPhotoFound.png")
+            imageViewProduct.image = image1
+        }else{
+            self.imageViewProduct?.af.setImage(withURL: (model.imageUrl!))
         }
-            imageViewProduct.center = CGPoint (x: view.center.x, y: view.center.y)
-            view.addSubview (imageViewProduct)
+        imageViewProduct.center = CGPoint (x: view.center.x, y: view.center.y)
+        view.addSubview (imageViewProduct)
         codeLabel?.text = "Barcode: " + model.barCode 
         productLabel?.text = model.productName
         glutenLabel?.text = model.glutenLabel
         checkLabel?.isHidden = true
-        shouldDisplayWheatImage()
-        
         doesRecordExist(with: model) { [weak self] success in
             switch success {
             case true:
@@ -124,27 +112,12 @@ class GlutenTrackerViewController: UIViewController {
         }
     }
     
-    // Display wheat image
-    public func shouldDisplayWheatImage() {
-        if model?.isGlutenFree == true {
-            let glutenFree = UIImage(named: "gluten-free")
-            let imageView = UIImageView(image: glutenFree)
-            imageView.center = CGPoint(x: glutenView.bounds.height * 2.35, y: glutenView.bounds.width / 2)
-            self.glutenView.addSubview(imageView)
-        }else if model?.isGlutenFree == false {
-            let gluten = UIImage(named: "gluten")
-            let imageView = UIImageView(image: gluten)
-            imageView.center = CGPoint(x: glutenView.bounds.height * 2.25, y: glutenView.bounds.width / 2)
-            self.glutenView.addSubview(imageView)
-    }
-    }
-    
     // Update favorite button
     private func setFavoriteFooterView(with value: FooterButtonView.Favorite) {
         self.footerButtonView?.setFavoriteTitle(value: value)
         self.footerButtonView?.showFavoriteButton(true, favoriteType: value)
     }
-   
+    
     // Check if Product exists on CloudKit
     private func doesRecordExist(with model: Product, _ completion: ((Bool)->Void)?) {
         GetRecordLogic.default.run(with: model){ result in
@@ -182,7 +155,7 @@ class GlutenTrackerViewController: UIViewController {
     // Remove Product from CloudKit
     private func removeFromFavorite() {
         guard let model = self.model else { return }
-
+        
         doesRecordExist(with: model, { success in
             switch success {
             case true:
