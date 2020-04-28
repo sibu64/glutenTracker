@@ -13,7 +13,7 @@ class DetailsViewController: UIViewController {
     // Public
     // Product from GlutenTrackerViewController
     var model: Product!
-    // IBOutlet
+    // IBOutlets
     @IBOutlet weak var codeLabel: UILabel!
     @IBOutlet weak var productNameLabel: UILabel!
     @IBOutlet weak var allergensProductNameLabel: UILabel!

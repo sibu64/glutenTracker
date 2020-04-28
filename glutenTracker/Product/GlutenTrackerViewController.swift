@@ -183,14 +183,6 @@ class GlutenTrackerViewController: UIViewController {
         }
     }
     
-    private func presentAlertForCheckingExistingProduct() {
-        UIAlertWrapper.presentAlert(title: "Oooops!", message: "You already have this product in your favorites", cancelButtonTitle: "Ok")
-    }
-    
-    func presentAlertForNonExistingProduct() {
-        UIAlertWrapper.presentAlert(title: "Sorry!", message: "The product was not found. Scan the bar code of the disired product", cancelButtonTitle: "Ok")
-    }
-    
     // ***********************************************
     // MARK: - Actions
     // ***********************************************
